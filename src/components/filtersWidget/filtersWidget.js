@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 
-import { DropDownComponent } from '../dropDownComponent';
 import { FilterComponent } from '../filterComponent';
+
+import './filtersWidget';
 
 export default class FiltersWidget extends Component {
     constructor(...props) {
@@ -25,12 +26,12 @@ export default class FiltersWidget extends Component {
 
     render() {
         return (
-            <div>
-                <DropDownComponent
+            <div className="filtersWidget">
+                <FilterComponent
                     options={this.props.contexts}
                     selectedOption={this.props.selectedContext}
                 />
-                <DropDownComponent
+                <FilterComponent
                     options={this.getDimensionsOptions()}
                     selectedOption={this.props.selectedDimension}
                 />
