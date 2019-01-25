@@ -1,3 +1,5 @@
 export default {
-    "dropDownComponent.placeholder": "Select an option"
+    "filtersWidget.placeholder.context": "CONTEXTS",
+    "filtersWidget.placeholder.dimensions": "DIMENSIONS",
+    "filtersWidget.header.filters": "FILTERS"
 };

@@ -9,12 +9,8 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
                     <FiltersWidget
-                        contextModels={this.props.tables}
+                        contexts={this.props.tables}
                     />
                 </header>
             </div>

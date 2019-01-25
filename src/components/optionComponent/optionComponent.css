@@ -1,0 +1,13 @@
+.option {
+    display: flex;
+    align-items: baseline;
+    justify-content: start;
+}
+
+.option__label-container {
+    margin: 2px 0px 2px 10px;
+}
+
+.option__label-input {
+    margin-left: 25px;
+}

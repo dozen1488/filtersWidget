@@ -1,5 +1,18 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
-export default Map({
-    tables: []
+export default fromJS({
+    tables: [
+        {
+            value: 'a',
+            label: 'a'
+        },
+        {
+            value: 'b',
+            label: 'b'
+        },
+        {
+            value: 'v',
+            label: 'v'
+        }
+    ]
 })
