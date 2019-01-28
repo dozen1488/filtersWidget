@@ -1,5 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import * as applicationActions from '../actions';
 
 export default class BaseConnector {
     isBusy(state, statesNames) {
@@ -18,16 +19,13 @@ export default class BaseConnector {
 
     mapStateToProps(state) {
         return {
-            tables: state.get('tables')
+            tables: state.get('tables'),
+            selectedContext: state.get('selectedContext')
         };
     }
 
-    mapDispatchToProps() {
-        return {};
-    }
-
-    bindActionCreators(...args) {
-        return bindActionCreators(...args);
+    mapDispatchToProps(dispatch) {
+        return bindActionCreators(applicationActions, dispatch);
     }
 
     connect(Component) {

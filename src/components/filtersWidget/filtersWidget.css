@@ -15,19 +15,24 @@
 }
 
 .filtersWidgetFilter__container {
+    background-color: #40434a;
     border-style: solid;
-    border-width: 0px 0px 1px 0px;
-    color: white
+    border-width: 0px 0px 0px 1px;
+    margin-left: 30px;
 }
 
 .filtersWidgetFilter__container .filtersWidget__menu-list {
     position: static;
 }
 
-.filtersWidget__container {
+.filtersWidgetFilter__container .filtersWidget__control {
     border-style: solid;
     border-width: 0px 0px 1px 0px;
-    color: white
+    color: white;
+}
+
+.filtersWidgetFilter__container .filtersWidget__control {
+    display: block;
 }
 
 .filtersWidget__indicators {
@@ -43,10 +48,6 @@
 }   
 
 .filtersWidget__control {
-    background-color: #40434a;
-    border-style: solid;
-    border-width: 0px 0px 0px 1px;
-    margin-left: 30px;
     display: flex;
     align-items: center;
 }
@@ -76,4 +77,33 @@
 }
 
 .filtersWidget__line-container {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    color: white;
+}
+
+.filtersWidget__container {
+    background-color: #40434a;
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    margin-left: 30px;
+}
+
+.filtersWidget__inner-container {
+    display: flex;
+    align-items: center;
+}
+
+.filtersWidget__checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.filtersWidget__checkbox-partial-overlap {
+    
+}
+
+.filtersWidget__checkbox-full-overlap {
+    
 }

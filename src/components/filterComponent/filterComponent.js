@@ -11,6 +11,7 @@ class FilterComponent extends Component {
     render() {
         return (
             <ModifiedSelectComponent
+                onChange={this.props.onChange}
                 options={this.props.options}
                 components={this.props.components}
                 styles={this.props.styles}

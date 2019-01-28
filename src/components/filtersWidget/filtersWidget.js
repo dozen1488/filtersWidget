@@ -10,7 +10,26 @@ import './filtersWidget.css';
 export default class FiltersWidget extends Component {
     constructor(...props) {
         super(...props);
-        this.state = {};
+        this.state = {
+            selectedContext: null,
+            selectedDimension: null
+        };
+    }
+
+    onContextChange(data) {
+        if (this.props.setSelectedContext) this.props.setSelectedContext(data.value);
+
+        this.setState({
+            selectedContext: data.value
+        });
+    }
+
+    onDimensionChange(data) {
+        if (this.props.setDimensionContext) this.props.setDimensionContext(data.value);
+
+        this.setState({
+            selectedDimension: data.value
+        });
     }
 
     getContextOptions() {
@@ -22,15 +41,19 @@ export default class FiltersWidget extends Component {
     }
 
     getDimensionsOptions() {
-        return (this.props.selectedContext)
-            ? this.props.selectedContext.get('dimensions')
-            : Immutable.List([]);
+        const dimensions = (this.state.selectedContext)
+            ? this.state.selectedContext.dimensions
+            : [];
+        
+        return dimensions;
     }
 
     getFiltersOptions() {
-        return (this.props.selectedDimension)
-            ? this.props.selectedDimension.get('fields')
-            : Immutable.List([]);
+        const fields = (this.state.selectedDimension)
+            ? this.state.selectedDimension.fields
+            : [];
+        
+        return fields;
     }
 
     getEmptyStyles() {
@@ -60,6 +83,12 @@ export default class FiltersWidget extends Component {
         };
     }
 
+    onFilterCheckboxSelect(filterName) {
+        this.setState({
+            fieldsFilterName: filterName
+        });
+    }
+
     render() {
         return (
             <div className="filtersWidget">
@@ -68,9 +97,8 @@ export default class FiltersWidget extends Component {
                 </div>
                 <div className="filtersWidget__line-container">
                     <FilterComponent
-                        isMulti
+                        onChange={this.onContextChange.bind(this)}
                         options={this.getContextOptions()}
-                        selectedOption={this.props.selectedContext}
                         className={'filtersWidget__container'}
                         classNamePrefix={'filtersWidget'}
                         components={{ Option: OptionComponent }}
@@ -80,8 +108,9 @@ export default class FiltersWidget extends Component {
                 </div>
                 <div className="filtersWidget__line-container">
                     <FilterComponent
+                        components={{ Option: OptionComponent }}
+                        onChange={this.onDimensionChange.bind(this)}
                         options={this.getDimensionsOptions()}
-                        selectedOption={this.props.selectedDimension}
                         className={'filtersWidget__container'}
                         classNamePrefix={'filtersWidget'}
                         styles={this.getEmptyStyles()}
@@ -89,14 +118,21 @@ export default class FiltersWidget extends Component {
                     />
                 </div>
                 <div className="filtersWidget__line-container">
-                    <MagnifierSelectComponent 
+                    <MagnifierSelectComponent
+                        isMulti
+                        menuIsOpen
+                        controlShouldRenderValue={false}
+                        hideSelectedOptions={false}
+                        components={{
+                            Option: OptionComponent,
+                            MultiValue: () => null,
+                            ClearIndicator: () => null
+                        }}
                         options={this.getFiltersOptions()}
-                        selectedOptions={this.props.selectedFields}
                         className={'filtersWidgetFilter__container'}
                         classNamePrefix={'filtersWidget'}
                         styles={this.getEmptyStyles()}
                         placeholder=''
-                        menuIsOpen
                     />
                 </div>
             </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BaseConnector } from './store/connectors';
 import { FiltersWidget } from './components';
@@ -11,6 +10,7 @@ class App extends Component {
                 <header className="App-header">
                     <FiltersWidget
                         contexts={this.props.tables}
+                        setSelectedContext={this.props.setSelectedContext}
                     />
                 </header>
             </div>
