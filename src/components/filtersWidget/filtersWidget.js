@@ -5,7 +5,8 @@ import Immutable from 'immutable';
 import { OptionComponent } from '../optionComponent';
 import { FilterComponent, MagnifierSelectComponent } from '../filterComponent';
 import userMessages from '../../constants/userMessages';
-import './filtersWidget.css';
+
+import './filtersWidget.less';
 
 export default class FiltersWidget extends Component {
     constructor(...props) {
@@ -129,8 +130,8 @@ export default class FiltersWidget extends Component {
                             ClearIndicator: () => null
                         }}
                         options={this.getFiltersOptions()}
-                        className={'filtersWidgetFilter__container'}
-                        classNamePrefix={'filtersWidget'}
+                        className={'filtersWidget__container'}
+                        classNamePrefix={'filtersWidgetField'}
                         styles={this.getEmptyStyles()}
                         placeholder=''
                     />
