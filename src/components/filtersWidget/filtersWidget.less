@@ -2,10 +2,12 @@
     border-style: solid;
     border-width: 0px 0px 1px 0px;
 }
-.bottomLeft() {
+
+.leftBorder() {
     border-style: solid;
     border-width: 0px 0px 0px 1px;
 }
+
 @grayBackground: #40434a;
 
 .filtersWidget {
@@ -15,16 +17,18 @@
 
     .filtersWidget__header {
         .bottomBorder();
+        
+        .filtersWidget__header-text {
+            margin: 5px;
+        }
     }
     
     .filtersWidget__line-container {
         .bottomBorder();
-
         color: white;
 
         .filtersWidget__container  {
-            .bottomLeft();
-    
+            .leftBorder();
             background-color: @grayBackground;
             margin-left: 30px;
             
@@ -38,37 +42,18 @@
                     z-index: 10;
                 }
             }            
-
-            .filtersWidgetField__control {
-                .bottomBorder();
-                color: white;
-                
-                .filtersWidget__inner-container {
-                    display: flex;
-                    align-items: center;
+            
+            .filtersWidget__dropdown-indicator {
+                img {
+                    max-width: 20px;
+                    max-height: 20px;
                 }
-                
-                .filtersWidget__checkbox-container {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-evenly
-                }
-
-                .filtersWidget__indicators {
-                    padding: 8px;
-
-                    .filtersWidget__dropdown-indicator {
-                        display: flex;
-                    }
-
-                }
-
             }
 
             .filtersWidget__value-container {
                 display: flex;
                 margin: 5px;
-                
+
                 .filtersWidget__placeholder {
                     color: white
                 }   
@@ -81,35 +66,78 @@
             }
 
         }
+        
+        .filtersWidgetField {
+            .filtersWidget__inner-container {
+                display: flex;
+                align-items: center;
+            }
+            
+            .filtersWidget__checkbox-container {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+            .filtersWidget__indicators {
+                padding: 8px;
+
+                .filtersWidget__dropdown-indicator {
+                    display: flex;
+                }
+            }
+            .filtersWidget__menu {
+                min-height: 60px;
+                
+                .filtersWidget__menu-list {
+                    position: static;
+                } 
+            }
+            
+            .filtersWidget__value-container {
+                display: flex;
+                margin: 5px;
+                width: 100%;
+                background-color: #66696e;
+            }
+            
+            .filtersWidget__control {
+                display: block;
+
+                &:after {
+                    width: 80%;
+                    border-style: solid;
+                    height: 0px;
+                    border-width: 0px 0px 1px 0px;
+                    content: '';
+                    display: block;
+                    margin: auto;
+                }
+            }
+
+            
+            .filtersWidget__checkbox-filter {
+                background-color: #32353a;
+                
+                &_active {
+                    color: blue;
+                }
+            }
+        }
+
     }
 
-    .filtersWidgetField__container {
-        .bottomLeft();
-    
-        background-color: @grayBackground;
-        margin-left: 30px;
-    }
+    .filtersWidget__footer {
+        min-height: 20px;
 
-    .filtersWidgetField__menu-list {
-        position: static;
-    }
+        &:after {
+            .leftBorder();
+            content: '';
 
-    .filtersWidgetField__control {
-        display: block;
-    }
-
-    .filtersWidgetField__dropdown-indicator {
-        img {
-            max-width: 20px;
-            max-height: 20px;
+            height: 20px;
+            display: block;
+            margin: auto;
+            margin-left: 30px;
         }
     }
-}
-
-.filtersWidget__checkbox-partial-overlap {
-    
-}
-
-.filtersWidget__checkbox-full-overlap {
-    
 }

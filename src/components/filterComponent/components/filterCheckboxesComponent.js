@@ -16,15 +16,17 @@ export default (props) => {
             <div
                 onClick={() => onFilterCheckboxSelect(filterStateEnum.PARTIAL)}
                 className={cx(emotionCSS(getStyles('control', props)), {
-                    'checkbox-partial-overlap': true
+                    'checkbox-filter': true,
+                    'checkbox-filter_active': fieldsFilterName === filterStateEnum.PARTIAL
                 }, className)}
             >
-                <span>**</span>
+                <span>* *</span>
             </div>
             <div
                 onClick={() => onFilterCheckboxSelect(filterStateEnum.FULL)}
                 className={cx(emotionCSS(getStyles('control', props)), {
-                    'checkbox-full-overlap': true
+                    'checkbox-filter': true,
+                    'checkbox-filter_active': fieldsFilterName === filterStateEnum.FULL
                 }, className)}
             >
                 <span>A-Z</span>

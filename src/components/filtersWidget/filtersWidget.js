@@ -94,7 +94,9 @@ export default class FiltersWidget extends Component {
         return (
             <div className="filtersWidget">
                 <div className='filtersWidget__header'>
-                    {userMessages["filtersWidget.header.filters"]}
+                    <p className='filtersWidget__header-text'>
+                        {userMessages["filtersWidget.header.filters"]}
+                    </p>
                 </div>
                 <div className="filtersWidget__line-container">
                     <FilterComponent
@@ -122,6 +124,7 @@ export default class FiltersWidget extends Component {
                     <MagnifierSelectComponent
                         isMulti
                         menuIsOpen
+                        noOptionsMessage={() => ''}
                         controlShouldRenderValue={false}
                         hideSelectedOptions={false}
                         components={{
@@ -130,12 +133,13 @@ export default class FiltersWidget extends Component {
                             ClearIndicator: () => null
                         }}
                         options={this.getFiltersOptions()}
-                        className={'filtersWidget__container'}
-                        classNamePrefix={'filtersWidgetField'}
+                        className={'filtersWidget__container filtersWidgetField'}
+                        classNamePrefix={'filtersWidget'}
                         styles={this.getEmptyStyles()}
                         placeholder=''
                     />
                 </div>
+                <div className="filtersWidget__footer" />
             </div>
         )
     }
