@@ -5,7 +5,7 @@ import filterStateEnum from './filterStateEnum';
 
 export default (props) => {
     const {
-        cx, getStyles, className, onFilterCheckboxSelect
+        cx, getStyles, className, onFilterCheckboxSelect, fieldsFilterName
     } = props;
     return (
         <div
