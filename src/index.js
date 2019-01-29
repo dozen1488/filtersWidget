@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import thunk  from 'redux-thunk'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import promiseMddleware from 'redux-promise-middleware';
+import { createLogger } from 'redux-logger';
 
 import './index.css';
 import App from './App';
@@ -11,7 +13,16 @@ import rootReducer from './store/reducers/rootReducer';
 import initialState from './store/initialState';
 
 ReactDOM.render(
-    <Provider store={createStore(rootReducer, initialState)}>
+    <Provider store={
+        createStore(
+            rootReducer,
+            initialState,
+            applyMiddleware(
+                thunk,
+                createLogger()
+            )
+        )
+    }>
        <App /> 
     </Provider>, 
     document.getElementById('root')

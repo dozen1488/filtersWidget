@@ -1,0 +1,6 @@
+{
+    "SERVER_PATH": "http://localhost:3001",
+    "routes": {
+        "TABLES_ROUTE": "/tables"
+    }
+}

@@ -4,6 +4,10 @@ import { BaseConnector } from './store/connectors';
 import { FiltersWidget } from './components';
 
 class App extends Component {
+    componentDidMount() {
+        this.props.getTables();
+    }
+
     render() {
         return (
             <div className="App">
