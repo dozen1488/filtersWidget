@@ -3,13 +3,10 @@ import TablesRepository from '../../repositories/tablesRepository';
 
 export default function getTables () {
     return (dispatch) => {
-        return TablesRepository.getTables()
-            .then(json => {
-                dispatch({
-                    type: GET_TABLES,
-                    payload: json
-                })
-            });
+        dispatch({
+            type: GET_TABLES,
+            payload: TablesRepository.getTables()
+        });
     }
 }
 

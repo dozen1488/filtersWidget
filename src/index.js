@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import thunk  from 'redux-thunk'
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import promiseMddleware from 'redux-promise-middleware';
+import createPromise from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 
 import './index.css';
@@ -19,6 +19,7 @@ ReactDOM.render(
             initialState,
             applyMiddleware(
                 thunk,
+                createPromise({ promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR'] }),
                 createLogger()
             )
         )
