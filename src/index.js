@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createPromise from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
+import { Iterable } from 'immutable';
 
 import './index.css';
 import App from './App';
@@ -19,8 +20,15 @@ ReactDOM.render(
             initialState,
             applyMiddleware(
                 thunk,
-                createPromise({ promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR'] }),
-                createLogger()
+                createPromise({
+                    promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']
+                }),
+                createLogger({
+                    stateTransformer: (state) => {
+                        if (Iterable.isIterable(state)) return state.toJS();
+                        else return state;
+                    }
+                })
             )
         )
     }>

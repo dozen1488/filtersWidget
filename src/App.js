@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BaseConnector } from './store/connectors';
-import { FiltersWidget } from './components';
+import { FiltersWidget, WorkPanel } from './components';
 
 class App extends Component {
     componentDidMount() {
@@ -12,10 +12,40 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <FiltersWidget
-                        contexts={this.props.tables}
-                        setSelectedContext={this.props.setSelectedContext}
-                    />
+                    <div className="App-container">
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                    </div>
+                    <div className="App-container">
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                        <WorkPanel
+                            contexts={this.props.tables && this.props.tables.toJS()}
+                        />
+                    </div>
                 </header>
             </div>
         );

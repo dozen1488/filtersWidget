@@ -11,16 +11,25 @@
 @grayBackground: #40434a;
 
 .filtersWidget {
-    width: 250px;
-    background-color: rgba(64, 67, 74, 0.4);
-    font-size: 20px;
+    min-width: 200px;
+    background-color: rgba(64, 67, 74, 0.7);
+    font-size: 18px;
+    position: relative;
 
     .filtersWidget__header {
         .bottomBorder();
-        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         .filtersWidget__header-text {
-            margin: 5px;
+            margin: 5px 5px 5px 30px;
+            text-align: left;
         }
+    }
+
+    .filtersWidget__body--hidden {
+        display: none;
     }
     
     .filtersWidget__line-container {
@@ -91,6 +100,8 @@
                 
                 .filtersWidget__menu-list {
                     position: static;
+                    max-height: 300px;
+                    overflow: overlay;
                 } 
             }
             
@@ -140,4 +151,30 @@
             margin-left: 30px;
         }
     }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+.draggable-container {
+    width: 20px;
+    height: 20px;
 }

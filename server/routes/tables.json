@@ -6,16 +6,48 @@
 					"value": {
 						"fields": [
 							{
-								"value": "aasd",
-								"label": "aasd"
+								"value": "Dimension1",
+								"label": "Dimension1"
 							},
 							{
-								"value": "fdsd",
-								"label": "fdsd"
+								"value": "Dimension2",
+								"label": "Dimension2"
+							},
+							{
+								"value": "Dimension3",
+								"label": "Dimension3"
+							},
+							{
+								"value": "Velocity",
+								"label": "Velocity"
+							},
+							{
+								"value": "Metric",
+								"label": "Metric"
+							},
+							{
+								"value": "Dimension4",
+								"label": "Dimension4"
+							},
+							{
+								"value": "Dimension5",
+								"label": "Dimension5"
+							},
+							{
+								"value": "Dimension6",
+								"label": "Dimension6"
+							},
+							{
+								"value": "Day",
+								"label": "Day"
+							},
+							{
+								"value": "Month",
+								"label": "Month"
 							}
 						]
 					},
-					"label": "a"
+					"label": "Table one"
 				},
 				{
 					"value": {
@@ -30,26 +62,38 @@
 							}
 						]
 					},
-					"label": "b"
+					"label": "Table two"
 				},
 				{
 					"value": {
 						"fields": [
 							{
-								"value": "aasd",
-								"label": "aasd"
+								"value": "Dimension1",
+								"label": "Dimension1"
 							},
 							{
-								"value": "fdsd",
-								"label": "fdsd"
+								"value": "Dimension2",
+								"label": "Dimension2"
+							},
+							{
+								"value": "Dimension3",
+								"label": "Dimension3"
+							},
+							{
+								"value": "Velocity",
+								"label": "Velocity"
+							},
+							{
+								"value": "Metric",
+								"label": "Metric"
 							}
 						]
 					},
-					"label": "v"
+					"label": "Table three"
 				}
 			]
 		},
-		"label": "a"
+		"label": "First Context"
 	},
 	{
 		"value": {
@@ -89,7 +133,7 @@
 				}
 			]
 		},
-		"label": "b"
+		"label": "Second Context"
 	},
 	{
 		"value": {
@@ -108,6 +152,6 @@
 				}
 			]
 		},
-		"label": "v"
+		"label": "Third Context"
 	}
 ]

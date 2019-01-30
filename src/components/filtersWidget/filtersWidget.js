@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
+import { DownChevron } from 'react-select/lib/components/indicators';
+import classnames from 'classnames';
 
 import { OptionComponent } from '../optionComponent';
 import { FilterComponent, MagnifierSelectComponent } from '../filterComponent';
@@ -9,11 +11,14 @@ import userMessages from '../../constants/userMessages';
 import './filtersWidget.less';
 
 export default class FiltersWidget extends Component {
-    constructor(...props) {
-        super(...props);
+    constructor(...args) {
+        super(...args);
+        const [ props ] = args;
         this.state = {
+            contexts: props.contexts,
             selectedContext: null,
-            selectedDimension: null
+            selectedDimension: null,
+            isWidgetExpanded: false
         };
     }
 
@@ -34,11 +39,11 @@ export default class FiltersWidget extends Component {
     }
 
     getContextOptions() {
-        const contexts = (this.props.contexts)
-            ? this.props.contexts
-            : Immutable.List([]);
+        const contexts = (this.state.contexts)
+            ? this.state.contexts
+            : [];
 
-        return contexts.toJS();
+        return contexts;
     }
 
     getDimensionsOptions() {
@@ -90,57 +95,80 @@ export default class FiltersWidget extends Component {
         });
     }
 
+    switchWidgetExpanded() {
+        this.setState((state) => ({ 
+            isWidgetExpanded: !state.isWidgetExpanded
+        }))
+    }
+
     render() {
         return (
-            <div className="filtersWidget">
-                <div className='filtersWidget__header'>
-                    <p className='filtersWidget__header-text'>
-                        {userMessages["filtersWidget.header.filters"]}
-                    </p>
+            <div
+                className={classnames('draggable-container', this.props.className)}
+                style={this.props.style}
+                onMouseDown={this.props.onMouseDown}
+                onMouseUp={this.props.onMouseUp}
+                onTouchStart={this.props.onTouchStart}
+                onTouchEnd={this.props.onTouchEnd}
+            >
+                <div className="filtersWidget">
+                    <div className='filtersWidget__header'>
+                        <p className='filtersWidget__header-text'>
+                            {userMessages["filtersWidget.header.filters"]}
+                        </p>
+                        <DownChevron onClick={this.switchWidgetExpanded.bind(this)} />
+                    </div>
+                    <div className={
+                        classnames('filtersWidget__body', {
+                            'filtersWidget__body--hidden': !this.state.isWidgetExpanded
+                        })
+                    }>
+                        <div className="filtersWidget__line-container">
+                            <FilterComponent
+                                components={{ Option: OptionComponent }}
+                                options={this.getContextOptions()}
+                                className={'filtersWidget__container'}
+                                classNamePrefix={'filtersWidget'}
+                                styles={this.getEmptyStyles()}
+                                placeholder={userMessages["filtersWidget.placeholder.context"]}
+                                onChange={this.onContextChange.bind(this)}
+                            />
+                        </div>
+                        <div className="filtersWidget__line-container">
+                            <FilterComponent
+                                components={{ Option: OptionComponent }}
+                                options={this.getDimensionsOptions()}
+                                className={'filtersWidget__container'}
+                                classNamePrefix={'filtersWidget'}
+                                styles={this.getEmptyStyles()}
+                                placeholder={userMessages["filtersWidget.placeholder.dimensions"]}
+                                onChange={this.onDimensionChange.bind(this)}
+                            />
+                        </div>
+                        <div className="filtersWidget__line-container">
+                            <MagnifierSelectComponent
+                                isMulti
+                                menuIsOpen
+                                noOptionsMessage={() => ''}
+                                controlShouldRenderValue={false}
+                                hideSelectedOptions={false}
+                                components={{
+                                    Option: OptionComponent,
+                                    MultiValue: () => null,
+                                    ClearIndicator: () => null
+                                }}
+                                options={this.getFiltersOptions()}
+                                className={'filtersWidget__container filtersWidgetField'}
+                                classNamePrefix={'filtersWidget'}
+                                styles={this.getEmptyStyles()}
+                                placeholder=''
+                            />
+                        </div>
+                        <div className="filtersWidget__footer" />
+                    </div>
                 </div>
-                <div className="filtersWidget__line-container">
-                    <FilterComponent
-                        onChange={this.onContextChange.bind(this)}
-                        options={this.getContextOptions()}
-                        className={'filtersWidget__container'}
-                        classNamePrefix={'filtersWidget'}
-                        components={{ Option: OptionComponent }}
-                        styles={this.getEmptyStyles()}
-                        placeholder={userMessages["filtersWidget.placeholder.context"]}
-                    />
-                </div>
-                <div className="filtersWidget__line-container">
-                    <FilterComponent
-                        components={{ Option: OptionComponent }}
-                        onChange={this.onDimensionChange.bind(this)}
-                        options={this.getDimensionsOptions()}
-                        className={'filtersWidget__container'}
-                        classNamePrefix={'filtersWidget'}
-                        styles={this.getEmptyStyles()}
-                        placeholder={userMessages["filtersWidget.placeholder.dimensions"]}
-                    />
-                </div>
-                <div className="filtersWidget__line-container">
-                    <MagnifierSelectComponent
-                        isMulti
-                        menuIsOpen
-                        noOptionsMessage={() => ''}
-                        controlShouldRenderValue={false}
-                        hideSelectedOptions={false}
-                        components={{
-                            Option: OptionComponent,
-                            MultiValue: () => null,
-                            ClearIndicator: () => null
-                        }}
-                        options={this.getFiltersOptions()}
-                        className={'filtersWidget__container filtersWidgetField'}
-                        classNamePrefix={'filtersWidget'}
-                        styles={this.getEmptyStyles()}
-                        placeholder=''
-                    />
-                </div>
-                <div className="filtersWidget__footer" />
             </div>
+            
         )
     }
 }
