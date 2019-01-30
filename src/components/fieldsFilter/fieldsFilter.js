@@ -1,29 +1,16 @@
 import React from 'react'
-import { SelectBase } from 'react-select';
 
 import manageState from 'react-select/lib/stateManager';
 
-import ControlWithCheckboxes from './components/controlWithCheckboxes';
+import { FieldsFiltersControl } from '../fieldsFiltersControl';
 import MagnifierIndicator from './components/magnifierIndicator';
 
-import filterStateEnum from './components/filterStateEnum';
-
-import modifier from './indicatorSelectModifier';
-
-class ModifiedGetCommonProps extends modifier(SelectBase) {
-    getCommonProps() {
-        const commonProps = super.getCommonProps();
-        return {
-            ...commonProps,
-            onFilterCheckboxSelect: this.props.onFilterCheckboxSelect,
-            fieldsFilterName: this.props.fieldsFilterName
-        }
-    }
-}
+import { filterStateEnum } from '../fieldsFiltersBar';
+import ModifiedGetCommonProps from './selectBaseGetCommonPropsModified';
 
 const ModifiedSelectComponent = manageState(ModifiedGetCommonProps);
 
-class MagnifierSelectComponent extends ModifiedSelectComponent {
+class FieldsFilter extends ModifiedSelectComponent {
     constructor(...args) {
         super(...args);
         this.state.fieldsFilterName = filterStateEnum.STARTS_WITH;
@@ -54,7 +41,7 @@ class MagnifierSelectComponent extends ModifiedSelectComponent {
     render() {
         const components = this.props.components;
         components.DropdownIndicator = MagnifierIndicator;
-        components.Control = ControlWithCheckboxes;
+        components.Control = FieldsFiltersControl;
 
         return (
             <ModifiedSelectComponent
@@ -68,4 +55,4 @@ class MagnifierSelectComponent extends ModifiedSelectComponent {
     }
 }
 
-export default MagnifierSelectComponent;
+export default FieldsFilter;

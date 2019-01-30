@@ -4,8 +4,9 @@ import Immutable from 'immutable';
 import { DownChevron } from 'react-select/lib/components/indicators';
 import classnames from 'classnames';
 
-import { OptionComponent } from '../optionComponent';
-import { FilterComponent, MagnifierSelectComponent } from '../filterComponent';
+import { SelectOption } from '../optionComponent';
+import { FieldsFilter } from '../fieldsFilter';
+import { FilterComponent } from '../filterComponent';
 import userMessages from '../../constants/userMessages';
 
 import './filtersWidget.less';
@@ -125,7 +126,7 @@ export default class FiltersWidget extends Component {
                     }>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                components={{ Option: OptionComponent }}
+                                components={{ Option: SelectOption }}
                                 options={this.getContextOptions()}
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
@@ -136,7 +137,7 @@ export default class FiltersWidget extends Component {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                components={{ Option: OptionComponent }}
+                                components={{ Option: SelectOption }}
                                 options={this.getDimensionsOptions()}
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
@@ -146,14 +147,14 @@ export default class FiltersWidget extends Component {
                             />
                         </div>
                         <div className="filtersWidget__line-container">
-                            <MagnifierSelectComponent
+                            <FieldsFilter
                                 isMulti
                                 menuIsOpen
                                 noOptionsMessage={() => ''}
                                 controlShouldRenderValue={false}
                                 hideSelectedOptions={false}
                                 components={{
-                                    Option: OptionComponent,
+                                    Option: SelectOption,
                                     MultiValue: () => null,
                                     ClearIndicator: () => null
                                 }}

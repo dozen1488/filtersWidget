@@ -1,1 +1,1 @@
-export { default as OptionComponent } from './optionComponent'; 
+export { default as SelectOption } from './selectOption'; 

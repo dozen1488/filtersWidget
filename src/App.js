@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import './commonStyles/scrollbars.less';
+
 import { BaseConnector } from './store/connectors';
-import { FiltersWidget, WorkPanel } from './components';
+import { WorkPanel } from './components';
 
 class App extends Component {
     componentDidMount() {

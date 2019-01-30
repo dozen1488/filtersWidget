@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import './optionComponent.css';
 
-export default class OptionComponent extends Component {
+export default class SelectOption extends Component {
 
     onPick() {
         this.props.selectOption(this.props.data);

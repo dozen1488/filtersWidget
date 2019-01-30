@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import propTypes from 'prop-types';
 import { SelectBase } from 'react-select';
 import manageState from 'react-select/lib/stateManager';
 
-import modifier from './indicatorSelectModifier';
+import { hocSelectBaseModifier } from '../hocSelectBaseModifier';
 
-const ModifiedSelectComponent = manageState(modifier(SelectBase));
+const ModifiedSelectComponent = manageState(hocSelectBaseModifier(SelectBase));
 
 class FilterComponent extends Component {
     render() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css as emotionCSS } from 'emotion';
 
-import FilterCheckboxesComponent from './filterCheckboxesComponent';
+import { FieldsFiltersBar } from '../fieldsFiltersBar';
 
 export default (props) => {
     const {
@@ -25,7 +25,7 @@ export default (props) => {
             >
                 {children}
             </div>
-            <FilterCheckboxesComponent
+            <FieldsFiltersBar
                 {...props}
             />
         </div>
