@@ -19,12 +19,22 @@ export default class FiltersWidget extends PureComponent {
             contexts: props.contexts,
             selectedContext: null,
             selectedDimension: null,
+            selectedFields: [],
             isWidgetExpanded: false
         };
     }
 
+    saveState() {
+        return {
+            hash: this.state.contexts.map(c => c.id).toString(),
+            selectedContextIndex: this.state.contexts.indexOf(this.state.selectedContext),
+            selectedDimensionIndex: this.state.selectedContext.indexOf(this.state.selectedDimension),
+            selectedFields: this.state.selectedFields
+        }
+    }
+
     onContextChange(data) {
-        if (this.props.setSelectedContext) this.props.setSelectedContext(data.value);
+        if (this.props.onSelectContext) this.props.onSelectContext(data.value);
 
         this.setState({
             selectedContext: data.value,
@@ -33,15 +43,19 @@ export default class FiltersWidget extends PureComponent {
     }
 
     onDimensionChange(data) {
-        if (this.props.setDimensionContext) this.props.setDimensionContext(data.value);
+        if (this.props.onDimensionsSelect) this.props.onDimensionsSelect(data.value);
 
         this.setState({
             selectedDimension: data.value
         });
     }
 
-    onFieldChange() {
+    onFieldChange(pickedOptions) {
+        if (this.props.onFieldSelect) this.props.onFieldSelect(pickedOptions);
 
+        this.setState({
+            selectedFields: pickedOptions
+        });
     }
 
     getContextOptions() {
@@ -161,6 +175,7 @@ export default class FiltersWidget extends PureComponent {
                                 getOptionLabel={option => option}
                                 getOptionValue={option => option}
                                 getLabel={option => option}
+                                onChange={this.onFieldChange.bind(this)}
 
                                 noOptionsMessage={() => ''}
                                 controlShouldRenderValue={false}
@@ -188,5 +203,8 @@ export default class FiltersWidget extends PureComponent {
 }
 
 FiltersWidget.propTypes = {
-    contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context))
+    contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+    onSelectContext: PropTypes.func,
+    onDimensionsSelect: PropTypes.func,
+    onFieldChange: PropTypes.func
 };

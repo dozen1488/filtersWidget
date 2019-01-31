@@ -5,7 +5,7 @@ import './optionComponent.less';
 export default class SelectOption extends PureComponent {
 
     onPick() {
-        this.props.selectOption(this.props.data);
+        if (this.props.selectOption) this.props.selectOption(this.props.data);
     }
 
     render() {
@@ -15,6 +15,7 @@ export default class SelectOption extends PureComponent {
                     type="checkbox"
                     className="option__label-input"
                     checked={this.props.isSelected}
+                    onChange={this.onPick.bind(this)}
                 />
                 <p className="option__label-container">
                     {this.props.label}

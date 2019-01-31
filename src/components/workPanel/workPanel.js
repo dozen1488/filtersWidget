@@ -3,12 +3,30 @@ import Draggable from 'react-draggable';
 import PropTypes  from 'prop-types';
 import { List } from 'immutable';
 
+import { SelectOption } from '../optionComponent';
 import Context from '../../models/context';
 import { FiltersWidget } from '../filtersWidget';
 
 import './workPanel.less';
 
 export default class WorkPanel extends PureComponent {
+    constructor(...args) {
+        super(...args);
+        this.state = {
+            pickedFields: []
+        };
+    }
+
+    saveWidgetRef(widgetRef) {
+        this.refs.widgetRef = widgetRef;
+    }
+
+    onFieldChange(pickedOptions) {
+        this.setState({
+            pickedFields: pickedOptions
+        })
+    }
+
     render() {
         const contexts = this.props.contexts
             ? this.props.contexts.toArray().map(Context.fromImmutable)
@@ -18,14 +36,22 @@ export default class WorkPanel extends PureComponent {
             <div className="work-panel">
                 <div className="work-panel__sidebar">
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
-                        <FiltersWidget 
+                        <FiltersWidget
                             contexts={contexts}
-                            key={this.props.contexts}
+                            key={contexts.map(c => c.id)}
+                            onFieldSelect={this.onFieldChange.bind(this)}
+                            ref={this.saveWidgetRef.bind(this)}
                         />
                     </Draggable>
                 </div>
                 <div className="work-panel__workfield">
-
+                    {this.state.pickedFields.map(
+                        field => <SelectOption
+                            isSelected
+                            label={field}
+                            key={field}
+                        />
+                    )}
                 </div>
             </div>
         )
