@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { FiltersWidget } from '../filtersWidget';
 import Draggable from 'react-draggable';
+import PropTypes  from 'prop-types';
+import { List } from 'immutable';
+
+import Context from '../../models/context';
+import { FiltersWidget } from '../filtersWidget';
 
 import './workPanel.less';
 
@@ -9,9 +13,13 @@ export default class WorkPanel extends Component {
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
-                    <Draggable bounds="parent">
+                    <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget 
-                            contexts={this.props.contexts}
+                            contexts={
+                                this.props.contexts
+                                    ? this.props.contexts.map(Context.fromImmutable)
+                                    : []
+                                }
                             key={Date.now()}
                         />
                     </Draggable>
@@ -22,4 +30,12 @@ export default class WorkPanel extends Component {
             </div>
         )
     }
+}
+
+WorkPanel.propTypes = {
+    contexts: PropTypes.instanceOf(List)
+}
+
+WorkPanel.defaultProps = {
+    contexts: List()
 }

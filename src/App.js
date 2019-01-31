@@ -16,36 +16,36 @@ class App extends Component {
                 <header className="App-header">
                     <div className="App-container">
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                     </div>
                     <div className="App-container">
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                         <WorkPanel
-                            contexts={this.props.tables && this.props.tables.toJS()}
+                            contexts={this.props.tables}
                         />
                     </div>
                 </header>

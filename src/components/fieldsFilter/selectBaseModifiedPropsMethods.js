@@ -4,7 +4,7 @@ import { hocSelectBaseModifier } from '../hocSelectBaseModifier';
 
 const ModifiedSelectClass = hocSelectBaseModifier(SelectBase);
 
-export default class ModifiedGetCommonProps extends ModifiedSelectClass {
+export default class ModifiedPropsMethods extends ModifiedSelectClass {
     getCommonProps() {
         const commonProps = super.getCommonProps();
         return {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { DownChevron } from 'react-select/lib/components/indicators';
 import classnames from 'classnames';
 
@@ -9,6 +8,7 @@ import { FieldsFilter } from '../fieldsFilter';
 import { FilterComponent } from '../filterComponent';
 import userMessages from '../../constants/userMessages';
 
+import Context from '../../models/context';
 import './filtersWidget.less';
 
 export default class FiltersWidget extends Component {
@@ -27,7 +27,8 @@ export default class FiltersWidget extends Component {
         if (this.props.setSelectedContext) this.props.setSelectedContext(data.value);
 
         this.setState({
-            selectedContext: data.value
+            selectedContext: data.value,
+            selectedDimension: null
         });
     }
 
@@ -137,6 +138,7 @@ export default class FiltersWidget extends Component {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
+                                key={this.state.selectedContext && this.state.selectedContext.id}
                                 components={{ Option: SelectOption }}
                                 options={this.getDimensionsOptions()}
                                 className={'filtersWidget__container'}
@@ -150,6 +152,10 @@ export default class FiltersWidget extends Component {
                             <FieldsFilter
                                 isMulti
                                 menuIsOpen
+                                getValue={option => option}
+                                getOptionLabel={option => option}
+                                getOptionValue={option => option}
+                                getLabel={option => option}
                                 noOptionsMessage={() => ''}
                                 controlShouldRenderValue={false}
                                 hideSelectedOptions={false}
@@ -175,12 +181,5 @@ export default class FiltersWidget extends Component {
 }
 
 FiltersWidget.propTypes = {
-    contexts: PropTypes.instanceOf(Immutable.List),
-    selectedContext: PropTypes.instanceOf(Immutable.Map),
-    selectedDimension: PropTypes.instanceOf(Immutable.Map),
-    selectedFields: PropTypes.instanceOf(Immutable.List)
-};
-
-FiltersWidget.defaultProps = {
-    contexts: Immutable.List([])
+    contexts: PropTypes.arrayOf(Context)
 };

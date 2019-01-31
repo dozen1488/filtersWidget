@@ -1,19 +1,22 @@
 import React from 'react'
 
 import manageState from 'react-select/lib/stateManager';
+import { createFilter } from 'react-select';
 
 import { FieldsFiltersControl } from '../fieldsFiltersControl';
 import MagnifierIndicator from './components/magnifierIndicator';
 
 import { filterStateEnum } from '../fieldsFiltersBar';
-import ModifiedGetCommonProps from './selectBaseGetCommonPropsModified';
+import ModifiedPropsMethods from './selectBaseModifiedPropsMethods';
 
-const ModifiedSelectComponent = manageState(ModifiedGetCommonProps);
+const ModifiedSelectComponent = manageState(ModifiedPropsMethods);
 
-class FieldsFilter extends ModifiedSelectComponent {
+class FieldsFilter extends React.Component {
     constructor(...args) {
         super(...args);
-        this.state.fieldsFilterName = filterStateEnum.STARTS_WITH;
+        this.state = {
+            fieldsFilterName: filterStateEnum.STARTS_WITH
+        };
     }
 
     onFilterCheckboxSelect(filterName) {
@@ -30,7 +33,7 @@ class FieldsFilter extends ModifiedSelectComponent {
     getFilterFunction() {
         switch(this.state.fieldsFilterName) {
             case filterStateEnum.FULL:
-                return (option, rawInput) => option.label === rawInput;
+                return (option, rawInput) => (!rawInput) || (option.label === rawInput);
             case filterStateEnum.PARTIAL:
                 return (option, rawInput) => option.label.indexOf(rawInput) !== -1;
             default: 
@@ -46,6 +49,7 @@ class FieldsFilter extends ModifiedSelectComponent {
         return (
             <ModifiedSelectComponent
                 {...this.props}
+                isSearchable
                 fieldsFilterName={this.state.fieldsFilterName}
                 filterOption={this.getFilterFunction()}
                 onFilterCheckboxSelect={this.onFilterCheckboxSelect.bind(this)}

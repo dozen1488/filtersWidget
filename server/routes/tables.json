@@ -1,157 +1,76 @@
 [
-	{
-		"value": {
-			"dimensions": [
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "Dimension1",
-								"label": "Dimension1"
-							},
-							{
-								"value": "Dimension2",
-								"label": "Dimension2"
-							},
-							{
-								"value": "Dimension3",
-								"label": "Dimension3"
-							},
-							{
-								"value": "Velocity",
-								"label": "Velocity"
-							},
-							{
-								"value": "Metric",
-								"label": "Metric"
-							},
-							{
-								"value": "Dimension4",
-								"label": "Dimension4"
-							},
-							{
-								"value": "Dimension5",
-								"label": "Dimension5"
-							},
-							{
-								"value": "Dimension6",
-								"label": "Dimension6"
-							},
-							{
-								"value": "Day",
-								"label": "Day"
-							},
-							{
-								"value": "Month",
-								"label": "Month"
-							}
-						]
-					},
-					"label": "Table one"
-				},
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "aasd",
-								"label": "aasd"
-							},
-							{
-								"value": "fdsd",
-								"label": "fdsd"
-							}
-						]
-					},
-					"label": "Table two"
-				},
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "Dimension1",
-								"label": "Dimension1"
-							},
-							{
-								"value": "Dimension2",
-								"label": "Dimension2"
-							},
-							{
-								"value": "Dimension3",
-								"label": "Dimension3"
-							},
-							{
-								"value": "Velocity",
-								"label": "Velocity"
-							},
-							{
-								"value": "Metric",
-								"label": "Metric"
-							}
-						]
-					},
-					"label": "Table three"
-				}
-			]
-		},
-		"label": "First Context"
-	},
-	{
-		"value": {
-			"dimensions": [
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "a",
-								"label": "a"
-							}
-						]
-					},
-					"label": "a"
-				},
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "a",
-								"label": "a"
-							}
-						]
-					},
-					"label": "b"
-				},
-				{
-					"value": {
-						"fields": [
-							{
-								"value": "a",
-								"label": "a"
-							}
-						]
-					},
-					"label": "v"
-				}
-			]
-		},
-		"label": "Second Context"
-	},
-	{
-		"value": {
-			"dimensions": [
-				{
-					"value": "a",
-					"label": "a"
-				},
-				{
-					"value": "b",
-					"label": "b"
-				},
-				{
-					"value": "v",
-					"label": "v"
-				}
-			]
-		},
-		"label": "Third Context"
-	}
+    {
+        "dimensions": [
+            {
+                "fields": [
+                    "Dimension1",
+                    "Dimension2",
+                    "Dimension3",
+                    "Velocity",
+                    "Metric",
+                    "Dimension4",
+                    "Dimension5",
+                    "Dimension6",
+                    "Day",
+                    "Month"
+                ],
+                "dimensionName": "Table one"
+            },
+            {
+                "fields": [
+                    "aasd",
+                    "fdsd"
+                ],
+                "dimensionName": "Table two"
+            },
+            {
+                "fields": [
+                    "Dimension1",
+                    "Dimension2",
+                    "Dimension3",
+                    "Velocity",
+                    "Metric"
+                ],
+                "dimensionName": "Table three"
+            }
+        ],
+        "name": "First Context",
+        "id": "1"
+    },
+    {
+        "dimensions": [
+            {
+                "fields": ["a"],
+                "dimensionName": "a"
+            },
+            {
+                "fields": ["b"],
+                "dimensionName": "b"
+            },
+            {
+                "fields": ["v"],
+                "dimensionName": "v"
+            }
+        ],
+        "name": "Second Context",
+        "id": "2"
+    },
+    {
+        "dimensions": [
+            {
+                "fields": [],
+                "dimensionName": "a"
+            },
+            {
+                "fields": [],
+                "dimensionName": "b"
+            },
+            {
+                "fields": [],
+                "dimensionName": "v"
+            }
+        ],
+        "name": "Third Context",
+        "id": "3"
+    }
 ]
