@@ -1,7 +1,6 @@
 import React from 'react'
 
 import manageState from 'react-select/lib/stateManager';
-import { createFilter } from 'react-select';
 
 import { FieldsFiltersControl } from '../fieldsFiltersControl';
 import MagnifierIndicator from './components/magnifierIndicator';
@@ -11,7 +10,7 @@ import ModifiedPropsMethods from './selectBaseModifiedPropsMethods';
 
 const ModifiedSelectComponent = manageState(ModifiedPropsMethods);
 
-class FieldsFilter extends React.Component {
+class FieldsFilter extends React.PureComponent {
     constructor(...args) {
         super(...args);
         this.state = {

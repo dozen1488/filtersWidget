@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Draggable from 'react-draggable';
 import PropTypes  from 'prop-types';
 import { List } from 'immutable';
@@ -8,19 +8,19 @@ import { FiltersWidget } from '../filtersWidget';
 
 import './workPanel.less';
 
-export default class WorkPanel extends Component {
+export default class WorkPanel extends PureComponent {
     render() {
+        const contexts = this.props.contexts
+            ? this.props.contexts.toArray().map(Context.fromImmutable)
+            : [];
+
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget 
-                            contexts={
-                                this.props.contexts
-                                    ? this.props.contexts.map(Context.fromImmutable)
-                                    : []
-                                }
-                            key={Date.now()}
+                            contexts={contexts}
+                            key={this.props.contexts}
                         />
                     </Draggable>
                 </div>

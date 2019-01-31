@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
 import { DownChevron } from 'react-select/lib/components/indicators';
 import classnames from 'classnames';
@@ -11,7 +11,7 @@ import userMessages from '../../constants/userMessages';
 import Context from '../../models/context';
 import './filtersWidget.less';
 
-export default class FiltersWidget extends Component {
+export default class FiltersWidget extends PureComponent {
     constructor(...args) {
         super(...args);
         const [ props ] = args;
@@ -38,6 +38,10 @@ export default class FiltersWidget extends Component {
         this.setState({
             selectedDimension: data.value
         });
+    }
+
+    onFieldChange() {
+
     }
 
     getContextOptions() {
@@ -138,10 +142,10 @@ export default class FiltersWidget extends Component {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                key={this.state.selectedContext && this.state.selectedContext.id}
                                 components={{ Option: SelectOption }}
-                                options={this.getDimensionsOptions()}
                                 className={'filtersWidget__container'}
+                                key={this.state.selectedContext && this.state.selectedContext.id}
+                                options={this.getDimensionsOptions()}
                                 classNamePrefix={'filtersWidget'}
                                 styles={this.getEmptyStyles()}
                                 placeholder={userMessages["filtersWidget.placeholder.dimensions"]}
@@ -152,10 +156,12 @@ export default class FiltersWidget extends Component {
                             <FieldsFilter
                                 isMulti
                                 menuIsOpen
+
                                 getValue={option => option}
                                 getOptionLabel={option => option}
                                 getOptionValue={option => option}
                                 getLabel={option => option}
+
                                 noOptionsMessage={() => ''}
                                 controlShouldRenderValue={false}
                                 hideSelectedOptions={false}
@@ -165,6 +171,7 @@ export default class FiltersWidget extends Component {
                                     ClearIndicator: () => null
                                 }}
                                 options={this.getFiltersOptions()}
+
                                 className={'filtersWidget__container filtersWidgetField'}
                                 classNamePrefix={'filtersWidget'}
                                 styles={this.getEmptyStyles()}
@@ -181,5 +188,5 @@ export default class FiltersWidget extends Component {
 }
 
 FiltersWidget.propTypes = {
-    contexts: PropTypes.arrayOf(Context)
+    contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context))
 };

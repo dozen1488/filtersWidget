@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { SelectBase } from 'react-select';
 import manageState from 'react-select/lib/stateManager';
 
@@ -6,7 +6,7 @@ import { hocSelectBaseModifier } from '../hocSelectBaseModifier';
 
 const ModifiedSelectComponent = manageState(hocSelectBaseModifier(SelectBase));
 
-class FilterComponent extends Component {
+class FilterComponent extends PureComponent {
     render() {
         return (
             <ModifiedSelectComponent

@@ -15,7 +15,7 @@ export default (props) => {
                 className,
             )}
         >
-            {children || <img src={require('./magnifier.png')} />}
+            {children || <img alt="" src={require('./magnifier.png')} />}
         </div>
     );
 }

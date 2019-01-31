@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
-import './optionComponent.css';
+import './optionComponent.less';
 
-export default class SelectOption extends Component {
+export default class SelectOption extends PureComponent {
 
     onPick() {
         this.props.selectOption(this.props.data);
