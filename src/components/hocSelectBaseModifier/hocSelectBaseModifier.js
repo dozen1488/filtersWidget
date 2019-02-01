@@ -4,7 +4,7 @@ import { returnUndefinedFunction } from '../../helpers/helperFunctions';
 
 export default (BaseClass) => {
     
-    const modifiedBaseClass = class ModifiedBaseClass extends BaseClass {
+    class ModifiedBaseClass extends BaseClass {
         render() {
             const {
                 Control,
@@ -59,10 +59,10 @@ export default (BaseClass) => {
         }
     }
 
-    modifiedBaseClass.defaultProps = { ...BaseClass.defaultProps };
+    ModifiedBaseClass.defaultProps = { ...BaseClass.defaultProps };
     // Removing default style-based styles
     // We will use class-based styling
-    modifiedBaseClass.defaultProps.styles = {
+    ModifiedBaseClass.defaultProps.styles = {
         clearIndicator: returnUndefinedFunction,
         container: returnUndefinedFunction,
         control: returnUndefinedFunction,
@@ -87,5 +87,5 @@ export default (BaseClass) => {
         valueContainer:  returnUndefinedFunction,
     };
 
-    return modifiedBaseClass;
+    return ModifiedBaseClass;
 }
