@@ -25,10 +25,17 @@ export default class FiltersWidget extends PureComponent {
     }
 
     saveState() {
+        const selectedContextIndex = this.state.contexts.indexOf(this.state.selectedContext);
+        const selectedDimensionIndex = this.state.selectedContext && this.state.selectedContext.dimensions.indexOf(this.state.selectedDimension);
+
         return {
             hash: this.state.contexts.map(c => c.id).toString(),
-            selectedContextIndex: this.state.contexts.indexOf(this.state.selectedContext),
-            selectedDimensionIndex: this.state.selectedContext.indexOf(this.state.selectedDimension),
+            selectedContextIndex: ~(selectedContextIndex)
+                ? selectedContextIndex
+                : null,
+            selectedDimensionIndex: ~(selectedDimensionIndex)
+                ? selectedDimensionIndex
+                : null,
             selectedFields: this.state.selectedFields
         }
     }

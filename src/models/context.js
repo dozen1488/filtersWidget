@@ -2,6 +2,9 @@ import Dimension from './dimension';
 
 class Context {
     constructor(id, dimensions, name) {
+        // Context id MUST be uniq for this context
+        // Combination of dimensions and name should be uniq for 
+        // id cause some logic based on it
         this.id = id;
         this.dimensions = dimensions;
         this.name = name;

@@ -23,7 +23,7 @@ class TablesRepository {
                     throw new Error(errorCodes.INVALID_RESPONSE_OBJECT);
                 }
             });
-        }
+    }
 }
 
 export default new TablesRepository();

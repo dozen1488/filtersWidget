@@ -13,12 +13,19 @@ export default class WorkPanel extends PureComponent {
     constructor(...args) {
         super(...args);
         this.state = {
-            pickedFields: []
+            pickedFields: (args[0].defaultState && args[0].defaultState.pickedFields) || []
         };
     }
 
+    saveState() {
+        return {
+            filtersWidgetState: this.widgetRef.saveState(),
+            pickedFields: this.state.pickedFields
+        }
+    }
+
     saveWidgetRef(widgetRef) {
-        this.refs.widgetRef = widgetRef;
+        this.widgetRef = widgetRef;
     }
 
     onFieldChange(pickedOptions) {
