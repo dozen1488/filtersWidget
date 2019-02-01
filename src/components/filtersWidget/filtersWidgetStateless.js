@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { DownChevron } from 'react-select/lib/components/indicators';
 import classnames from 'classnames';
 
-import { sameValueFunction } from '../../helpers/helperFunctions'; 
+import { sameValueFunction, returnUndefinedFunction } from '../../helpers/helperFunctions'; 
 import { SelectOption } from '../optionComponent';
 import { FieldsFilter } from '../fieldsFilter';
 import { FilterComponent } from '../filterComponent';
@@ -15,87 +15,21 @@ import './filtersWidget.less';
 export default class FiltersWidget extends PureComponent {
     constructor(...args) {
         super(...args);
-
-        const [ props ] = args;
-
         this.state = {
-            contexts: props.contexts,
-            selectedContext: null,
-            selectedDimension: null,
-            selectedFields: [],
             isWidgetExpanded: false
         };
     }
 
-    saveState() {
-        const selectedContextIndex = this.state.contexts.indexOf(this.state.selectedContext);
-        const selectedDimensionIndex = this.state.selectedContext && this.state.selectedContext.dimensions.indexOf(this.state.selectedDimension);
-
-        return {
-            hash: this.state.contexts.map(c => c.id).toString(),
-            selectedContextIndex: ~(selectedContextIndex)
-                ? selectedContextIndex
-                : null,
-            selectedDimensionIndex: ~(selectedDimensionIndex)
-                ? selectedDimensionIndex
-                : null,
-            selectedFields: this.state.selectedFields
-        }
-    }
-
     onContextChange(data) {
         if (this.props.onSelectContext) this.props.onSelectContext(data.value);
-
-        this.setState({
-            selectedContext: data.value,
-            selectedDimension: null
-        });
     }
 
     onDimensionChange(data) {
         if (this.props.onDimensionsSelect) this.props.onDimensionsSelect(data.value);
-
-        this.setState({
-            selectedDimension: data.value
-        });
     }
 
     onFieldChange(pickedOptions) {
         if (this.props.onFieldSelect) this.props.onFieldSelect(pickedOptions);
-
-        this.setState({
-            selectedFields: pickedOptions
-        });
-    }
-
-    getContextOptions() {
-        const contexts = (this.state.contexts)
-            ? this.state.contexts
-            : [];
-
-        return contexts;
-    }
-
-    getDimensionsOptions() {
-        const dimensions = (this.state.selectedContext)
-            ? this.state.selectedContext.dimensions
-            : [];
-        
-        return dimensions;
-    }
-
-    getFiltersOptions() {
-        const fields = (this.state.selectedDimension)
-            ? this.state.selectedDimension.fields
-            : [];
-        
-        return fields;
-    }
-
-    onFilterCheckboxSelect(filterName) {
-        this.setState({
-            fieldsFilterName: filterName
-        });
     }
 
     switchWidgetExpanded() {
@@ -130,6 +64,7 @@ export default class FiltersWidget extends PureComponent {
                             <FilterComponent
                                 options={this.getContextOptions()}
                                 onChange={this.onContextChange.bind(this)}
+                                value={this.props.selectedContext}
 
                                 components={{ Option: SelectOption }}
                                 className={'filtersWidget__container'}
@@ -139,9 +74,9 @@ export default class FiltersWidget extends PureComponent {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                key={this.state.selectedContext && this.state.selectedContext.id}
                                 options={this.getDimensionsOptions()}
                                 onChange={this.onDimensionChange.bind(this)}
+                                value={this.props.selectedDimension}
 
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
@@ -151,24 +86,23 @@ export default class FiltersWidget extends PureComponent {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FieldsFilter
-                                isMulti
-                                menuIsOpen
+                                onChange={this.onFieldChange.bind(this)}
+                                options={this.getFiltersOptions()}  
+                                value={this.props.selectedFields}
 
                                 getValue={sameValueFunction}
                                 getOptionLabel={sameValueFunction}
                                 getOptionValue={sameValueFunction}
                                 getLabel={sameValueFunction}
-                                onChange={this.onFieldChange.bind(this)}
-
-                                options={this.getFiltersOptions()}
-                                
+                                isMulti
+                                menuIsOpen
                                 noOptionsMessage={() => ''}
                                 controlShouldRenderValue={false}
                                 hideSelectedOptions={false}
                                 components={{
                                     Option: SelectOption,
-                                    MultiValue: () => null,
-                                    ClearIndicator: () => null
+                                    MultiValue: returnUndefinedFunction,
+                                    ClearIndicator: returnUndefinedFunction
                                 }}
                                 className={'filtersWidget__container filtersWidgetField'}
                                 classNamePrefix={'filtersWidget'}
@@ -189,4 +123,11 @@ FiltersWidget.propTypes = {
     onSelectContext: PropTypes.func,
     onDimensionsSelect: PropTypes.func,
     onFieldChange: PropTypes.func
+};
+
+FiltersWidget.defaultProps = {
+    contexts: [],
+    selectedContext: null,
+    selectedDimension: null,
+    selectedFields: []
 };

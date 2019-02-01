@@ -45,6 +45,7 @@ export default class WorkPanel extends PureComponent {
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget
                             contexts={contexts}
+                            // React inside does 'toString' for key
                             key={contexts.map(c => c.id)}
                             onFieldSelect={this.onFieldChange.bind(this)}
                             ref={this.saveWidgetRef.bind(this)}

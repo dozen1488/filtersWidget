@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+import { returnUndefinedFunction } from '../../helpers/helperFunctions';
 
 export default (BaseClass) => {
-    return class ModifiedBaseClass extends BaseClass{
+    
+    const modifiedBaseClass = class ModifiedBaseClass extends BaseClass {
         render() {
             const {
                 Control,
@@ -55,4 +58,34 @@ export default (BaseClass) => {
             );
         }
     }
+
+    modifiedBaseClass.defaultProps = { ...BaseClass.defaultProps };
+    // Removing default style-based styles
+    // We will use class-based styling
+    modifiedBaseClass.defaultProps.styles = {
+        clearIndicator: returnUndefinedFunction,
+        container: returnUndefinedFunction,
+        control: returnUndefinedFunction,
+        dropdownIndicator: returnUndefinedFunction,
+        group: returnUndefinedFunction,
+        groupHeading: returnUndefinedFunction,
+        indicatorsContainer: returnUndefinedFunction,
+        indicatorSeparator: returnUndefinedFunction,
+        input: returnUndefinedFunction,
+        loadingIndicator: returnUndefinedFunction,
+        loadingMessageCSS: returnUndefinedFunction,
+        menu: returnUndefinedFunction,
+        menuList: returnUndefinedFunction,
+        menuPortal: returnUndefinedFunction,
+        multiValue: returnUndefinedFunction,
+        multiValueLabel: returnUndefinedFunction,
+        multiValueRemove: returnUndefinedFunction,
+        noOptionsMessageCSS: returnUndefinedFunction,
+        option: returnUndefinedFunction,
+        placeholder: returnUndefinedFunction,
+        singleValue: returnUndefinedFunction,
+        valueContainer:  returnUndefinedFunction,
+    };
+
+    return modifiedBaseClass;
 }
