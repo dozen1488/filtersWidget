@@ -120,9 +120,23 @@ export default class FiltersWidget extends PureComponent {
 
 FiltersWidget.propTypes = {
     contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+
+    selectedContext: PropTypes.object,
+    selectedDimension: PropTypes.object,
+    selectedFields: PropTypes.array,
+
     onSelectContext: PropTypes.func,
     onDimensionsSelect: PropTypes.func,
-    onFieldChange: PropTypes.func
+    onFieldChange: PropTypes.func,
+
+    // <-- For Draggable
+    className: PropTypes.string,
+    style: PropTypes.object,
+    onMouseDown: PropTypes.func,
+    onMouseUp: PropTypes.func,
+    onTouchStart: PropTypes.func,
+    onTouchEnd: PropTypes.func
+    // For Draggable -->
 };
 
 FiltersWidget.defaultProps = {
