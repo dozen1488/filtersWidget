@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import Context from '../../models/context';
 import './filtersWidget.less';
 
-import FiltersWidgetStateless from './FiltersWidgetStateless';
-
 export default (FiltersWidgetComponent) => {
     class FiltersWidget extends PureComponent {
         constructor(...args) {
@@ -55,7 +53,7 @@ export default (FiltersWidgetComponent) => {
         }
     
         onFieldChange(pickedOptions) {
-            if (this.props.onFieldSelect) this.props.onFieldSelect(pickedOptions);
+            if (this.props.onFieldChange) this.props.onFieldChange(pickedOptions);
     
             this.setState({
                 selectedFields: pickedOptions
@@ -66,9 +64,11 @@ export default (FiltersWidgetComponent) => {
             return (
                 <FiltersWidgetComponent
                     {...this.props}
-    
-                    contexts={this.state.contexts}
-    
+
+                    contextsOptions={this.state.contexts}
+                    dimensionsOptions={(this.state.selectedContext && this.state.selectedContext.dimensions) || []}
+                    fieldsOptions={(this.state.selectedDimension && this.state.selectedDimension.fields) || []}
+                
                     selectedContext={this.state.selectedContext}
                     selectedDimension={this.state.selectedDimension}
                     selectedFields={this.state.selectedFields}

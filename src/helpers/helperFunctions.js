@@ -5,3 +5,7 @@ export function sameValueFunction (value) {
 export function returnUndefinedFunction (value) {
     return undefined;
 }
+
+export function returnNullFunction (value) {
+    return null;
+}

@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { DownChevron } from 'react-select/lib/components/indicators';
 import classnames from 'classnames';
 
-import { sameValueFunction, returnUndefinedFunction } from '../../helpers/helperFunctions'; 
+import { sameValueFunction, returnNullFunction } from '../../helpers/helperFunctions'; 
 import { SelectOption } from '../optionComponent';
 import { FieldsFilter } from '../fieldsFilter';
 import { FilterComponent } from '../filterComponent';
 import userMessages from '../../constants/userMessages';
 
 import Context from '../../models/context';
+import Dimension from '../../models/dimension';
+
 import './filtersWidget.less';
 
 export default class FiltersWidget extends PureComponent {
@@ -29,7 +31,7 @@ export default class FiltersWidget extends PureComponent {
     }
 
     onFieldChange(pickedOptions) {
-        if (this.props.onFieldSelect) this.props.onFieldSelect(pickedOptions);
+        if (this.props.onFieldChange) this.props.onFieldChange(pickedOptions);
     }
 
     switchWidgetExpanded() {
@@ -62,7 +64,7 @@ export default class FiltersWidget extends PureComponent {
                     }>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                options={this.getContextOptions()}
+                                options={this.props.contextsOptions}
                                 onChange={this.onContextChange.bind(this)}
                                 value={this.props.selectedContext}
 
@@ -74,7 +76,7 @@ export default class FiltersWidget extends PureComponent {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FilterComponent
-                                options={this.getDimensionsOptions()}
+                                options={this.props.dimensionsOptions}
                                 onChange={this.onDimensionChange.bind(this)}
                                 value={this.props.selectedDimension}
 
@@ -87,7 +89,7 @@ export default class FiltersWidget extends PureComponent {
                         <div className="filtersWidget__line-container">
                             <FieldsFilter
                                 onChange={this.onFieldChange.bind(this)}
-                                options={this.getFiltersOptions()}  
+                                options={this.props.fieldsOptions}  
                                 value={this.props.selectedFields}
 
                                 getValue={sameValueFunction}
@@ -101,8 +103,8 @@ export default class FiltersWidget extends PureComponent {
                                 hideSelectedOptions={false}
                                 components={{
                                     Option: SelectOption,
-                                    MultiValue: returnUndefinedFunction,
-                                    ClearIndicator: returnUndefinedFunction
+                                    MultiValue: returnNullFunction,
+                                    ClearIndicator: returnNullFunction
                                 }}
                                 className={'filtersWidget__container filtersWidgetField'}
                                 classNamePrefix={'filtersWidget'}
@@ -119,7 +121,9 @@ export default class FiltersWidget extends PureComponent {
 }
 
 FiltersWidget.propTypes = {
-    contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+    contextsOptions: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+    dimensionsOptions: PropTypes.arrayOf(PropTypes.instanceOf(Dimension)),
+    fieldsOptions: PropTypes.arrayOf(PropTypes.string),
 
     selectedContext: PropTypes.object,
     selectedDimension: PropTypes.object,

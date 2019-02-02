@@ -36,7 +36,7 @@ class App extends Component {
         const serializedData = internalStorageRepository.restoreDataFromLocalStorage(PANEL_STATES);
         const stateData = JSON.parse(serializedData);
 
-        this.setState({ restoredData: stateData });
+        if (stateData) this.setState({ restoredData: stateData });
     }
 
     saveFiltersState() {
