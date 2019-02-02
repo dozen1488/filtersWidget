@@ -83,6 +83,7 @@ export default (FiltersWidgetComponent) => {
     
     FiltersWidget.propTypes = {
         contexts: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+
         onSelectContext: PropTypes.func,
         onDimensionsSelect: PropTypes.func,
         onFieldChange: PropTypes.func
