@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createPromise from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 import { Iterable } from 'immutable';
+import createLocalStorage from 'redux-local-storage'
 
 import './index.css';
 import App from './AppStateless';
@@ -23,6 +24,7 @@ ReactDOM.render(
                 createPromise({
                     promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']
                 }),
+                createLocalStorage(),
                 createLogger({
                     stateTransformer: (state) => {
                         if (Iterable.isIterable(state)) return state.toJS();

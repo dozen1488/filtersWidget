@@ -4,3 +4,8 @@ export {
     setDimensionsContext,
     setFieldsContext
 } from './workPanelActions';
+export {
+    getSession,
+    setSession,
+    removeSession
+} from './storageActions';

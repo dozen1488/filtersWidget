@@ -30,7 +30,7 @@ export default class WorkPanel extends PureComponent {
 
         const selectedContext =contexts[this.props.selectedContextIndex];
         const selectedDimension = dimensions[this.props.selectedDimensionIndex];
-        const selectedFields = this.props.selectedFields || [];
+        const selectedFields = (this.props.selectedFields && this.props.selectedFields.toJS()) || [];
         
         return (
             <div className="work-panel">
