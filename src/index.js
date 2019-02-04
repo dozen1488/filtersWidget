@@ -8,7 +8,7 @@ import { createLogger } from 'redux-logger';
 import { Iterable } from 'immutable';
 
 import './index.css';
-import App from './App';
+import App from './AppStateless';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './store/reducers/rootReducer';
 import initialState from './store/initialState';

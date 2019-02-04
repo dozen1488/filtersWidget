@@ -57,11 +57,13 @@ class App extends Component {
                         .map((none, index) => {
                             const arrayIndex = START_PAGE_PANELS_IN_BAR_NUMBER * barIndex + index;
                             return (<WorkPanel
+                                key={arrayIndex}
+                                panelIndex={arrayIndex}
                                 contextsOptions={this.props.contexts}
 
-                                selectedContext={this.props.workPanel.get(arrayIndex).get('selectedContext')}
-                                selectedDimension={this.props.workPanel.get(arrayIndex).get('selectedDimension')}
-                                selectedFields={this.props.workPanel.get(arrayIndex).get('selectedFields')}
+                                selectedContextIndex={this.props.workPanels.get(arrayIndex).get('selectedContextIndex')}
+                                selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
+                                selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
                 
                                 onSelectContext={this.props.setSelectedContext}
                                 onDimensionsSelect={this.props.setDimensionsContext}

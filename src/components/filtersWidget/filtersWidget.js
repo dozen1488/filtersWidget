@@ -23,11 +23,17 @@ export default class FiltersWidget extends PureComponent {
     }
 
     onContextChange(data) {
-        if (this.props.onSelectContext) this.props.onSelectContext(data.value);
+        if (this.props.onSelectContext) {
+            const index = this.props.contextsOptions.indexOf(data.value);
+            this.props.onSelectContext(index);
+        }
     }
 
     onDimensionChange(data) {
-        if (this.props.onDimensionsSelect) this.props.onDimensionsSelect(data.value);
+        if (this.props.onDimensionsSelect) {
+            const index = this.props.dimensionsOptions.indexOf(data.value);
+            this.props.onDimensionsSelect(index);
+        };
     }
 
     onFieldChange(pickedOptions) {
@@ -144,7 +150,10 @@ FiltersWidget.propTypes = {
 };
 
 FiltersWidget.defaultProps = {
-    contexts: [],
+    contextsOptions: [],
+    dimensionsOptions: [],
+    fieldsOptions: [],
+    
     selectedContext: null,
     selectedDimension: null,
     selectedFields: []

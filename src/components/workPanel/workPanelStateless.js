@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import Draggable from 'react-draggable';
 import PropTypes  from 'prop-types';
 import { List } from 'immutable';
+import first from 'lodash/first';
 
 import { SelectOption } from '../optionComponent';
 import Context from '../../models/context';
@@ -10,32 +11,48 @@ import { FiltersWidget } from '../filtersWidget';
 import './workPanel.less';
 
 export default class WorkPanel extends PureComponent {
-    render() {
-        const contexts = this.props.contexts
-            ? this.props.contexts.toArray().map(Context.fromImmutable)
-            : [];
+    constructor(...args) {
+        super(...args);
 
+        const props = first(args);
+
+        this.onSelectContext = this.props.onSelectContext.bind(this, props.panelIndex);
+        this.onDimensionsSelect = this.props.onDimensionsSelect.bind(this, props.panelIndex);
+        this.onFieldChange = this.props.onFieldChange.bind(this, props.panelIndex);
+    }
+
+    render() {
+        const contexts = this.props.contextsOptions
+            ? this.props.contextsOptions.toArray().map(Context.fromImmutable)
+            : [];
+        const dimensions = (contexts[this.props.selectedContextIndex] && contexts[this.props.selectedContextIndex].dimensions) || [];
+        const fieldsOptions = (dimensions[this.props.selectedDimensionIndex] && dimensions[this.props.selectedDimensionIndex].fields) || [];
+
+        const selectedContext =contexts[this.props.selectedContextIndex];
+        const selectedDimension = dimensions[this.props.selectedDimensionIndex];
+        const selectedFields = this.props.selectedFields || [];
+        
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget
                             contextsOptions={contexts}
-                            dimensionsOptions={(this.props.selectedContext && this.props.selectedContext.dimensions) || []}
-                            fieldsOptions={(this.props.selectedDimension && this.props.selectedDimension.fields) || []}
+                            dimensionsOptions={dimensions}
+                            fieldsOptions={fieldsOptions}
                         
-                            selectedContext={this.props.selectedContext}
-                            selectedDimension={this.props.selectedDimension}
-                            selectedFields={this.props.selectedFields}
+                            selectedContext={selectedContext}
+                            selectedDimension={selectedDimension}
+                            selectedFields={selectedFields}
             
-                            onSelectContext={this.props.onSelectContext}
-                            onDimensionsSelect={this.props.onDimensionsSelect}
-                            onFieldChange={this.props.onFieldChange}
+                            onSelectContext={this.onSelectContext}
+                            onDimensionsSelect={this.onDimensionsSelect}
+                            onFieldChange={this.onFieldChange}
                         />
                     </Draggable>
                 </div>
                 <div className="work-panel__workfield">
-                    {this.props.selectedFields.map(
+                    {selectedFields.map(
                         field => <SelectOption
                             isSelected
                             label={field}

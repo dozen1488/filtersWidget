@@ -1,6 +1,6 @@
-import { SET_SELECTED_CONTEXT, SET_DIMENSIONS_CONTEXT, SET_SELECTED_FIELDS } from '../actionTypes.json';
+import { SET_SELECTED_CONTEXT, SET_SELECTED_DIMENSION, SET_SELECTED_FIELDS } from '../actionTypes.json';
 
-export function setSelectedContext (data, panelIndex) {
+export function setSelectedContext (panelIndex, data) {
     return {
         type: SET_SELECTED_CONTEXT,
         payload: {
@@ -10,9 +10,9 @@ export function setSelectedContext (data, panelIndex) {
     };
 }
 
-export function setDimensionsContext (data, panelIndex) {
+export function setDimensionsContext (panelIndex, data) {
     return {
-        type: SET_DIMENSIONS_CONTEXT,
+        type: SET_SELECTED_DIMENSION,
         payload: {
             data,
             panelIndex
@@ -20,7 +20,7 @@ export function setDimensionsContext (data, panelIndex) {
     };
 }
 
-export function setFieldsContext (data, panelIndex) {
+export function setFieldsContext (panelIndex, data) {
     return {
         type: SET_SELECTED_FIELDS,
         payload: {

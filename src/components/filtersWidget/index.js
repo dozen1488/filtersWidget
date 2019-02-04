@@ -4,4 +4,5 @@ import FiltersWidgetStateless from './filtersWidget';
 
 const widget = stateManager(FiltersWidgetStateless);
 
-export { widget as FiltersWidget };
+export default widget;
+export { FiltersWidgetStateless as FiltersWidget };

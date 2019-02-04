@@ -2,7 +2,7 @@ import {
     combineReducers
 } from 'redux-immutable';
 
-import tablesReducer from './tablesReducer';
+import tablesReducer from './contextsReducer';
 import workPanelsReducer from './workPanelsReducer';
 
 export default combineReducers({

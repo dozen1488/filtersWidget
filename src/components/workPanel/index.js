@@ -1,1 +1,1 @@
-export { default as WorkPanel } from './workPanel';
+export { default as WorkPanel } from './workPanelStateless';
