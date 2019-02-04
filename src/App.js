@@ -4,20 +4,10 @@ import { START_PAGE_BARS_NUMBER, START_PAGE_PANELS_IN_BAR_NUMBER } from './const
 import './App.css';
 import './commonStyles/scrollbars.less';
 
-import { PANEL_STATES } from './constants/componentStateTypes';
-import internalStorageRepository from './repositories/internalStorageRepository';
 import { BaseConnector } from './store/connectors';
 import { WorkPanel } from './components';
 
 class App extends Component {
-    constructor(...args) {
-        super(...args);
-        this.panelRefs = [];
-        this.state = {
-            restoredData: []
-        }
-    }
-
     componentDidMount() {
         this.props.getTables();
 
@@ -26,25 +16,14 @@ class App extends Component {
     }
 
     saveStatesToLocalStorage() {
-        // TODO: implement with automapper
-        const serializedData = JSON.stringify(this.saveFiltersState());
-
-        internalStorageRepository.saveDataToLocalStorage(serializedData, PANEL_STATES);
+        this.props.setSession({
+            contexts: this.props.contexts.toJS(),
+            workPanels: this.props.workPanels.toJS()
+        });
     }
 
     restoreStatesToLocalStorage() {
-        const serializedData = internalStorageRepository.restoreDataFromLocalStorage(PANEL_STATES);
-        const stateData = JSON.parse(serializedData);
-
-        if (stateData) this.setState({ restoredData: stateData });
-    }
-
-    saveFiltersState() {
-        return this.panelRefs.map(ref => ref.saveState());
-    }
-
-    saveWorkPanelRef(panelIndex, ref) {
-        this.panelRefs[panelIndex] = ref;
+        this.props.getSession();
     }
 
     renderPanels() {
@@ -54,12 +33,22 @@ class App extends Component {
                 <div className="App-container" key={barIndex}>{
                     new Array(START_PAGE_PANELS_IN_BAR_NUMBER)
                         .fill(0)
-                        .map((none, index) => <WorkPanel
-                            contexts={this.props.tables}
-                            key={index + (!!this.state.restoredData.length) * START_PAGE_PANELS_IN_BAR_NUMBER * START_PAGE_BARS_NUMBER}
-                            defaultState={this.state.restoredData[index + barIndex * START_PAGE_PANELS_IN_BAR_NUMBER]}
-                            ref={this.saveWorkPanelRef.bind(this, index + barIndex * START_PAGE_PANELS_IN_BAR_NUMBER)}
-                        />)
+                        .map((none, index) => {
+                            const arrayIndex = START_PAGE_PANELS_IN_BAR_NUMBER * barIndex + index;
+                            return (<WorkPanel
+                                key={arrayIndex}
+                                panelIndex={arrayIndex}
+                                contextsOptions={this.props.contexts}
+
+                                selectedContextIndex={this.props.workPanels.get(arrayIndex).get('selectedContextIndex')}
+                                selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
+                                selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
+                
+                                onSelectContext={this.props.setSelectedContext}
+                                onDimensionsSelect={this.props.setDimensionsContext}
+                                onFieldChange={this.props.setFieldsContext}
+                            />);
+                        })
                 }</div>
             )
     }

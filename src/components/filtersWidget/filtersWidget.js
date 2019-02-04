@@ -95,7 +95,11 @@ export default class FiltersWidget extends PureComponent {
                         <div className="filtersWidget__line-container">
                             <FieldsFilter
                                 onChange={this.onFieldChange.bind(this)}
-                                options={this.props.fieldsOptions}  
+                                options={this.props.fieldsOptions.sort((a, b) => {
+                                    if(a < b) { return -1; }
+                                    if(a > b) { return 1; }
+                                    return 0;
+                                })}  
                                 value={this.props.selectedFields}
 
                                 getValue={sameValueFunction}
