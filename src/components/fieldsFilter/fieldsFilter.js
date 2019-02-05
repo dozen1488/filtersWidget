@@ -41,7 +41,7 @@ class FieldsFilter extends React.PureComponent {
     }
 
     render() {
-        const components = this.props.components;
+        const components = this.props.components || {};
         components.DropdownIndicator = MagnifierIndicator;
         components.Control = FieldsFiltersControl;
 

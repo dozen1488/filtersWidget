@@ -18,7 +18,7 @@ export default class FiltersWidget extends PureComponent {
     constructor(...args) {
         super(...args);
         this.state = {
-            isWidgetExpanded: false
+            isWidgetExpanded: args[0].isWidgetExpanded
         };
     }
 
@@ -73,11 +73,13 @@ export default class FiltersWidget extends PureComponent {
                                 options={this.props.contextsOptions}
                                 onChange={this.onContextChange.bind(this)}
                                 value={this.props.selectedContext}
-
+                                
                                 components={{ Option: SelectOption }}
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
                                 placeholder={userMessages["filtersWidget.placeholder.context"]}
+
+                                selectName='contextsOptions'
                             />
                         </div>
                         <div className="filtersWidget__line-container">
@@ -90,6 +92,8 @@ export default class FiltersWidget extends PureComponent {
                                 classNamePrefix={'filtersWidget'}
                                 placeholder={userMessages["filtersWidget.placeholder.dimensions"]}
                                 components={{ Option: SelectOption }}
+                                
+                                selectName='dimensionsOptions'
                             />
                         </div>
                         <div className="filtersWidget__line-container">
@@ -142,6 +146,8 @@ FiltersWidget.propTypes = {
     onSelectContext: PropTypes.func,
     onDimensionsSelect: PropTypes.func,
     onFieldChange: PropTypes.func,
+    
+    isWidgetExpanded: PropTypes.bool,
 
     // <-- For Draggable
     className: PropTypes.string,
@@ -160,5 +166,6 @@ FiltersWidget.defaultProps = {
     
     selectedContext: null,
     selectedDimension: null,
-    selectedFields: []
+    selectedFields: [],
+    isWidgetExpanded: false
 };

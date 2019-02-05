@@ -32,6 +32,7 @@
         "identity-obj-proxy": "3.0.0",
         "immutable": "^4.0.0-rc.12",
         "jest": "23.6.0",
+        "jest-in-case": "^1.0.2",
         "jest-pnp-resolver": "1.0.1",
         "jest-resolve": "23.6.0",
         "joi": "^14.3.1",
@@ -86,6 +87,9 @@
         "not op_mini all"
     ],
     "devDependencies": {
+        "enzyme": "^3.8.0",
+        "enzyme-adapter-react-16": "^1.9.0",
+        "enzyme-to-json": "^3.3.5",
         "less": "^3.9.0"
     },
     "jest": {
@@ -95,10 +99,14 @@
         ],
         "resolver": "jest-pnp-resolver",
         "setupFiles": [
-            "react-app-polyfill/jsdom"
+            "react-app-polyfill/jsdom",
+            "<rootDir>/src/__tests__/testsSetup.js"
+        ],
+        "snapshotSerializers": [
+            "enzyme-to-json/serializer"
         ],
         "testMatch": [
-            "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+            "<rootDir>/src/**/__tests__/^(testsSetup)**/*.{js,jsx,ts,tsx}",
             "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
         ],
         "testEnvironment": "jsdom",

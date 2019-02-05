@@ -17,6 +17,7 @@ export default (props) => {
                 onClick={() => onFilterCheckboxSelect(filterStateEnum.PARTIAL)}
                 className={cx(emotionCSS(getStyles('control', props)), {
                     'checkbox-filter': true,
+                    'checkbox-filter-partial': true,
                     'checkbox-filter_active': fieldsFilterName === filterStateEnum.PARTIAL
                 }, className)}
             >
@@ -26,6 +27,7 @@ export default (props) => {
                 onClick={() => onFilterCheckboxSelect(filterStateEnum.FULL)}
                 className={cx(emotionCSS(getStyles('control', props)), {
                     'checkbox-filter': true,
+                    'checkbox-filter-full': true,
                     'checkbox-filter_active': fieldsFilterName === filterStateEnum.FULL
                 }, className)}
             >

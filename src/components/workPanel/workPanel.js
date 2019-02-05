@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import Draggable from 'react-draggable';
 import PropTypes  from 'prop-types';
 import { List } from 'immutable';
+import first from 'lodash/first';
 
 import { SelectOption } from '../optionComponent';
 import Context from '../../models/context';
@@ -12,48 +13,48 @@ import './workPanel.less';
 export default class WorkPanel extends PureComponent {
     constructor(...args) {
         super(...args);
-        this.state = {
-            pickedFields: (args[0].defaultState && args[0].defaultState.pickedFields) || []
-        };
-    }
 
-    saveState() {
-        return {
-            filtersWidgetState: this.widgetRef.saveState(),
-            pickedFields: this.state.pickedFields
-        }
-    }
+        const props = first(args);
 
-    saveWidgetRef(widgetRef) {
-        this.widgetRef = widgetRef;
-    }
-
-    onFieldChange(pickedOptions) {
-        this.setState({
-            pickedFields: pickedOptions
-        })
+        this.onSelectContext = this.props.onSelectContext.bind(this, props.panelIndex);
+        this.onDimensionsSelect = this.props.onDimensionsSelect.bind(this, props.panelIndex);
+        this.onFieldChange = this.props.onFieldChange.bind(this, props.panelIndex);
     }
 
     render() {
-        const contexts = this.props.contexts
-            ? this.props.contexts.toArray().map(Context.fromImmutable)
+        const contexts = this.props.contextsOptions
+            ? this.props.contextsOptions.toArray().map(Context.fromImmutable)
             : [];
+        const dimensions = (contexts[this.props.selectedContextIndex] && contexts[this.props.selectedContextIndex].dimensions) || [];
+        const fieldsOptions = (dimensions[this.props.selectedDimensionIndex] && dimensions[this.props.selectedDimensionIndex].fields) || [];
 
+        const selectedContext =contexts[this.props.selectedContextIndex];
+        const selectedDimension = dimensions[this.props.selectedDimensionIndex];
+        const selectedFields = (this.props.selectedFields && this.props.selectedFields.toJS()) || [];
+        
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget
-                            contexts={contexts}
-                            // React inside does 'toString' for key
-                            key={contexts.map(c => c.id)}
-                            onFieldChange={this.onFieldChange.bind(this)}
-                            ref={this.saveWidgetRef.bind(this)}
+                            contextsOptions={contexts}
+                            dimensionsOptions={dimensions}
+                            fieldsOptions={fieldsOptions}
+                        
+                            selectedContext={selectedContext}
+                            selectedDimension={selectedDimension}
+                            selectedFields={selectedFields}
+            
+                            onSelectContext={this.onSelectContext}
+                            onDimensionsSelect={this.onDimensionsSelect}
+                            onFieldChange={this.onFieldChange}
+
+                            isWidgetExpanded={this.props.isWidgetExpanded}
                         />
                     </Draggable>
                 </div>
                 <div className="work-panel__workfield">
-                    {this.state.pickedFields.map(
+                    {selectedFields.map(
                         field => <SelectOption
                             isSelected
                             label={field}
@@ -67,9 +68,20 @@ export default class WorkPanel extends PureComponent {
 }
 
 WorkPanel.propTypes = {
-    contexts: PropTypes.instanceOf(List)
-}
+    contextsOptions: PropTypes.instanceOf(List),
+
+    selectedContextIndex: PropTypes.number,
+    selectedDimensionIndex: PropTypes.number,
+    selectedFields: PropTypes.instanceOf(List),
+    
+    onSelectContext: PropTypes.func.isRequired,
+    onDimensionsSelect: PropTypes.func.isRequired,
+    onFieldChange: PropTypes.func.isRequired,
+
+    isWidgetExpanded: PropTypes.bool
+};
 
 WorkPanel.defaultProps = {
-    contexts: List()
-}
+    contextsOptions: List(),
+    isWidgetExpanded: false
+};
