@@ -115,3 +115,5 @@ checkBrowsers(paths.appPath, isInteractive)
     }
     process.exit(1);
   });
+
+require('../server/bin/www')
