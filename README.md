@@ -3,6 +3,11 @@
 
 To run all infrastructure - run
 
+## `npm i` from 'server' folder and
+## `npm i` from root folder
+
+and then
+
 ### `npm start`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
