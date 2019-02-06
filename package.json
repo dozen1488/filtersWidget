@@ -75,7 +75,7 @@
         "start": "node scripts/start.js",
         "build": "node scripts/build.js",
         "build:css": "",
-        "test": "node scripts/test.js"
+        "test": "node scripts/test.js -- --watchAll"
     },
     "eslintConfig": {
         "extends": "react-app"

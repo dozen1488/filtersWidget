@@ -9,7 +9,7 @@ import { Iterable } from 'immutable';
 import createLocalStorage from 'redux-local-storage'
 import localforage from 'localforage';
 
-import './index.css';
+import './index.less';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import rootReducer from './store/reducers/rootReducer';

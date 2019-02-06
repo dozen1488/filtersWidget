@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 import { START_PAGE_PANELS_IN_BAR_NUMBER } from './constants/config';
-import './App.css';
-import './commonStyles/scrollbars.less';
 
 import { BaseConnector } from './store/connectors';
 import { WorkPanel } from './components';
+
+import './commonStyles/scrollbars.less';
+import './App.less';
 
 class App extends Component {
     componentDidMount() {
