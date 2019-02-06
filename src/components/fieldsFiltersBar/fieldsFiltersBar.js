@@ -1,9 +1,10 @@
 import React from 'react';
 import { css as emotionCSS } from 'emotion';
+import { memo } from 'react';
 
 import filterStateEnum from './filterStateEnum';
 
-export default (props) => {
+export default memo((props) => {
     const {
         cx, getStyles, className, onFilterCheckboxSelect, fieldsFilterName
     } = props;
@@ -35,4 +36,4 @@ export default (props) => {
             </div>
         </div>
     )
-}
+});

@@ -13,6 +13,17 @@ const ModifiedSelectComponent = manageState(ModifiedPropsMethods);
 class FieldsFilter extends React.PureComponent {
     constructor(...args) {
         super(...args);
+
+        this.filters = {
+            [filterStateEnum.FULL]: (option, rawInput) => (!rawInput) || (option.label === rawInput),
+            [filterStateEnum.PARTIAL]: (option, rawInput) => option.label.indexOf(rawInput) !== -1,
+            'default': (option, rawInput) => option.label.indexOf(rawInput) === 0
+        }
+        this.onFilterCheckboxSelect = this.onFilterCheckboxSelect.bind(this);
+        this.componentsObject = {
+            DropdownIndicator: MagnifierIndicator,
+            Control: FieldsFiltersControl
+        }
         this.state = {
             fieldsFilterName: filterStateEnum.STARTS_WITH
         };
@@ -30,20 +41,17 @@ class FieldsFilter extends React.PureComponent {
     }
 
     getFilterFunction() {
-        switch(this.state.fieldsFilterName) {
-            case filterStateEnum.FULL:
-                return (option, rawInput) => (!rawInput) || (option.label === rawInput);
-            case filterStateEnum.PARTIAL:
-                return (option, rawInput) => option.label.indexOf(rawInput) !== -1;
-            default: 
-                return (option, rawInput) => option.label.indexOf(rawInput) === 0;
-        }
+        return this.filters[this.state.fieldsFilterName] || this.filters.default;
     }
 
     render() {
-        const components = this.props.components || {};
-        components.DropdownIndicator = MagnifierIndicator;
-        components.Control = FieldsFiltersControl;
+        let components = this.props.components;
+        if (!components) {
+            components = this.componentsObject;
+        } else {
+            components.DropdownIndicator = MagnifierIndicator;
+            components.Control = FieldsFiltersControl;
+        }
 
         return (
             <ModifiedSelectComponent
@@ -51,7 +59,7 @@ class FieldsFilter extends React.PureComponent {
                 isSearchable
                 fieldsFilterName={this.state.fieldsFilterName}
                 filterOption={this.getFilterFunction()}
-                onFilterCheckboxSelect={this.onFilterCheckboxSelect.bind(this)}
+                onFilterCheckboxSelect={this.onFilterCheckboxSelect}
                 components={components}
             />
         );

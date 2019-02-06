@@ -10,7 +10,7 @@ import {
 
 export default handleActions({
         [GET_SESSION_SUCCESS]: (state, { value }) => {
-            return fromJS(value.workPanels);
+            return (value && value.workPanels) ? fromJS(value.workPanels) : state;
         },
         [SET_SELECTED_CONTEXT]: (state, { payload: {panelIndex, data} }) => {
             return state.set(

@@ -9,3 +9,7 @@ export function returnUndefinedFunction (value) {
 export function returnNullFunction (value) {
     return null;
 }
+
+export function returnFunctionEmptyString () {
+    return '';
+}

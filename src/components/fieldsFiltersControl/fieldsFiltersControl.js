@@ -1,9 +1,10 @@
 import React from 'react';
 import { css as emotionCSS } from 'emotion';
+import { memo } from 'react';
 
 import { FieldsFiltersBar } from '../fieldsFiltersBar';
 
-export default (props) => {
+export default memo((props) => {
     const {
         children, cx, getStyles, className, isDisabled, isFocused, innerRef, innerProps, menuIsOpen
     } = props;
@@ -30,4 +31,4 @@ export default (props) => {
             />
         </div>
     );
-};
+});

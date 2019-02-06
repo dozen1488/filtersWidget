@@ -8,7 +8,7 @@ export default handleActions({
             return fromJS(action.payload);
         },
         [GET_SESSION_SUCCESS]: (state, { value }) => {
-            return fromJS(value.contexts);
+            return (value && value.contexts) ? fromJS(value.contexts) : state;
         }
     }, null
 );

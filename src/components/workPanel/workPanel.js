@@ -26,8 +26,12 @@ export default class WorkPanel extends PureComponent {
             ? this.props.contextsOptions.toArray().map(Context.fromImmutable)
             : [];
         const dimensions = (contexts[this.props.selectedContextIndex] && contexts[this.props.selectedContextIndex].dimensions) || [];
-        const fieldsOptions = (dimensions[this.props.selectedDimensionIndex] && dimensions[this.props.selectedDimensionIndex].fields) || [];
-
+        const fieldsOptions = ((dimensions[this.props.selectedDimensionIndex] && dimensions[this.props.selectedDimensionIndex].fields) || [])
+            .sort((a, b) => {
+                if(a < b) { return -1; }
+                if(a > b) { return 1; }
+                return 0;
+            });
         const selectedContext =contexts[this.props.selectedContextIndex];
         const selectedDimension = dimensions[this.props.selectedDimensionIndex];
         const selectedFields = (this.props.selectedFields && this.props.selectedFields.toJS()) || [];

@@ -7,6 +7,7 @@ import createPromise from 'redux-promise-middleware';
 import { createLogger } from 'redux-logger';
 import { Iterable } from 'immutable';
 import createLocalStorage from 'redux-local-storage'
+import localforage from 'localforage';
 
 import './index.css';
 import App from './App';
@@ -24,7 +25,12 @@ ReactDOM.render(
                 createPromise({
                     promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']
                 }),
-                createLocalStorage(),
+                createLocalStorage(
+                    localforage.createInstance({
+                        driver: localforage.LOCALSTORAGE,
+                        name: 'local'
+                    })
+                ),
                 createLogger({
                     stateTransformer: (state) => {
                         if (Iterable.isIterable(state)) return state.toJS();

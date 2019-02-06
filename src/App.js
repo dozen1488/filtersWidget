@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { START_PAGE_BARS_NUMBER, START_PAGE_PANELS_IN_BAR_NUMBER } from './constants/config';
+import { START_PAGE_PANELS_IN_BAR_NUMBER } from './constants/config';
 import './App.css';
 import './commonStyles/scrollbars.less';
 
@@ -27,30 +27,30 @@ class App extends Component {
     }
 
     renderPanels() {
-        return new Array(START_PAGE_BARS_NUMBER)
-            .fill(0)
-            .map((none, barIndex) => 
-                <div className="App-container" key={barIndex}>{
-                    new Array(START_PAGE_PANELS_IN_BAR_NUMBER)
-                        .fill(0)
-                        .map((none, index) => {
-                            const arrayIndex = START_PAGE_PANELS_IN_BAR_NUMBER * barIndex + index;
-                            return (<WorkPanel
-                                key={arrayIndex}
-                                panelIndex={arrayIndex}
-                                contextsOptions={this.props.contexts}
+        const panelsArray = this.props.workPanels.toArray();
+        return [
+            panelsArray.slice(0, START_PAGE_PANELS_IN_BAR_NUMBER),
+            panelsArray.slice(START_PAGE_PANELS_IN_BAR_NUMBER, panelsArray.length)
+        ].map((barArray, barIndex) => 
+            <div className="App-container" key={barIndex}>{
+                barArray.map((none, index) => {
+                    const arrayIndex = START_PAGE_PANELS_IN_BAR_NUMBER * barIndex + index;
+                    return (<WorkPanel
+                        key={arrayIndex}
+                        panelIndex={arrayIndex}
+                        contextsOptions={this.props.contexts}
 
-                                selectedContextIndex={this.props.workPanels.get(arrayIndex).get('selectedContextIndex')}
-                                selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
-                                selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
-                
-                                onSelectContext={this.props.setSelectedContext}
-                                onDimensionsSelect={this.props.setDimensionsContext}
-                                onFieldChange={this.props.setFieldsContext}
-                            />);
-                        })
-                }</div>
-            )
+                        selectedContextIndex={this.props.workPanels.get(arrayIndex).get('selectedContextIndex')}
+                        selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
+                        selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
+        
+                        onSelectContext={this.props.setSelectedContext}
+                        onDimensionsSelect={this.props.setDimensionsContext}
+                        onFieldChange={this.props.setFieldsContext}
+                    />);
+                })
+            }</div>
+        );
     }
 
     render() {

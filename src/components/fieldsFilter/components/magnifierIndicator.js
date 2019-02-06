@@ -1,7 +1,8 @@
 import React from 'react';
 import { css } from 'emotion';
+import { memo } from 'react';
 
-export default (props) => {
+export default memo((props) => {
     const { children, className, cx, getStyles, innerProps } = props;
     return (
         <div
@@ -18,4 +19,4 @@ export default (props) => {
             {children || <img alt="" src={require('./magnifier.png')} />}
         </div>
     );
-}
+});
