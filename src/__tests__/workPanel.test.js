@@ -1,11 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { fromJS } from 'immutable';
-import jset from 'jest-mock';
 
-import { SelectOption } from '../components/optionComponent';
 import { WorkPanel } from '../components/workPanel';
-import { FilterComponent } from '../components/filterComponent';
 
 describe('WorkPanel', () => {  
     const fieldsOptions = ['a', 'b', 'c'];

@@ -311,7 +311,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
           className="css-0 filtersWidget__container"
           onKeyDown={[Function]}
         >
-          <_default
+          <Component
             clearValue={[Function]}
             cx={[Function]}
             fieldsFilterName="STARTS_WITH"
@@ -753,7 +753,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                         className="css-0 filtersWidget__indicator-separator"
                       />
                     </IndicatorSeparator>
-                    <_default
+                    <Component
                       clearValue={[Function]}
                       cx={[Function]}
                       fieldsFilterName="STARTS_WITH"
@@ -911,7 +911,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           src="magnifier.png"
                         />
                       </div>
-                    </_default>
+                    </Component>
                   </div>
                 </IndicatorsContainer>
                 <ValueContainer
@@ -1428,7 +1428,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                   </div>
                 </ValueContainer>
               </div>
-              <_default
+              <Component
                 clearValue={[Function]}
                 cx={[Function]}
                 fieldsFilterName="STARTS_WITH"
@@ -1596,9 +1596,9 @@ exports[`FieldsFilters should render correctly with correct props and must match
                     </span>
                   </div>
                 </div>
-              </_default>
+              </Component>
             </div>
-          </_default>
+          </Component>
           <MenuPlacer
             clearValue={[Function]}
             cx={[Function]}
