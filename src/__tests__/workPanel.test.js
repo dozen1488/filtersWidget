@@ -38,20 +38,4 @@ describe('WorkPanel', () => {
     it('should render correctly with correct props and must match snap', () => {
         expect(component).toMatchSnapshot();
     });
-
-    it('should emit proper select events', () => {
-        const onSelectContext = jset.fn();
-        const onDimensionsSelect = jset.fn();
-        const onFieldChange = jset.fn();
-        
-        component.setProps({
-            onSelectContext, onDimensionsSelect, onFieldChange
-        })
-        const contextComponent = component.find(FilterComponent).first();
-        contextComponent.simulate('click');
-        const selectOptions = contextComponent.find(SelectOption);
-        selectOptions.simulate('click');
-
-        expect(onSelectContext.mock.calls[0][0]).toBe(0);
-    });
 });
