@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import { SelectOption } from '../components/optionComponent';
-import { FilterComponent } from '../components/filterComponent';
+import { SelectOption } from '../../components/optionComponent';
+import { FilterComponent } from '../../components/filterComponent';
 
 describe('FieldsFiltersBar', () => {
     it('should render correctly with correct props and must match snap', () => {

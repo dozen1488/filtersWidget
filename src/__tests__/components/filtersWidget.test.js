@@ -1,12 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Menu } from 'react-select/lib/components';
 
-import Context from '../models/context';
-import Dimension from '../models/dimension';
+import Context from '../../models/context';
+import Dimension from '../../models/dimension';
 
-import { FiltersWidget } from '../components/filtersWidget';
-import { FilterComponent } from '../components/filterComponent';
+import { FiltersWidget } from '../../components/filtersWidget';
 
 describe('FiltersWidget', () => {  
     const fieldsOptions = ['a', 'b', 'c'];

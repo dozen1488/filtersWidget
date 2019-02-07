@@ -1,45 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import thunk  from 'redux-thunk'
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import createPromise from 'redux-promise-middleware';
-import { createLogger } from 'redux-logger';
-import { Iterable } from 'immutable';
-import createLocalStorage from 'redux-local-storage'
-import localforage from 'localforage';
 
 import './index.less';
+import store from './store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import rootReducer from './store/reducers/rootReducer';
-import initialState from './store/initialState';
 
 ReactDOM.render(
-    <Provider store={
-        createStore(
-            rootReducer,
-            initialState,
-            applyMiddleware(
-                thunk,
-                createPromise({
-                    promiseTypeSuffixes: ['PENDING', 'SUCCESS', 'ERROR']
-                }),
-                createLocalStorage(
-                    localforage.createInstance({
-                        driver: localforage.LOCALSTORAGE,
-                        name: 'local'
-                    })
-                ),
-                createLogger({
-                    stateTransformer: (state) => {
-                        if (Iterable.isIterable(state)) return state.toJS();
-                        else return state;
-                    }
-                })
-            )
-        )
-    }>
+    <Provider store={store}>
        <App /> 
     </Provider>, 
     document.getElementById('root')

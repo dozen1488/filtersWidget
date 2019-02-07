@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { fromJS } from 'immutable';
 
-import { WorkPanel } from '../components/workPanel';
+import { WorkPanel } from '../../components/workPanel';
 
 describe('WorkPanel', () => {  
     const fieldsOptions = ['a', 'b', 'c'];

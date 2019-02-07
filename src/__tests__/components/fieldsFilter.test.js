@@ -2,9 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import jset from 'jest-mock';
 
-import { sameValueFunction } from '../helpers/helperFunctions'; 
-import { SelectOption } from '../components/optionComponent';
-import { FieldsFilter } from '../components/fieldsFilter';
+import { sameValueFunction } from '../../helpers/helperFunctions'; 
+import { SelectOption } from '../../components/optionComponent';
+import { FieldsFilter } from '../../components/fieldsFilter';
 
 describe('FieldsFilters', () => {  
     const options = [
