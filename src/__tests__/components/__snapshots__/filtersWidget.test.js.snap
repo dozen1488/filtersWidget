@@ -7,7 +7,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
       Context {
         "dimensions": Array [
           Dimension {
-            "dimensionName": "a",
+            "dimensionName": "Dimension1",
             "fields": Array [
               "a",
               "b",
@@ -16,14 +16,14 @@ exports[`FiltersWidget should render correctly with correct props and must match
           },
         ],
         "id": 1,
-        "name": "a",
+        "name": "Context1",
       },
     ]
   }
   dimensionsOptions={
     Array [
       Dimension {
-        "dimensionName": "a",
+        "dimensionName": "Dimension1",
         "fields": Array [
           "a",
           "b",
@@ -107,7 +107,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                 Context {
                   "dimensions": Array [
                     Dimension {
-                      "dimensionName": "a",
+                      "dimensionName": "Dimension1",
                       "fields": Array [
                         "a",
                         "b",
@@ -116,7 +116,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                     },
                   ],
                   "id": 1,
-                  "name": "a",
+                  "name": "Context1",
                 },
               ]
             }
@@ -173,7 +173,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                   Context {
                     "dimensions": Array [
                       Dimension {
-                        "dimensionName": "a",
+                        "dimensionName": "Dimension1",
                         "fields": Array [
                           "a",
                           "b",
@@ -182,7 +182,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                       },
                     ],
                     "id": 1,
-                    "name": "a",
+                    "name": "Context1",
                   },
                 ]
               }
@@ -242,7 +242,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                     Context {
                       "dimensions": Array [
                         Dimension {
-                          "dimensionName": "a",
+                          "dimensionName": "Dimension1",
                           "fields": Array [
                             "a",
                             "b",
@@ -251,7 +251,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                         },
                       ],
                       "id": 1,
-                      "name": "a",
+                      "name": "Context1",
                     },
                   ]
                 }
@@ -303,7 +303,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                       Context {
                         "dimensions": Array [
                           Dimension {
-                            "dimensionName": "a",
+                            "dimensionName": "Dimension1",
                             "fields": Array [
                               "a",
                               "b",
@@ -312,7 +312,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                           },
                         ],
                         "id": 1,
-                        "name": "a",
+                        "name": "Context1",
                       },
                     ],
                     "pageSize": 5,
@@ -406,7 +406,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                         Context {
                           "dimensions": Array [
                             Dimension {
-                              "dimensionName": "a",
+                              "dimensionName": "Dimension1",
                               "fields": Array [
                                 "a",
                                 "b",
@@ -415,7 +415,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             },
                           ],
                           "id": 1,
-                          "name": "a",
+                          "name": "Context1",
                         },
                       ]
                     }
@@ -467,7 +467,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                           Context {
                             "dimensions": Array [
                               Dimension {
-                                "dimensionName": "a",
+                                "dimensionName": "Dimension1",
                                 "fields": Array [
                                   "a",
                                   "b",
@@ -476,7 +476,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                               },
                             ],
                             "id": 1,
-                            "name": "a",
+                            "name": "Context1",
                           },
                         ],
                         "pageSize": 5,
@@ -562,7 +562,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             Context {
                               "dimensions": Array [
                                 Dimension {
-                                  "dimensionName": "a",
+                                  "dimensionName": "Dimension1",
                                   "fields": Array [
                                     "a",
                                     "b",
@@ -571,7 +571,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 },
                               ],
                               "id": 1,
-                              "name": "a",
+                              "name": "Context1",
                             },
                           ]
                         }
@@ -623,7 +623,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                               Context {
                                 "dimensions": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",
@@ -632,7 +632,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   },
                                 ],
                                 "id": 1,
-                                "name": "a",
+                                "name": "Context1",
                               },
                             ],
                             "pageSize": 5,
@@ -717,7 +717,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 Context {
                                   "dimensions": Array [
                                     Dimension {
-                                      "dimensionName": "a",
+                                      "dimensionName": "Dimension1",
                                       "fields": Array [
                                         "a",
                                         "b",
@@ -726,7 +726,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                     },
                                   ],
                                   "id": 1,
-                                  "name": "a",
+                                  "name": "Context1",
                                 },
                               ]
                             }
@@ -778,7 +778,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   Context {
                                     "dimensions": Array [
                                       Dimension {
-                                        "dimensionName": "a",
+                                        "dimensionName": "Dimension1",
                                         "fields": Array [
                                           "a",
                                           "b",
@@ -787,7 +787,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                       },
                                     ],
                                     "id": 1,
-                                    "name": "a",
+                                    "name": "Context1",
                                   },
                                 ],
                                 "pageSize": 5,
@@ -880,7 +880,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 Context {
                                   "dimensions": Array [
                                     Dimension {
-                                      "dimensionName": "a",
+                                      "dimensionName": "Dimension1",
                                       "fields": Array [
                                         "a",
                                         "b",
@@ -889,7 +889,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                     },
                                   ],
                                   "id": 1,
-                                  "name": "a",
+                                  "name": "Context1",
                                 },
                               ]
                             }
@@ -941,7 +941,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   Context {
                                     "dimensions": Array [
                                       Dimension {
-                                        "dimensionName": "a",
+                                        "dimensionName": "Dimension1",
                                         "fields": Array [
                                           "a",
                                           "b",
@@ -950,7 +950,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                       },
                                     ],
                                     "id": 1,
-                                    "name": "a",
+                                    "name": "Context1",
                                   },
                                 ],
                                 "pageSize": 5,
@@ -1059,7 +1059,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             Context {
                               "dimensions": Array [
                                 Dimension {
-                                  "dimensionName": "a",
+                                  "dimensionName": "Dimension1",
                                   "fields": Array [
                                     "a",
                                     "b",
@@ -1068,7 +1068,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 },
                               ],
                               "id": 1,
-                              "name": "a",
+                              "name": "Context1",
                             },
                           ]
                         }
@@ -1120,7 +1120,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                               Context {
                                 "dimensions": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",
@@ -1129,7 +1129,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   },
                                 ],
                                 "id": 1,
-                                "name": "a",
+                                "name": "Context1",
                               },
                             ],
                             "pageSize": 5,
@@ -1215,7 +1215,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 Context {
                                   "dimensions": Array [
                                     Dimension {
-                                      "dimensionName": "a",
+                                      "dimensionName": "Dimension1",
                                       "fields": Array [
                                         "a",
                                         "b",
@@ -1224,7 +1224,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                     },
                                   ],
                                   "id": 1,
-                                  "name": "a",
+                                  "name": "Context1",
                                 },
                               ]
                             }
@@ -1276,7 +1276,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   Context {
                                     "dimensions": Array [
                                       Dimension {
-                                        "dimensionName": "a",
+                                        "dimensionName": "Dimension1",
                                         "fields": Array [
                                           "a",
                                           "b",
@@ -1285,7 +1285,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                       },
                                     ],
                                     "id": 1,
-                                    "name": "a",
+                                    "name": "Context1",
                                   },
                                 ],
                                 "pageSize": 5,
@@ -1419,7 +1419,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                   Context {
                                     "dimensions": Array [
                                       Dimension {
-                                        "dimensionName": "a",
+                                        "dimensionName": "Dimension1",
                                         "fields": Array [
                                           "a",
                                           "b",
@@ -1428,7 +1428,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                       },
                                     ],
                                     "id": 1,
-                                    "name": "a",
+                                    "name": "Context1",
                                   },
                                 ],
                                 "pageSize": 5,
@@ -1611,7 +1611,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
             options={
               Array [
                 Dimension {
-                  "dimensionName": "a",
+                  "dimensionName": "Dimension1",
                   "fields": Array [
                     "a",
                     "b",
@@ -1671,7 +1671,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
               options={
                 Array [
                   Dimension {
-                    "dimensionName": "a",
+                    "dimensionName": "Dimension1",
                     "fields": Array [
                       "a",
                       "b",
@@ -1734,7 +1734,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                 options={
                   Array [
                     Dimension {
-                      "dimensionName": "a",
+                      "dimensionName": "Dimension1",
                       "fields": Array [
                         "a",
                         "b",
@@ -1789,7 +1789,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                     "openMenuOnFocus": false,
                     "options": Array [
                       Dimension {
-                        "dimensionName": "a",
+                        "dimensionName": "Dimension1",
                         "fields": Array [
                           "a",
                           "b",
@@ -1886,7 +1886,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                     options={
                       Array [
                         Dimension {
-                          "dimensionName": "a",
+                          "dimensionName": "Dimension1",
                           "fields": Array [
                             "a",
                             "b",
@@ -1941,7 +1941,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                         "openMenuOnFocus": false,
                         "options": Array [
                           Dimension {
-                            "dimensionName": "a",
+                            "dimensionName": "Dimension1",
                             "fields": Array [
                               "a",
                               "b",
@@ -2030,7 +2030,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                         options={
                           Array [
                             Dimension {
-                              "dimensionName": "a",
+                              "dimensionName": "Dimension1",
                               "fields": Array [
                                 "a",
                                 "b",
@@ -2085,7 +2085,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             "openMenuOnFocus": false,
                             "options": Array [
                               Dimension {
-                                "dimensionName": "a",
+                                "dimensionName": "Dimension1",
                                 "fields": Array [
                                   "a",
                                   "b",
@@ -2173,7 +2173,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             options={
                               Array [
                                 Dimension {
-                                  "dimensionName": "a",
+                                  "dimensionName": "Dimension1",
                                   "fields": Array [
                                     "a",
                                     "b",
@@ -2228,7 +2228,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 "openMenuOnFocus": false,
                                 "options": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",
@@ -2324,7 +2324,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             options={
                               Array [
                                 Dimension {
-                                  "dimensionName": "a",
+                                  "dimensionName": "Dimension1",
                                   "fields": Array [
                                     "a",
                                     "b",
@@ -2379,7 +2379,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 "openMenuOnFocus": false,
                                 "options": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",
@@ -2491,7 +2491,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                         options={
                           Array [
                             Dimension {
-                              "dimensionName": "a",
+                              "dimensionName": "Dimension1",
                               "fields": Array [
                                 "a",
                                 "b",
@@ -2546,7 +2546,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             "openMenuOnFocus": false,
                             "options": Array [
                               Dimension {
-                                "dimensionName": "a",
+                                "dimensionName": "Dimension1",
                                 "fields": Array [
                                   "a",
                                   "b",
@@ -2635,7 +2635,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                             options={
                               Array [
                                 Dimension {
-                                  "dimensionName": "a",
+                                  "dimensionName": "Dimension1",
                                   "fields": Array [
                                     "a",
                                     "b",
@@ -2690,7 +2690,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 "openMenuOnFocus": false,
                                 "options": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",
@@ -2827,7 +2827,7 @@ exports[`FiltersWidget should render correctly with correct props and must match
                                 "openMenuOnFocus": false,
                                 "options": Array [
                                   Dimension {
-                                    "dimensionName": "a",
+                                    "dimensionName": "Dimension1",
                                     "fields": Array [
                                       "a",
                                       "b",

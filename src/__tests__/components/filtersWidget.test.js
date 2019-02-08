@@ -5,11 +5,13 @@ import Context from '../../models/context';
 import Dimension from '../../models/dimension';
 
 import { FiltersWidget } from '../../components/filtersWidget';
+import { SelectOption } from '../../components/optionComponent';
+import { FilterComponent } from '../../components/filterComponent';
 
 describe('FiltersWidget', () => {  
     const fieldsOptions = ['a', 'b', 'c'];
-    const dimensions = [new Dimension('a', fieldsOptions)];
-    const contexts = [new Context(1, dimensions, 'a')];
+    const dimensions = [new Dimension('Dimension1', fieldsOptions)];
+    const contexts = [new Context(1, dimensions, 'Context1')];
 
     const component = mount(
         <FiltersWidget
@@ -40,13 +42,44 @@ describe('FiltersWidget', () => {
 
     // This test can't be run due to inner enzyme bugs
 
-    // it('should emit necessary onChange events by click', () => {
+    it('should emit necessary onChange events by click', () => {
+        const mockSelectContext = jest.fn();
+        const mockDimensionsSelect = jest.fn();
+        const mockFieldChange = jest.fn();
 
-    //     let contextSelect = component.find(FilterComponent).filter({ selectName:'contextsOptions' });
-    //     contextSelect.find('div.filtersWidget__dropdown-indicator').simulate('mouseDown', { button: 0 });
-    //     console.log(contextSelect.html());
-    //     const contextSelectMenu = contextSelect.find('.option');
-    //     console.log(contextSelectMenu.html());
+        component.setProps({
+            onSelectContext: mockSelectContext,
+            onDimensionsSelect: mockDimensionsSelect,
+            onFieldChange: mockFieldChange
+        });
+        // Open menu
+        component.find(FilterComponent)
+            .filter({ selectName:'contextsOptions' })
+            .find('div.filtersWidget__dropdown-indicator')
+            .simulate('mouseDown', { button: 0 });
+        // Click option
+        component
+            .find(SelectOption)
+            .at(0)
+            .simulate('click');
+    
+        expect(mockSelectContext.mock.calls[0][0]).toBe(0);
 
-    // })
+        component.find(FilterComponent)
+            .filter({ selectName:'dimensionsOptions' })
+            .find('div.filtersWidget__dropdown-indicator')
+            .simulate('mouseDown', { button: 0 });
+        component
+            .find(SelectOption)
+            .at(0)
+            .simulate('click');
+
+        expect(mockDimensionsSelect.mock.calls[0][0]).toBe(0);
+        
+        component
+            .find(SelectOption)
+            .at(0)
+            .simulate('click');
+        expect(mockFieldChange.mock.calls[0][0]).toEqual(['a']);
+    });
 });

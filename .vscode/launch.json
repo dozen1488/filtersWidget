@@ -9,6 +9,21 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}\\server\\bin\\www"
+        },
+        {
+            
+            "type": "node",
+            "request": "launch",
+            "name": "Test",
+            "program": "${workspaceFolder}\\node_modules\\.bin\\jest",
+            "args": [
+                "--runInBand"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "windows": {
+                "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+            }
         }
     ]
 }

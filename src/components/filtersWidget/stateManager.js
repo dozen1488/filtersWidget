@@ -13,8 +13,8 @@ export default (FiltersWidgetComponent) => {
     
             this.state = {
                 contexts: props.contexts,
-                selectedContext: null,
-                selectedDimension: null,
+                selectedContextIndex: null,
+                selectedDimensionIndex: null,
                 selectedFields: []
             };
         }
@@ -39,8 +39,8 @@ export default (FiltersWidgetComponent) => {
             if (this.props.onSelectContext) this.props.onSelectContext(data.value);
     
             this.setState({
-                selectedContext: data.value,
-                selectedDimension: null
+                selectedContextIndex: data.value,
+                selectedDimensionIndex: null
             });
         }
     
@@ -48,7 +48,7 @@ export default (FiltersWidgetComponent) => {
             if (this.props.onDimensionsSelect) this.props.onDimensionsSelect(data.value);
     
             this.setState({
-                selectedDimension: data.value
+                selectedDimensionIndex: data.value
             });
         }
     
@@ -61,6 +61,7 @@ export default (FiltersWidgetComponent) => {
         }
     
         render() {
+            // Todo: fix this part
             return (
                 <FiltersWidgetComponent
                     {...this.props}
