@@ -1,7 +1,4 @@
 import { fromJS } from 'immutable';
-import configureStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-import createPromise from 'redux-promise-middleware';
 
 import contextsReducer from '../../store/reducers/contextsReducer';
 import workPanelsReducer from '../../store/reducers/workPanelsReducer';
