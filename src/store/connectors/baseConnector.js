@@ -1,5 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import * as applicationActions from '../actions';
 
 export default class BaseConnector {

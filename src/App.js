@@ -10,10 +10,12 @@ import './App.less';
 
 class App extends Component {
     componentDidMount() {
-        this.props.getTables();
+        this.props.getTables()
+            .then(() => {
+                this.restoreStatesToLocalStorage();
+            });
 
         window.addEventListener('beforeunload', this.saveStatesToLocalStorage.bind(this));
-        this.restoreStatesToLocalStorage();
     }
 
     saveStatesToLocalStorage() {

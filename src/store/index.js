@@ -6,6 +6,7 @@ import { Iterable } from 'immutable';
 import createLocalStorage from 'redux-local-storage'
 import localforage from 'localforage';
 
+import contextsConsistencyMiddleware from './middlewares/contextsConsistencyMiddleware';
 import rootReducer from './reducers/rootReducer';
 import initialState from './initialState';
 
@@ -23,6 +24,7 @@ export default createStore(
                 name: 'local'
             })
         ),
+        contextsConsistencyMiddleware,
         createLogger({
             stateTransformer: (state) => {
                 if (Iterable.isIterable(state)) return state.toJS();

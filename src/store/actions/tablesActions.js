@@ -3,7 +3,7 @@ import TablesRepository from '../../repositories/tablesRepository';
 
 export default function getTables () {
     return (dispatch) => {
-        dispatch({
+        return dispatch({
             type: GET_TABLES,
             payload: TablesRepository.getTables()
         });

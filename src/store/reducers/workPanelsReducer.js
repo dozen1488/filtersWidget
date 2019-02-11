@@ -1,11 +1,13 @@
 import { handleActions } from 'redux-actions';
 import { fromJS, List } from 'immutable';
 
+import { START_PAGE_BARS_NUMBER, START_PAGE_PANELS_IN_BAR_NUMBER } from '../../constants/config';
 import {
     SET_SELECTED_CONTEXT,
     SET_SELECTED_DIMENSION,
     SET_SELECTED_FIELDS,
-    GET_SESSION_SUCCESS
+    GET_SESSION_SUCCESS,
+    RESET_WORKPANELS
 } from '../actionTypes.json';
 
 export default handleActions({
@@ -34,6 +36,15 @@ export default handleActions({
                 panelIndex,
                 state.get(panelIndex).set('selectedFields', List(data))
             );
+        },
+        [RESET_WORKPANELS]: () => {
+            return new Array(START_PAGE_PANELS_IN_BAR_NUMBER * START_PAGE_BARS_NUMBER)
+                .fill(0)
+                .map(() => ({
+                    selectedContextIndex: null,
+                    selectedDimensionIndex: null,
+                    selectedFields: null
+                }));
         }
     }, null
 );
