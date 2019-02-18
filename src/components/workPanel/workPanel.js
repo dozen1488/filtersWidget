@@ -50,8 +50,10 @@ export default class WorkPanel extends PureComponent {
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
-                    <div onClick={this.switchWidgetExpanded}>{userMessages["workPanel.expandButton"]}</div>
-                    <Draggable bounds="parent" cancel=".filtersWidgetField">
+                    <div onClick={this.switchWidgetExpanded} className="switch-expand-button">
+                        <span>{userMessages["workPanel.expandButton"]}</span>
+                    </div>
+                    <Draggable cancel=".filtersWidgetField">
                         <FiltersWidget
                             contextsOptions={contexts}
                             dimensionsOptions={dimensions}
@@ -67,7 +69,7 @@ export default class WorkPanel extends PureComponent {
 
                             isWidgetExpanded={this.state.isWidgetExpanded}
                         />
-                    </Draggable>
+                    </ Draggable>
                 </div>
                 <div className="work-panel__workfield">
                     {selectedFields.map(
