@@ -4,6 +4,7 @@ import PropTypes  from 'prop-types';
 import { List } from 'immutable';
 import first from 'lodash/first';
 
+import userMessages from '../../constants/userMessages';
 import { SelectOption } from '../optionComponent';
 import Context from '../../models/context';
 import { FiltersWidget } from '../filtersWidget';
@@ -19,6 +20,16 @@ export default class WorkPanel extends PureComponent {
         this.onSelectContext = this.props.onSelectContext.bind(this, props.panelIndex);
         this.onDimensionsSelect = this.props.onDimensionsSelect.bind(this, props.panelIndex);
         this.onFieldChange = this.props.onFieldChange.bind(this, props.panelIndex);
+
+        this.switchWidgetExpanded = this.switchWidgetExpanded.bind(this);
+
+        this.state = {
+            isWidgetExpanded: false
+        };
+    }
+
+    switchWidgetExpanded() {
+        this.setState((state) => ({ isWidgetExpanded: !state.isWidgetExpanded}));
     }
 
     render() {
@@ -39,6 +50,7 @@ export default class WorkPanel extends PureComponent {
         return (
             <div className="work-panel">
                 <div className="work-panel__sidebar">
+                    <div onClick={this.switchWidgetExpanded}>{userMessages["workPanel.expandButton"]}</div>
                     <Draggable bounds="parent" cancel=".filtersWidgetField">
                         <FiltersWidget
                             contextsOptions={contexts}
@@ -53,7 +65,7 @@ export default class WorkPanel extends PureComponent {
                             onDimensionsSelect={this.onDimensionsSelect}
                             onFieldChange={this.onFieldChange}
 
-                            isWidgetExpanded={this.props.isWidgetExpanded}
+                            isWidgetExpanded={this.state.isWidgetExpanded}
                         />
                     </Draggable>
                 </div>

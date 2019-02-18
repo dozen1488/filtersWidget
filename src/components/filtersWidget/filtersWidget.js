@@ -18,8 +18,9 @@ export default class FiltersWidget extends PureComponent {
     constructor(...args) {
         super(...args);
         this.state = {
-            isWidgetExpanded: args[0].isWidgetExpanded
+            isWidgetExpanded: args[0].isWidgetExpandedInitialState
         };
+
         this.onContextChange = this.onContextChange.bind(this);
         this.onDimensionChange = this.onDimensionChange.bind(this);
         this.onFieldChange = this.onFieldChange.bind(this);
@@ -36,6 +37,10 @@ export default class FiltersWidget extends PureComponent {
             }
         };
 
+    }
+
+    getProp(field) {
+        return this.props[field] === undefined ? this.state[field] : this.props[field];
     }
 
     onContextChange(data) {
@@ -57,9 +62,13 @@ export default class FiltersWidget extends PureComponent {
     }
 
     switchWidgetExpanded() {
-        this.setState((state) => ({ 
-            isWidgetExpanded: !state.isWidgetExpanded
-        }))
+        if (this.props.switchWidgetExpanded) {
+            this.props.switchWidgetExpanded();
+        } else if (this.props.isWidgetExpanded === undefined) {
+            this.setState((state) => ({ 
+                isWidgetExpanded: !state.isWidgetExpanded
+            }));
+        }
     }
 
     render() {
@@ -71,8 +80,12 @@ export default class FiltersWidget extends PureComponent {
                 onMouseUp={this.props.onMouseUp}
                 onTouchStart={this.props.onTouchStart}
                 onTouchEnd={this.props.onTouchEnd}
+                
             >
-                <div className="filtersWidget">
+                <div className={classnames(
+                        'filtersWidget',
+                        {'filtersWidget--hidden': !this.getProp('isWidgetExpanded')}
+                    )}>
                     <div className='filtersWidget__header'>
                         <p className='filtersWidget__header-text'>
                             {userMessages["filtersWidget.header.filters"]}
@@ -81,7 +94,7 @@ export default class FiltersWidget extends PureComponent {
                     </div>
                     <div className={
                         classnames('filtersWidget__body', {
-                            'filtersWidget__body--hidden': !this.state.isWidgetExpanded
+                            'filtersWidget__body--hidden': !this.getProp('isWidgetExpanded')
                         })
                     }>
                         <div className="filtersWidget__line-container">
@@ -151,11 +164,13 @@ FiltersWidget.propTypes = {
     selectedDimension: PropTypes.object,
     selectedFields: PropTypes.array,
 
+    switchWidgetExpanded: PropTypes.func,
     onSelectContext: PropTypes.func,
     onDimensionsSelect: PropTypes.func,
     onFieldChange: PropTypes.func,
     
     isWidgetExpanded: PropTypes.bool,
+    isWidgetExpandedInitialState: PropTypes.bool,
 
     // <-- For Draggable
     className: PropTypes.string,
@@ -175,5 +190,5 @@ FiltersWidget.defaultProps = {
     selectedContext: null,
     selectedDimension: null,
     selectedFields: [],
-    isWidgetExpanded: false
+    isWidgetExpandedInitialState: false
 };
