@@ -17,7 +17,7 @@ function createConsistencyMiddleware() {
             const state = getState().toJS();
             const hasDeletedContext = isDifferentContexts(
                 state.workPanels.map(panel => panel.selectedContextIndex),
-                action.value.contexts,
+                (action.value && action.value.contexts) || [],
                 state.contexts,
             );
 
