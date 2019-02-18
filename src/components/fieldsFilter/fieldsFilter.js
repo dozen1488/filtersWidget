@@ -1,14 +1,11 @@
 import React from 'react'
 
-import manageState from 'react-select/lib/stateManager';
-
-import { FieldsFiltersControl } from '../fieldsFiltersControl';
 import MagnifierIndicator from './components/magnifierIndicator';
 
 import { filterStateEnum } from '../fieldsFiltersBar';
-import ModifiedPropsMethods from './selectBaseModifiedPropsMethods';
 
-const ModifiedSelectComponent = manageState(ModifiedPropsMethods);
+import { FieldsFiltersControl } from '../fieldsFiltersControl';
+import Select from '../reactSelectWithExtendedDefaultProps';
 
 class FieldsFilter extends React.PureComponent {
     constructor(...args) {
@@ -18,12 +15,12 @@ class FieldsFilter extends React.PureComponent {
             [filterStateEnum.FULL]: (option, rawInput) => (!rawInput) || (option.label === rawInput),
             [filterStateEnum.PARTIAL]: (option, rawInput) => option.label.indexOf(rawInput) !== -1,
             'default': (option, rawInput) => option.label.indexOf(rawInput) === 0
-        }
-        this.onFilterCheckboxSelect = this.onFilterCheckboxSelect.bind(this);
+        };
         this.componentsObject = {
             DropdownIndicator: MagnifierIndicator,
             Control: FieldsFiltersControl
-        }
+        };
+        this.onFilterCheckboxSelect = this.onFilterCheckboxSelect.bind(this);
         this.state = {
             fieldsFilterName: filterStateEnum.STARTS_WITH
         };
@@ -54,13 +51,14 @@ class FieldsFilter extends React.PureComponent {
         }
 
         return (
-            <ModifiedSelectComponent
+            <Select
                 {...this.props}
                 isSearchable
-                fieldsFilterName={this.state.fieldsFilterName}
+                autoFocus
                 filterOption={this.getFilterFunction()}
-                onFilterCheckboxSelect={this.onFilterCheckboxSelect}
                 components={components}
+                onFilterCheckboxSelect={this.onFilterCheckboxSelect}
+                fieldsFilterName={this.state.fieldsFilterName}
             />
         );
     }

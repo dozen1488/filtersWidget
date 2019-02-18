@@ -32,6 +32,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
   placeholder="Context"
 >
   <StateManager
+    autoFocus={true}
     className="filtersWidget__container"
     classNamePrefix="filtersWidget"
     components={
@@ -67,8 +68,35 @@ exports[`FieldsFilters should render correctly with correct props and must match
       ]
     }
     placeholder="Context"
+    styles={
+      Object {
+        "clearIndicator": [Function],
+        "container": [Function],
+        "control": [Function],
+        "dropdownIndicator": [Function],
+        "group": [Function],
+        "groupHeading": [Function],
+        "indicatorSeparator": [Function],
+        "indicatorsContainer": [Function],
+        "input": [Function],
+        "loadingIndicator": [Function],
+        "loadingMessageCSS": [Function],
+        "menu": [Function],
+        "menuList": [Function],
+        "menuPortal": [Function],
+        "multiValue": [Function],
+        "multiValueLabel": [Function],
+        "multiValueRemove": [Function],
+        "noOptionsMessageCSS": [Function],
+        "option": [Function],
+        "placeholder": [Function],
+        "singleValue": [Function],
+        "valueContainer": [Function],
+      }
+    }
   >
-    <ModifiedPropsMethods
+    <Select
+      autoFocus={true}
       backspaceRemovesValue={true}
       blurInputOnSelect={true}
       captureMenuScroll={false}
@@ -164,7 +192,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
         className="filtersWidget__container"
         clearValue={[Function]}
         cx={[Function]}
-        fieldsFilterName="STARTS_WITH"
         getStyles={[Function]}
         getValue={[Function]}
         hasValue={false}
@@ -178,7 +205,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
         isFocused={false}
         isMulti={true}
         isRtl={false}
-        onFilterCheckboxSelect={[Function]}
         options={
           Array [
             "ab",
@@ -190,6 +216,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
         selectOption={[Function]}
         selectProps={
           Object {
+            "autoFocus": true,
             "backspaceRemovesValue": true,
             "blurInputOnSelect": true,
             "captureMenuScroll": false,
@@ -314,7 +341,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
           <Component
             clearValue={[Function]}
             cx={[Function]}
-            fieldsFilterName="STARTS_WITH"
             getStyles={[Function]}
             getValue={[Function]}
             hasValue={false}
@@ -330,7 +356,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
             isMulti={true}
             isRtl={false}
             menuIsOpen={true}
-            onFilterCheckboxSelect={[Function]}
             options={
               Array [
                 "ab",
@@ -342,6 +367,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
             selectOption={[Function]}
             selectProps={
               Object {
+                "autoFocus": true,
                 "backspaceRemovesValue": true,
                 "blurInputOnSelect": true,
                 "captureMenuScroll": false,
@@ -467,464 +493,15 @@ exports[`FieldsFilters should render correctly with correct props and must match
               <div
                 className="css-0 filtersWidget__inner-container"
               >
-                <IndicatorsContainer
-                  clearValue={[Function]}
-                  cx={[Function]}
-                  fieldsFilterName="STARTS_WITH"
-                  getStyles={[Function]}
-                  getValue={[Function]}
-                  hasValue={false}
-                  isDisabled={false}
-                  isMulti={true}
-                  isRtl={false}
-                  onFilterCheckboxSelect={[Function]}
-                  options={
-                    Array [
-                      "ab",
-                      "cd",
-                      "abcd",
-                      "fh",
-                    ]
-                  }
-                  selectOption={[Function]}
-                  selectProps={
-                    Object {
-                      "backspaceRemovesValue": true,
-                      "blurInputOnSelect": true,
-                      "captureMenuScroll": false,
-                      "className": "filtersWidget__container",
-                      "classNamePrefix": "filtersWidget",
-                      "closeMenuOnScroll": false,
-                      "closeMenuOnSelect": true,
-                      "components": Object {
-                        "Control": [Function],
-                        "DropdownIndicator": [Function],
-                        "Option": [Function],
-                      },
-                      "controlShouldRenderValue": false,
-                      "defaultInputValue": "",
-                      "defaultMenuIsOpen": false,
-                      "defaultValue": null,
-                      "escapeClearsValue": false,
-                      "fieldsFilterName": "STARTS_WITH",
-                      "filterOption": [Function],
-                      "formatGroupLabel": [Function],
-                      "getLabel": [Function],
-                      "getOptionLabel": [Function],
-                      "getOptionValue": [Function],
-                      "getValue": [Function],
-                      "hideSelectedOptions": false,
-                      "inputValue": "",
-                      "isDisabled": false,
-                      "isLoading": false,
-                      "isMulti": true,
-                      "isOptionDisabled": [Function],
-                      "isRtl": false,
-                      "isSearchable": true,
-                      "loadingMessage": [Function],
-                      "maxMenuHeight": 300,
-                      "menuIsOpen": true,
-                      "menuPlacement": "bottom",
-                      "menuPosition": "absolute",
-                      "menuShouldBlockScroll": false,
-                      "menuShouldScrollIntoView": true,
-                      "minMenuHeight": 140,
-                      "noOptionsMessage": [Function],
-                      "onChange": [Function],
-                      "onFilterCheckboxSelect": [Function],
-                      "onInputChange": [Function],
-                      "onMenuClose": [Function],
-                      "onMenuOpen": [Function],
-                      "openMenuOnClick": true,
-                      "openMenuOnFocus": false,
-                      "options": Array [
-                        "ab",
-                        "cd",
-                        "abcd",
-                        "fh",
-                      ],
-                      "pageSize": 5,
-                      "placeholder": "Context",
-                      "screenReaderStatus": [Function],
-                      "styles": Object {
-                        "clearIndicator": [Function],
-                        "container": [Function],
-                        "control": [Function],
-                        "dropdownIndicator": [Function],
-                        "group": [Function],
-                        "groupHeading": [Function],
-                        "indicatorSeparator": [Function],
-                        "indicatorsContainer": [Function],
-                        "input": [Function],
-                        "loadingIndicator": [Function],
-                        "loadingMessageCSS": [Function],
-                        "menu": [Function],
-                        "menuList": [Function],
-                        "menuPortal": [Function],
-                        "multiValue": [Function],
-                        "multiValueLabel": [Function],
-                        "multiValueRemove": [Function],
-                        "noOptionsMessageCSS": [Function],
-                        "option": [Function],
-                        "placeholder": [Function],
-                        "singleValue": [Function],
-                        "valueContainer": [Function],
-                      },
-                      "tabIndex": "0",
-                      "tabSelectsValue": true,
-                      "value": null,
-                    }
-                  }
-                  setValue={[Function]}
-                  theme={
-                    Object {
-                      "borderRadius": 4,
-                      "colors": Object {
-                        "danger": "#DE350B",
-                        "dangerLight": "#FFBDAD",
-                        "neutral0": "hsl(0, 0%, 100%)",
-                        "neutral10": "hsl(0, 0%, 90%)",
-                        "neutral20": "hsl(0, 0%, 80%)",
-                        "neutral30": "hsl(0, 0%, 70%)",
-                        "neutral40": "hsl(0, 0%, 60%)",
-                        "neutral5": "hsl(0, 0%, 95%)",
-                        "neutral50": "hsl(0, 0%, 50%)",
-                        "neutral60": "hsl(0, 0%, 40%)",
-                        "neutral70": "hsl(0, 0%, 30%)",
-                        "neutral80": "hsl(0, 0%, 20%)",
-                        "neutral90": "hsl(0, 0%, 10%)",
-                        "primary": "#2684FF",
-                        "primary25": "#DEEBFF",
-                        "primary50": "#B2D4FF",
-                        "primary75": "#4C9AFF",
-                      },
-                      "spacing": Object {
-                        "baseUnit": 4,
-                        "controlHeight": 38,
-                        "menuGutter": 8,
-                      },
-                    }
-                  }
-                >
-                  <div
-                    className="css-0 filtersWidget__indicators"
-                  >
-                    <IndicatorSeparator
-                      clearValue={[Function]}
-                      cx={[Function]}
-                      fieldsFilterName="STARTS_WITH"
-                      getStyles={[Function]}
-                      getValue={[Function]}
-                      hasValue={false}
-                      isDisabled={false}
-                      isFocused={false}
-                      isMulti={true}
-                      isRtl={false}
-                      onFilterCheckboxSelect={[Function]}
-                      options={
-                        Array [
-                          "ab",
-                          "cd",
-                          "abcd",
-                          "fh",
-                        ]
-                      }
-                      selectOption={[Function]}
-                      selectProps={
-                        Object {
-                          "backspaceRemovesValue": true,
-                          "blurInputOnSelect": true,
-                          "captureMenuScroll": false,
-                          "className": "filtersWidget__container",
-                          "classNamePrefix": "filtersWidget",
-                          "closeMenuOnScroll": false,
-                          "closeMenuOnSelect": true,
-                          "components": Object {
-                            "Control": [Function],
-                            "DropdownIndicator": [Function],
-                            "Option": [Function],
-                          },
-                          "controlShouldRenderValue": false,
-                          "defaultInputValue": "",
-                          "defaultMenuIsOpen": false,
-                          "defaultValue": null,
-                          "escapeClearsValue": false,
-                          "fieldsFilterName": "STARTS_WITH",
-                          "filterOption": [Function],
-                          "formatGroupLabel": [Function],
-                          "getLabel": [Function],
-                          "getOptionLabel": [Function],
-                          "getOptionValue": [Function],
-                          "getValue": [Function],
-                          "hideSelectedOptions": false,
-                          "inputValue": "",
-                          "isDisabled": false,
-                          "isLoading": false,
-                          "isMulti": true,
-                          "isOptionDisabled": [Function],
-                          "isRtl": false,
-                          "isSearchable": true,
-                          "loadingMessage": [Function],
-                          "maxMenuHeight": 300,
-                          "menuIsOpen": true,
-                          "menuPlacement": "bottom",
-                          "menuPosition": "absolute",
-                          "menuShouldBlockScroll": false,
-                          "menuShouldScrollIntoView": true,
-                          "minMenuHeight": 140,
-                          "noOptionsMessage": [Function],
-                          "onChange": [Function],
-                          "onFilterCheckboxSelect": [Function],
-                          "onInputChange": [Function],
-                          "onMenuClose": [Function],
-                          "onMenuOpen": [Function],
-                          "openMenuOnClick": true,
-                          "openMenuOnFocus": false,
-                          "options": Array [
-                            "ab",
-                            "cd",
-                            "abcd",
-                            "fh",
-                          ],
-                          "pageSize": 5,
-                          "placeholder": "Context",
-                          "screenReaderStatus": [Function],
-                          "styles": Object {
-                            "clearIndicator": [Function],
-                            "container": [Function],
-                            "control": [Function],
-                            "dropdownIndicator": [Function],
-                            "group": [Function],
-                            "groupHeading": [Function],
-                            "indicatorSeparator": [Function],
-                            "indicatorsContainer": [Function],
-                            "input": [Function],
-                            "loadingIndicator": [Function],
-                            "loadingMessageCSS": [Function],
-                            "menu": [Function],
-                            "menuList": [Function],
-                            "menuPortal": [Function],
-                            "multiValue": [Function],
-                            "multiValueLabel": [Function],
-                            "multiValueRemove": [Function],
-                            "noOptionsMessageCSS": [Function],
-                            "option": [Function],
-                            "placeholder": [Function],
-                            "singleValue": [Function],
-                            "valueContainer": [Function],
-                          },
-                          "tabIndex": "0",
-                          "tabSelectsValue": true,
-                          "value": null,
-                        }
-                      }
-                      setValue={[Function]}
-                      theme={
-                        Object {
-                          "borderRadius": 4,
-                          "colors": Object {
-                            "danger": "#DE350B",
-                            "dangerLight": "#FFBDAD",
-                            "neutral0": "hsl(0, 0%, 100%)",
-                            "neutral10": "hsl(0, 0%, 90%)",
-                            "neutral20": "hsl(0, 0%, 80%)",
-                            "neutral30": "hsl(0, 0%, 70%)",
-                            "neutral40": "hsl(0, 0%, 60%)",
-                            "neutral5": "hsl(0, 0%, 95%)",
-                            "neutral50": "hsl(0, 0%, 50%)",
-                            "neutral60": "hsl(0, 0%, 40%)",
-                            "neutral70": "hsl(0, 0%, 30%)",
-                            "neutral80": "hsl(0, 0%, 20%)",
-                            "neutral90": "hsl(0, 0%, 10%)",
-                            "primary": "#2684FF",
-                            "primary25": "#DEEBFF",
-                            "primary50": "#B2D4FF",
-                            "primary75": "#4C9AFF",
-                          },
-                          "spacing": Object {
-                            "baseUnit": 4,
-                            "controlHeight": 38,
-                            "menuGutter": 8,
-                          },
-                        }
-                      }
-                    >
-                      <span
-                        className="css-0 filtersWidget__indicator-separator"
-                      />
-                    </IndicatorSeparator>
-                    <Component
-                      clearValue={[Function]}
-                      cx={[Function]}
-                      fieldsFilterName="STARTS_WITH"
-                      getStyles={[Function]}
-                      getValue={[Function]}
-                      hasValue={false}
-                      innerProps={
-                        Object {
-                          "aria-hidden": "true",
-                          "onMouseDown": [Function],
-                          "onTouchEnd": [Function],
-                        }
-                      }
-                      isDisabled={false}
-                      isFocused={false}
-                      isMulti={true}
-                      isRtl={false}
-                      onFilterCheckboxSelect={[Function]}
-                      options={
-                        Array [
-                          "ab",
-                          "cd",
-                          "abcd",
-                          "fh",
-                        ]
-                      }
-                      selectOption={[Function]}
-                      selectProps={
-                        Object {
-                          "backspaceRemovesValue": true,
-                          "blurInputOnSelect": true,
-                          "captureMenuScroll": false,
-                          "className": "filtersWidget__container",
-                          "classNamePrefix": "filtersWidget",
-                          "closeMenuOnScroll": false,
-                          "closeMenuOnSelect": true,
-                          "components": Object {
-                            "Control": [Function],
-                            "DropdownIndicator": [Function],
-                            "Option": [Function],
-                          },
-                          "controlShouldRenderValue": false,
-                          "defaultInputValue": "",
-                          "defaultMenuIsOpen": false,
-                          "defaultValue": null,
-                          "escapeClearsValue": false,
-                          "fieldsFilterName": "STARTS_WITH",
-                          "filterOption": [Function],
-                          "formatGroupLabel": [Function],
-                          "getLabel": [Function],
-                          "getOptionLabel": [Function],
-                          "getOptionValue": [Function],
-                          "getValue": [Function],
-                          "hideSelectedOptions": false,
-                          "inputValue": "",
-                          "isDisabled": false,
-                          "isLoading": false,
-                          "isMulti": true,
-                          "isOptionDisabled": [Function],
-                          "isRtl": false,
-                          "isSearchable": true,
-                          "loadingMessage": [Function],
-                          "maxMenuHeight": 300,
-                          "menuIsOpen": true,
-                          "menuPlacement": "bottom",
-                          "menuPosition": "absolute",
-                          "menuShouldBlockScroll": false,
-                          "menuShouldScrollIntoView": true,
-                          "minMenuHeight": 140,
-                          "noOptionsMessage": [Function],
-                          "onChange": [Function],
-                          "onFilterCheckboxSelect": [Function],
-                          "onInputChange": [Function],
-                          "onMenuClose": [Function],
-                          "onMenuOpen": [Function],
-                          "openMenuOnClick": true,
-                          "openMenuOnFocus": false,
-                          "options": Array [
-                            "ab",
-                            "cd",
-                            "abcd",
-                            "fh",
-                          ],
-                          "pageSize": 5,
-                          "placeholder": "Context",
-                          "screenReaderStatus": [Function],
-                          "styles": Object {
-                            "clearIndicator": [Function],
-                            "container": [Function],
-                            "control": [Function],
-                            "dropdownIndicator": [Function],
-                            "group": [Function],
-                            "groupHeading": [Function],
-                            "indicatorSeparator": [Function],
-                            "indicatorsContainer": [Function],
-                            "input": [Function],
-                            "loadingIndicator": [Function],
-                            "loadingMessageCSS": [Function],
-                            "menu": [Function],
-                            "menuList": [Function],
-                            "menuPortal": [Function],
-                            "multiValue": [Function],
-                            "multiValueLabel": [Function],
-                            "multiValueRemove": [Function],
-                            "noOptionsMessageCSS": [Function],
-                            "option": [Function],
-                            "placeholder": [Function],
-                            "singleValue": [Function],
-                            "valueContainer": [Function],
-                          },
-                          "tabIndex": "0",
-                          "tabSelectsValue": true,
-                          "value": null,
-                        }
-                      }
-                      setValue={[Function]}
-                      theme={
-                        Object {
-                          "borderRadius": 4,
-                          "colors": Object {
-                            "danger": "#DE350B",
-                            "dangerLight": "#FFBDAD",
-                            "neutral0": "hsl(0, 0%, 100%)",
-                            "neutral10": "hsl(0, 0%, 90%)",
-                            "neutral20": "hsl(0, 0%, 80%)",
-                            "neutral30": "hsl(0, 0%, 70%)",
-                            "neutral40": "hsl(0, 0%, 60%)",
-                            "neutral5": "hsl(0, 0%, 95%)",
-                            "neutral50": "hsl(0, 0%, 50%)",
-                            "neutral60": "hsl(0, 0%, 40%)",
-                            "neutral70": "hsl(0, 0%, 30%)",
-                            "neutral80": "hsl(0, 0%, 20%)",
-                            "neutral90": "hsl(0, 0%, 10%)",
-                            "primary": "#2684FF",
-                            "primary25": "#DEEBFF",
-                            "primary50": "#B2D4FF",
-                            "primary75": "#4C9AFF",
-                          },
-                          "spacing": Object {
-                            "baseUnit": 4,
-                            "controlHeight": 38,
-                            "menuGutter": 8,
-                          },
-                        }
-                      }
-                    >
-                      <div
-                        aria-hidden="true"
-                        className="css-0 filtersWidget__indicator filtersWidget__dropdown-indicator"
-                        onMouseDown={[Function]}
-                        onTouchEnd={[Function]}
-                      >
-                        <img
-                          alt=""
-                          src="magnifier.png"
-                        />
-                      </div>
-                    </Component>
-                  </div>
-                </IndicatorsContainer>
                 <ValueContainer
                   clearValue={[Function]}
                   cx={[Function]}
-                  fieldsFilterName="STARTS_WITH"
                   getStyles={[Function]}
                   getValue={[Function]}
                   hasValue={false}
                   isDisabled={false}
                   isMulti={true}
                   isRtl={false}
-                  onFilterCheckboxSelect={[Function]}
                   options={
                     Array [
                       "ab",
@@ -936,6 +513,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                   selectOption={[Function]}
                   selectProps={
                     Object {
+                      "autoFocus": true,
                       "backspaceRemovesValue": true,
                       "blurInputOnSelect": true,
                       "captureMenuScroll": false,
@@ -1059,7 +637,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                     <Placeholder
                       clearValue={[Function]}
                       cx={[Function]}
-                      fieldsFilterName="STARTS_WITH"
                       getStyles={[Function]}
                       getValue={[Function]}
                       hasValue={false}
@@ -1068,7 +645,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                       isMulti={true}
                       isRtl={false}
                       key="placeholder"
-                      onFilterCheckboxSelect={[Function]}
                       options={
                         Array [
                           "ab",
@@ -1080,6 +656,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                       selectOption={[Function]}
                       selectProps={
                         Object {
+                          "autoFocus": true,
                           "backspaceRemovesValue": true,
                           "blurInputOnSelect": true,
                           "captureMenuScroll": false,
@@ -1219,6 +796,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                       onFocus={[Function]}
                       selectProps={
                         Object {
+                          "autoFocus": true,
                           "backspaceRemovesValue": true,
                           "blurInputOnSelect": true,
                           "captureMenuScroll": false,
@@ -1427,11 +1005,454 @@ exports[`FieldsFilters should render correctly with correct props and must match
                     </Input>
                   </div>
                 </ValueContainer>
+                <IndicatorsContainer
+                  clearValue={[Function]}
+                  cx={[Function]}
+                  getStyles={[Function]}
+                  getValue={[Function]}
+                  hasValue={false}
+                  isDisabled={false}
+                  isMulti={true}
+                  isRtl={false}
+                  options={
+                    Array [
+                      "ab",
+                      "cd",
+                      "abcd",
+                      "fh",
+                    ]
+                  }
+                  selectOption={[Function]}
+                  selectProps={
+                    Object {
+                      "autoFocus": true,
+                      "backspaceRemovesValue": true,
+                      "blurInputOnSelect": true,
+                      "captureMenuScroll": false,
+                      "className": "filtersWidget__container",
+                      "classNamePrefix": "filtersWidget",
+                      "closeMenuOnScroll": false,
+                      "closeMenuOnSelect": true,
+                      "components": Object {
+                        "Control": [Function],
+                        "DropdownIndicator": [Function],
+                        "Option": [Function],
+                      },
+                      "controlShouldRenderValue": false,
+                      "defaultInputValue": "",
+                      "defaultMenuIsOpen": false,
+                      "defaultValue": null,
+                      "escapeClearsValue": false,
+                      "fieldsFilterName": "STARTS_WITH",
+                      "filterOption": [Function],
+                      "formatGroupLabel": [Function],
+                      "getLabel": [Function],
+                      "getOptionLabel": [Function],
+                      "getOptionValue": [Function],
+                      "getValue": [Function],
+                      "hideSelectedOptions": false,
+                      "inputValue": "",
+                      "isDisabled": false,
+                      "isLoading": false,
+                      "isMulti": true,
+                      "isOptionDisabled": [Function],
+                      "isRtl": false,
+                      "isSearchable": true,
+                      "loadingMessage": [Function],
+                      "maxMenuHeight": 300,
+                      "menuIsOpen": true,
+                      "menuPlacement": "bottom",
+                      "menuPosition": "absolute",
+                      "menuShouldBlockScroll": false,
+                      "menuShouldScrollIntoView": true,
+                      "minMenuHeight": 140,
+                      "noOptionsMessage": [Function],
+                      "onChange": [Function],
+                      "onFilterCheckboxSelect": [Function],
+                      "onInputChange": [Function],
+                      "onMenuClose": [Function],
+                      "onMenuOpen": [Function],
+                      "openMenuOnClick": true,
+                      "openMenuOnFocus": false,
+                      "options": Array [
+                        "ab",
+                        "cd",
+                        "abcd",
+                        "fh",
+                      ],
+                      "pageSize": 5,
+                      "placeholder": "Context",
+                      "screenReaderStatus": [Function],
+                      "styles": Object {
+                        "clearIndicator": [Function],
+                        "container": [Function],
+                        "control": [Function],
+                        "dropdownIndicator": [Function],
+                        "group": [Function],
+                        "groupHeading": [Function],
+                        "indicatorSeparator": [Function],
+                        "indicatorsContainer": [Function],
+                        "input": [Function],
+                        "loadingIndicator": [Function],
+                        "loadingMessageCSS": [Function],
+                        "menu": [Function],
+                        "menuList": [Function],
+                        "menuPortal": [Function],
+                        "multiValue": [Function],
+                        "multiValueLabel": [Function],
+                        "multiValueRemove": [Function],
+                        "noOptionsMessageCSS": [Function],
+                        "option": [Function],
+                        "placeholder": [Function],
+                        "singleValue": [Function],
+                        "valueContainer": [Function],
+                      },
+                      "tabIndex": "0",
+                      "tabSelectsValue": true,
+                      "value": null,
+                    }
+                  }
+                  setValue={[Function]}
+                  theme={
+                    Object {
+                      "borderRadius": 4,
+                      "colors": Object {
+                        "danger": "#DE350B",
+                        "dangerLight": "#FFBDAD",
+                        "neutral0": "hsl(0, 0%, 100%)",
+                        "neutral10": "hsl(0, 0%, 90%)",
+                        "neutral20": "hsl(0, 0%, 80%)",
+                        "neutral30": "hsl(0, 0%, 70%)",
+                        "neutral40": "hsl(0, 0%, 60%)",
+                        "neutral5": "hsl(0, 0%, 95%)",
+                        "neutral50": "hsl(0, 0%, 50%)",
+                        "neutral60": "hsl(0, 0%, 40%)",
+                        "neutral70": "hsl(0, 0%, 30%)",
+                        "neutral80": "hsl(0, 0%, 20%)",
+                        "neutral90": "hsl(0, 0%, 10%)",
+                        "primary": "#2684FF",
+                        "primary25": "#DEEBFF",
+                        "primary50": "#B2D4FF",
+                        "primary75": "#4C9AFF",
+                      },
+                      "spacing": Object {
+                        "baseUnit": 4,
+                        "controlHeight": 38,
+                        "menuGutter": 8,
+                      },
+                    }
+                  }
+                >
+                  <div
+                    className="css-0 filtersWidget__indicators"
+                  >
+                    <IndicatorSeparator
+                      clearValue={[Function]}
+                      cx={[Function]}
+                      getStyles={[Function]}
+                      getValue={[Function]}
+                      hasValue={false}
+                      isDisabled={false}
+                      isFocused={false}
+                      isMulti={true}
+                      isRtl={false}
+                      options={
+                        Array [
+                          "ab",
+                          "cd",
+                          "abcd",
+                          "fh",
+                        ]
+                      }
+                      selectOption={[Function]}
+                      selectProps={
+                        Object {
+                          "autoFocus": true,
+                          "backspaceRemovesValue": true,
+                          "blurInputOnSelect": true,
+                          "captureMenuScroll": false,
+                          "className": "filtersWidget__container",
+                          "classNamePrefix": "filtersWidget",
+                          "closeMenuOnScroll": false,
+                          "closeMenuOnSelect": true,
+                          "components": Object {
+                            "Control": [Function],
+                            "DropdownIndicator": [Function],
+                            "Option": [Function],
+                          },
+                          "controlShouldRenderValue": false,
+                          "defaultInputValue": "",
+                          "defaultMenuIsOpen": false,
+                          "defaultValue": null,
+                          "escapeClearsValue": false,
+                          "fieldsFilterName": "STARTS_WITH",
+                          "filterOption": [Function],
+                          "formatGroupLabel": [Function],
+                          "getLabel": [Function],
+                          "getOptionLabel": [Function],
+                          "getOptionValue": [Function],
+                          "getValue": [Function],
+                          "hideSelectedOptions": false,
+                          "inputValue": "",
+                          "isDisabled": false,
+                          "isLoading": false,
+                          "isMulti": true,
+                          "isOptionDisabled": [Function],
+                          "isRtl": false,
+                          "isSearchable": true,
+                          "loadingMessage": [Function],
+                          "maxMenuHeight": 300,
+                          "menuIsOpen": true,
+                          "menuPlacement": "bottom",
+                          "menuPosition": "absolute",
+                          "menuShouldBlockScroll": false,
+                          "menuShouldScrollIntoView": true,
+                          "minMenuHeight": 140,
+                          "noOptionsMessage": [Function],
+                          "onChange": [Function],
+                          "onFilterCheckboxSelect": [Function],
+                          "onInputChange": [Function],
+                          "onMenuClose": [Function],
+                          "onMenuOpen": [Function],
+                          "openMenuOnClick": true,
+                          "openMenuOnFocus": false,
+                          "options": Array [
+                            "ab",
+                            "cd",
+                            "abcd",
+                            "fh",
+                          ],
+                          "pageSize": 5,
+                          "placeholder": "Context",
+                          "screenReaderStatus": [Function],
+                          "styles": Object {
+                            "clearIndicator": [Function],
+                            "container": [Function],
+                            "control": [Function],
+                            "dropdownIndicator": [Function],
+                            "group": [Function],
+                            "groupHeading": [Function],
+                            "indicatorSeparator": [Function],
+                            "indicatorsContainer": [Function],
+                            "input": [Function],
+                            "loadingIndicator": [Function],
+                            "loadingMessageCSS": [Function],
+                            "menu": [Function],
+                            "menuList": [Function],
+                            "menuPortal": [Function],
+                            "multiValue": [Function],
+                            "multiValueLabel": [Function],
+                            "multiValueRemove": [Function],
+                            "noOptionsMessageCSS": [Function],
+                            "option": [Function],
+                            "placeholder": [Function],
+                            "singleValue": [Function],
+                            "valueContainer": [Function],
+                          },
+                          "tabIndex": "0",
+                          "tabSelectsValue": true,
+                          "value": null,
+                        }
+                      }
+                      setValue={[Function]}
+                      theme={
+                        Object {
+                          "borderRadius": 4,
+                          "colors": Object {
+                            "danger": "#DE350B",
+                            "dangerLight": "#FFBDAD",
+                            "neutral0": "hsl(0, 0%, 100%)",
+                            "neutral10": "hsl(0, 0%, 90%)",
+                            "neutral20": "hsl(0, 0%, 80%)",
+                            "neutral30": "hsl(0, 0%, 70%)",
+                            "neutral40": "hsl(0, 0%, 60%)",
+                            "neutral5": "hsl(0, 0%, 95%)",
+                            "neutral50": "hsl(0, 0%, 50%)",
+                            "neutral60": "hsl(0, 0%, 40%)",
+                            "neutral70": "hsl(0, 0%, 30%)",
+                            "neutral80": "hsl(0, 0%, 20%)",
+                            "neutral90": "hsl(0, 0%, 10%)",
+                            "primary": "#2684FF",
+                            "primary25": "#DEEBFF",
+                            "primary50": "#B2D4FF",
+                            "primary75": "#4C9AFF",
+                          },
+                          "spacing": Object {
+                            "baseUnit": 4,
+                            "controlHeight": 38,
+                            "menuGutter": 8,
+                          },
+                        }
+                      }
+                    >
+                      <span
+                        className="css-0 filtersWidget__indicator-separator"
+                      />
+                    </IndicatorSeparator>
+                    <Component
+                      clearValue={[Function]}
+                      cx={[Function]}
+                      getStyles={[Function]}
+                      getValue={[Function]}
+                      hasValue={false}
+                      innerProps={
+                        Object {
+                          "aria-hidden": "true",
+                          "onMouseDown": [Function],
+                          "onTouchEnd": [Function],
+                        }
+                      }
+                      isDisabled={false}
+                      isFocused={false}
+                      isMulti={true}
+                      isRtl={false}
+                      options={
+                        Array [
+                          "ab",
+                          "cd",
+                          "abcd",
+                          "fh",
+                        ]
+                      }
+                      selectOption={[Function]}
+                      selectProps={
+                        Object {
+                          "autoFocus": true,
+                          "backspaceRemovesValue": true,
+                          "blurInputOnSelect": true,
+                          "captureMenuScroll": false,
+                          "className": "filtersWidget__container",
+                          "classNamePrefix": "filtersWidget",
+                          "closeMenuOnScroll": false,
+                          "closeMenuOnSelect": true,
+                          "components": Object {
+                            "Control": [Function],
+                            "DropdownIndicator": [Function],
+                            "Option": [Function],
+                          },
+                          "controlShouldRenderValue": false,
+                          "defaultInputValue": "",
+                          "defaultMenuIsOpen": false,
+                          "defaultValue": null,
+                          "escapeClearsValue": false,
+                          "fieldsFilterName": "STARTS_WITH",
+                          "filterOption": [Function],
+                          "formatGroupLabel": [Function],
+                          "getLabel": [Function],
+                          "getOptionLabel": [Function],
+                          "getOptionValue": [Function],
+                          "getValue": [Function],
+                          "hideSelectedOptions": false,
+                          "inputValue": "",
+                          "isDisabled": false,
+                          "isLoading": false,
+                          "isMulti": true,
+                          "isOptionDisabled": [Function],
+                          "isRtl": false,
+                          "isSearchable": true,
+                          "loadingMessage": [Function],
+                          "maxMenuHeight": 300,
+                          "menuIsOpen": true,
+                          "menuPlacement": "bottom",
+                          "menuPosition": "absolute",
+                          "menuShouldBlockScroll": false,
+                          "menuShouldScrollIntoView": true,
+                          "minMenuHeight": 140,
+                          "noOptionsMessage": [Function],
+                          "onChange": [Function],
+                          "onFilterCheckboxSelect": [Function],
+                          "onInputChange": [Function],
+                          "onMenuClose": [Function],
+                          "onMenuOpen": [Function],
+                          "openMenuOnClick": true,
+                          "openMenuOnFocus": false,
+                          "options": Array [
+                            "ab",
+                            "cd",
+                            "abcd",
+                            "fh",
+                          ],
+                          "pageSize": 5,
+                          "placeholder": "Context",
+                          "screenReaderStatus": [Function],
+                          "styles": Object {
+                            "clearIndicator": [Function],
+                            "container": [Function],
+                            "control": [Function],
+                            "dropdownIndicator": [Function],
+                            "group": [Function],
+                            "groupHeading": [Function],
+                            "indicatorSeparator": [Function],
+                            "indicatorsContainer": [Function],
+                            "input": [Function],
+                            "loadingIndicator": [Function],
+                            "loadingMessageCSS": [Function],
+                            "menu": [Function],
+                            "menuList": [Function],
+                            "menuPortal": [Function],
+                            "multiValue": [Function],
+                            "multiValueLabel": [Function],
+                            "multiValueRemove": [Function],
+                            "noOptionsMessageCSS": [Function],
+                            "option": [Function],
+                            "placeholder": [Function],
+                            "singleValue": [Function],
+                            "valueContainer": [Function],
+                          },
+                          "tabIndex": "0",
+                          "tabSelectsValue": true,
+                          "value": null,
+                        }
+                      }
+                      setValue={[Function]}
+                      theme={
+                        Object {
+                          "borderRadius": 4,
+                          "colors": Object {
+                            "danger": "#DE350B",
+                            "dangerLight": "#FFBDAD",
+                            "neutral0": "hsl(0, 0%, 100%)",
+                            "neutral10": "hsl(0, 0%, 90%)",
+                            "neutral20": "hsl(0, 0%, 80%)",
+                            "neutral30": "hsl(0, 0%, 70%)",
+                            "neutral40": "hsl(0, 0%, 60%)",
+                            "neutral5": "hsl(0, 0%, 95%)",
+                            "neutral50": "hsl(0, 0%, 50%)",
+                            "neutral60": "hsl(0, 0%, 40%)",
+                            "neutral70": "hsl(0, 0%, 30%)",
+                            "neutral80": "hsl(0, 0%, 20%)",
+                            "neutral90": "hsl(0, 0%, 10%)",
+                            "primary": "#2684FF",
+                            "primary25": "#DEEBFF",
+                            "primary50": "#B2D4FF",
+                            "primary75": "#4C9AFF",
+                          },
+                          "spacing": Object {
+                            "baseUnit": 4,
+                            "controlHeight": 38,
+                            "menuGutter": 8,
+                          },
+                        }
+                      }
+                    >
+                      <div
+                        aria-hidden="true"
+                        className="css-0 filtersWidget__indicator filtersWidget__dropdown-indicator"
+                        onMouseDown={[Function]}
+                        onTouchEnd={[Function]}
+                      >
+                        <img
+                          alt=""
+                          src="magnifier.png"
+                        />
+                      </div>
+                    </Component>
+                  </div>
+                </IndicatorsContainer>
               </div>
               <Component
                 clearValue={[Function]}
                 cx={[Function]}
-                fieldsFilterName="STARTS_WITH"
                 getStyles={[Function]}
                 getValue={[Function]}
                 hasValue={false}
@@ -1447,7 +1468,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                 isMulti={true}
                 isRtl={false}
                 menuIsOpen={true}
-                onFilterCheckboxSelect={[Function]}
                 options={
                   Array [
                     "ab",
@@ -1459,6 +1479,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                 selectOption={[Function]}
                 selectProps={
                   Object {
+                    "autoFocus": true,
                     "backspaceRemovesValue": true,
                     "blurInputOnSelect": true,
                     "captureMenuScroll": false,
@@ -1602,7 +1623,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
           <MenuPlacer
             clearValue={[Function]}
             cx={[Function]}
-            fieldsFilterName="STARTS_WITH"
             getStyles={[Function]}
             getValue={[Function]}
             hasValue={false}
@@ -1613,7 +1633,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
             menuPosition="absolute"
             menuShouldScrollIntoView={true}
             minMenuHeight={140}
-            onFilterCheckboxSelect={[Function]}
             options={
               Array [
                 "ab",
@@ -1625,6 +1644,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
             selectOption={[Function]}
             selectProps={
               Object {
+                "autoFocus": true,
                 "backspaceRemovesValue": true,
                 "blurInputOnSelect": true,
                 "captureMenuScroll": false,
@@ -1745,7 +1765,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
             <Menu
               clearValue={[Function]}
               cx={[Function]}
-              fieldsFilterName="STARTS_WITH"
               getStyles={[Function]}
               getValue={[Function]}
               hasValue={false}
@@ -1764,7 +1783,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
               menuPosition="absolute"
               menuShouldScrollIntoView={true}
               minMenuHeight={140}
-              onFilterCheckboxSelect={[Function]}
               options={
                 Array [
                   "ab",
@@ -1777,6 +1795,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
               selectOption={[Function]}
               selectProps={
                 Object {
+                  "autoFocus": true,
                   "backspaceRemovesValue": true,
                   "blurInputOnSelect": true,
                   "captureMenuScroll": false,
@@ -1908,7 +1927,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                     <MenuList
                       clearValue={[Function]}
                       cx={[Function]}
-                      fieldsFilterName="STARTS_WITH"
                       getStyles={[Function]}
                       getValue={[Function]}
                       hasValue={false}
@@ -1917,7 +1935,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                       isMulti={true}
                       isRtl={false}
                       maxHeight={300}
-                      onFilterCheckboxSelect={[Function]}
                       options={
                         Array [
                           "ab",
@@ -1929,6 +1946,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                       selectOption={[Function]}
                       selectProps={
                         Object {
+                          "autoFocus": true,
                           "backspaceRemovesValue": true,
                           "blurInputOnSelect": true,
                           "captureMenuScroll": false,
@@ -2053,7 +2071,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           clearValue={[Function]}
                           cx={[Function]}
                           data="ab"
-                          fieldsFilterName="STARTS_WITH"
                           getStyles={[Function]}
                           getValue={[Function]}
                           hasValue={false}
@@ -2074,7 +2091,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           isSelected={false}
                           key="react-select-2-option-0"
                           label="ab"
-                          onFilterCheckboxSelect={[Function]}
                           options={
                             Array [
                               "ab",
@@ -2086,6 +2102,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           selectOption={[Function]}
                           selectProps={
                             Object {
+                              "autoFocus": true,
                               "backspaceRemovesValue": true,
                               "blurInputOnSelect": true,
                               "captureMenuScroll": false,
@@ -2226,7 +2243,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           clearValue={[Function]}
                           cx={[Function]}
                           data="cd"
-                          fieldsFilterName="STARTS_WITH"
                           getStyles={[Function]}
                           getValue={[Function]}
                           hasValue={false}
@@ -2247,7 +2263,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           isSelected={false}
                           key="react-select-2-option-1"
                           label="cd"
-                          onFilterCheckboxSelect={[Function]}
                           options={
                             Array [
                               "ab",
@@ -2259,6 +2274,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           selectOption={[Function]}
                           selectProps={
                             Object {
+                              "autoFocus": true,
                               "backspaceRemovesValue": true,
                               "blurInputOnSelect": true,
                               "captureMenuScroll": false,
@@ -2399,7 +2415,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           clearValue={[Function]}
                           cx={[Function]}
                           data="abcd"
-                          fieldsFilterName="STARTS_WITH"
                           getStyles={[Function]}
                           getValue={[Function]}
                           hasValue={false}
@@ -2420,7 +2435,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           isSelected={false}
                           key="react-select-2-option-2"
                           label="abcd"
-                          onFilterCheckboxSelect={[Function]}
                           options={
                             Array [
                               "ab",
@@ -2432,6 +2446,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           selectOption={[Function]}
                           selectProps={
                             Object {
+                              "autoFocus": true,
                               "backspaceRemovesValue": true,
                               "blurInputOnSelect": true,
                               "captureMenuScroll": false,
@@ -2572,7 +2587,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           clearValue={[Function]}
                           cx={[Function]}
                           data="fh"
-                          fieldsFilterName="STARTS_WITH"
                           getStyles={[Function]}
                           getValue={[Function]}
                           hasValue={false}
@@ -2593,7 +2607,6 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           isSelected={false}
                           key="react-select-2-option-3"
                           label="fh"
-                          onFilterCheckboxSelect={[Function]}
                           options={
                             Array [
                               "ab",
@@ -2605,6 +2618,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
                           selectOption={[Function]}
                           selectProps={
                             Object {
+                              "autoFocus": true,
                               "backspaceRemovesValue": true,
                               "blurInputOnSelect": true,
                               "captureMenuScroll": false,
@@ -2750,7 +2764,7 @@ exports[`FieldsFilters should render correctly with correct props and must match
           </MenuPlacer>
         </div>
       </SelectContainer>
-    </ModifiedPropsMethods>
+    </Select>
   </StateManager>
 </FieldsFilter>
 `;

@@ -6,8 +6,9 @@ import filterStateEnum from './filterStateEnum';
 
 export default memo((props) => {
     const {
-        cx, getStyles, className, onFilterCheckboxSelect, fieldsFilterName
+        cx, getStyles, className, selectProps
     } = props;
+    const { onFilterCheckboxSelect, fieldsFilterName } = selectProps;
     return (
         <div
             className={cx(emotionCSS(getStyles('control', props)), {

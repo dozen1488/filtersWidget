@@ -1,6 +1,3 @@
-import { SelectBase } from 'react-select';
-import manageState from 'react-select/lib/stateManager';
+import Select from '../reactSelectWithExtendedDefaultProps';
 
-import { hocSelectBaseModifier } from '../hocSelectBaseModifier';
-
-export default manageState(hocSelectBaseModifier(SelectBase));
+export default Select;
