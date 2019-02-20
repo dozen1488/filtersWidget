@@ -26,20 +26,33 @@ export function selectContext(panelIndex, contextIndex) {
     return (dispatchEvent, getState) => {
         dispatchEvent(setSelectedContext(panelIndex, contextIndex));
 
-        const contextId = getState().get('contexts').get(contextIndex).get('id');
+        const contextId = getState()
+            .get('workPanels')
+            .get(panelIndex)
+            .get('contexts')
+            .get(contextIndex)
+            .get('id');
 
-        return dispatchEvent(getDimensions(contextId));
+        return dispatchEvent(getDimensions(panelIndex, contextId));
     }
 }
 
 export function selectDimension(panelIndex, dimensionIndex) {
     return (dispatchEvent, getState) => {
         dispatchEvent(setDimensionsContext(panelIndex, dimensionIndex));
+        const panel = getState()
+            .get('workPanels')
+            .get(panelIndex);
 
-        const selectedContextIndex = getState().get('workPanels').get(panelIndex).get('selectedContextIndex');
-        const context =  getState().getIn(['contexts', selectedContextIndex]);
+        const selectedContextIndex = panel
+            .get('workPanel')
+            .get('selectedContextIndex');
+        const context = panel
+            .get('contexts')
+            .get(selectedContextIndex);
+
         const dimensionName = context.getIn(['dimensions', dimensionIndex, 'dimensionName']);
 
-        return dispatchEvent(getFields(context.get('id'), dimensionName));
+        return dispatchEvent(getFields(panelIndex, context.get('id'), dimensionName));
     }
 }

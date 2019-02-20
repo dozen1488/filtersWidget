@@ -41,11 +41,11 @@ class App extends Component {
                     return (<WorkPanel
                         key={arrayIndex}
                         panelIndex={arrayIndex}
-                        contextsOptions={this.props.contexts}
+                        contextsOptions={this.props.workPanels.get(arrayIndex).get('contexts')}
 
-                        selectedContextIndex={this.props.workPanels.get(arrayIndex).get('selectedContextIndex')}
-                        selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
-                        selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
+                        selectedContextIndex={this.props.workPanels.get(arrayIndex).get('workPanel').get('selectedContextIndex')}
+                        selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('workPanel').get('selectedDimensionIndex')}
+                        selectedFields={this.props.workPanels.get(arrayIndex).get('workPanel').get('selectedFields')}
         
                         onSelectContext={this.props.selectContext}
                         onDimensionsSelect={this.props.selectDimension}

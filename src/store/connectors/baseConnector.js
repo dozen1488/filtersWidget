@@ -6,8 +6,7 @@ import * as applicationActions from '../actions';
 export default class BaseConnector {
     mapStateToProps(state) {
         return {
-            workPanels: state.get('workPanels'),
-            contexts: state.get('contexts')
+            workPanels: state.get('workPanels')
         };
     }
 

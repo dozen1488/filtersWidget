@@ -3,9 +3,9 @@ import { SET_SELECTED_CONTEXT, SET_SELECTED_DIMENSION, SET_SELECTED_FIELDS } fro
 export function setSelectedContext (panelIndex, data) {
     return {
         type: SET_SELECTED_CONTEXT,
+        panelIndex,
         payload: {
-            data,
-            panelIndex
+            data
         }
     };
 }
@@ -13,9 +13,9 @@ export function setSelectedContext (panelIndex, data) {
 export function setDimensionsContext (panelIndex, data) {
     return {
         type: SET_SELECTED_DIMENSION,
+        panelIndex,
         payload: {
-            data,
-            panelIndex
+            data
         }
     };
 }
@@ -23,9 +23,9 @@ export function setDimensionsContext (panelIndex, data) {
 export function setFieldsContext (panelIndex, data) {
     return {
         type: SET_SELECTED_FIELDS,
+        panelIndex,
         payload: {
-            data,
-            panelIndex
+            data
         }
     };
 }

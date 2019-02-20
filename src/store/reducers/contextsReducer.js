@@ -1,7 +1,6 @@
 import { handleActions } from 'redux-actions';
 import { fromJS } from 'immutable';
 
-import { checkConsistency } from '../../helpers/helperFunctions';
 import { GET_TABLES_SUCCESS, GET_SESSION_SUCCESS, GET_DIMENSIONS_SUCCESS, GET_FIELDS_SUCCESS } from '../actionTypes.json';
 
 export default handleActions({

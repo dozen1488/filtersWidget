@@ -33,7 +33,6 @@ export default (
     actions = defaultActions
 ) => {
     return store => next => action => {
-        console.log(action);
         const [, namespace, type] = action.type.match(/([\a-z0-9_\.]*)?\/?([A-Z0-9_]*)/);
 
         switch (type) {
