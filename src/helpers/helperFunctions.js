@@ -1,3 +1,5 @@
+import difference from 'lodash/difference';
+
 export function sameValueFunction (value) {
     return value;
 };
@@ -12,4 +14,25 @@ export function returnNullFunction (value) {
 
 export function returnFunctionEmptyString () {
     return '';
+}
+
+function isDifferentContexts(selectedIndexes, previousContexts, newContexts) {
+    const selectedContextsIds = previousContexts
+        .filter((context, index) => selectedIndexes.find((selectedIndex) => selectedIndex == index))
+        .map(context => context.id);
+    const newContextsIds = newContexts.map(context => context.id);
+
+    return difference(selectedContextsIds, newContextsIds).length;
+}
+
+export function checkConsistency (immutableState, actionValue) {
+    const jsState = immutableState.toJS();
+
+    const hasDeletedContext = isDifferentContexts(
+        (actionValue && actionValue.workPanels.map(panel => panel.selectedContextIndex)) || [],
+        (actionValue && actionValue.contexts) || [],
+        jsState.contexts,
+    );
+    
+    return hasDeletedContext;
 }

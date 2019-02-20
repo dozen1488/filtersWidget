@@ -1,7 +1,10 @@
 {
     "SERVER_PATH": "http://localhost:3001",
     "routes": {
-        "TABLES_ROUTE": "/tables"
+        "TABLES_ROUTE": "/tables",
+        "CONTEXT_ROUTE": "/contexts",
+        "DIMENSIONS_ROUTE": "/dimensions",
+        "FIELDS_ROUTE": "/fields"
     },
     "START_PAGE_BARS_NUMBER": 2,
     "START_PAGE_PANELS_IN_BAR_NUMBER": 5

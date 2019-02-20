@@ -47,8 +47,8 @@ class App extends Component {
                         selectedDimensionIndex={this.props.workPanels.get(arrayIndex).get('selectedDimensionIndex')}
                         selectedFields={this.props.workPanels.get(arrayIndex).get('selectedFields')}
         
-                        onSelectContext={this.props.setSelectedContext}
-                        onDimensionsSelect={this.props.setDimensionsContext}
+                        onSelectContext={this.props.selectContext}
+                        onDimensionsSelect={this.props.selectDimension}
                         onFieldChange={this.props.setFieldsContext}
                     />);
                 })
