@@ -20,7 +20,6 @@ class App extends Component {
 
     saveStatesToLocalStorage() {
         this.props.setSession({
-            contexts: this.props.contexts.toJS(),
             workPanels: this.props.workPanels.toJS()
         });
     }
