@@ -21,12 +21,12 @@ describe('WorkPanel', () => {
             contextsOptions={contexts}
 
             selectedContextIndex={0}
-            selectedDimensionIndex={0}
+            selectedDimensions={0}
             selectedFields={fromJS(fieldsOptions)}
 
             onSelectContext={() => {}}
             onDimensionsSelect={() => {}}
-            onFieldChange={() => {}}
+            onFieldsChange={() => {}}
 
             isWidgetExpanded
         />

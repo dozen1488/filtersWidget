@@ -6,30 +6,30 @@ import tablesRepository from '../../repositories/tablesRepository';
 
 describe('actions', () => {
     it('workPanelActions should create proper objects', () => {
-        const setSelectedContextExpectedObject = {
+        const setSelectedContextsExpectedObject = {
             type: actionTypes.SET_SELECTED_CONTEXT,
             payload: {
                 data: 2,
                 panelIndex: 1
             }
         };
-        const setDimensionsContextExpectedObject = {
+        const setSelectedDimensionsExpectedObject = {
             type: actionTypes.SET_SELECTED_DIMENSION,
             payload: {
                 data: 2,
                 panelIndex: 1
             }
         };
-        const setFieldsContextExpectedObject = {
+        const setSelectedFieldsExpectedObject = {
             type: actionTypes.SET_SELECTED_FIELDS,
             payload: {
                 data: 2,
                 panelIndex: 1
             }
         };
-        expect(actions.setSelectedContext(1, 2)).toEqual(setSelectedContextExpectedObject);
-        expect(actions.setDimensionsContext(1, 2)).toEqual(setDimensionsContextExpectedObject);
-        expect(actions.setFieldsContext(1, 2)).toEqual(setFieldsContextExpectedObject);
+        expect(actions.setSelectedContexts(1, 2)).toEqual(setSelectedContextsExpectedObject);
+        expect(actions.setSelectedDimensions(1, 2)).toEqual(setSelectedDimensionsExpectedObject);
+        expect(actions.setSelectedFields(1, 2)).toEqual(setSelectedFieldsExpectedObject);
     });
     it('storageActions should create proper objects', () => {
         const value = 'test';

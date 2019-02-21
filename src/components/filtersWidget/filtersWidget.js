@@ -23,12 +23,14 @@ export default class FiltersWidget extends PureComponent {
 
         this.onContextChange = this.onContextChange.bind(this);
         this.onDimensionChange = this.onDimensionChange.bind(this);
-        this.onFieldChange = this.onFieldChange.bind(this);
+        this.onFieldsChange = this.onFieldsChange.bind(this);
         this.switchWidgetExpanded = this.switchWidgetExpanded.bind(this);
 
         this.componentsObjects = {
             filterComponent: {
-                Option: SelectOption
+                Option: SelectOption,
+                MultiValue: returnNullFunction,
+                ClearIndicator: returnNullFunction
             },
             fieldsFilter: {
                 Option: SelectOption,
@@ -36,29 +38,32 @@ export default class FiltersWidget extends PureComponent {
                 ClearIndicator: returnNullFunction
             }
         };
-
     }
 
     getProp(field) {
         return this.props[field] === undefined ? this.state[field] : this.props[field];
     }
 
-    onContextChange(data) {
-        if (this.props.onSelectContext) {
-            const index = this.props.contextsOptions.indexOf(data.value);
-            this.props.onSelectContext(index);
+    onContextChange(data, { action, option }) {
+        if (action === 'select-option' && this.props.onContextSelect) {
+            this.props.onContextSelect(option)
         }
-    }
-
-    onDimensionChange(data) {
-        if (this.props.onDimensionsSelect) {
-            const index = this.props.dimensionsOptions.indexOf(data.value);
-            this.props.onDimensionsSelect(index);
+        if (this.props.onContextsChange) {
+            this.props.onContextsChange(data);
         };
     }
 
-    onFieldChange(pickedOptions) {
-        if (this.props.onFieldChange) this.props.onFieldChange(pickedOptions);
+    onDimensionChange(pickedDimensions, { action, option }) {
+        if (action === 'select-option' && this.props.onDimensionSelect) {
+            this.props.onDimensionSelect(option)
+        }
+        if (this.props.onDimensionsChange) {
+            this.props.onDimensionsChange(pickedDimensions);
+        };
+    }
+
+    onFieldsChange(pickedOptions, action) {
+        if (this.props.onFieldsChange) this.props.onFieldsChange(pickedOptions);
     }
 
     switchWidgetExpanded() {
@@ -103,6 +108,13 @@ export default class FiltersWidget extends PureComponent {
                                 onChange={this.onContextChange}
                                 value={this.props.selectedContext}
                                 
+                                isMulti
+                                hideSelectedOptions={false}
+                                controlShouldRenderValue={false}
+                                getValue={sameValueFunction}
+                                getLabel={sameValueFunction}
+                                getOptionValue={(a) => a.label}
+
                                 components={this.componentsObjects.filterComponent}
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
@@ -117,6 +129,13 @@ export default class FiltersWidget extends PureComponent {
                                 onChange={this.onDimensionChange}
                                 value={this.props.selectedDimension}
 
+                                isMulti
+                                hideSelectedOptions={false}
+                                controlShouldRenderValue={false}
+                                getValue={sameValueFunction}
+                                getLabel={sameValueFunction}
+                                getOptionValue={(a) => a.label}
+
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
                                 placeholder={userMessages["filtersWidget.placeholder.dimensions"]}
@@ -127,16 +146,16 @@ export default class FiltersWidget extends PureComponent {
                         </div>
                         <div className="filtersWidget__line-container">
                             <FieldsFilter
-                                onChange={this.onFieldChange}
+                                onChange={this.onFieldsChange}
                                 options={this.props.fieldsOptions}  
                                 value={this.props.selectedFields}
 
-                                getValue={sameValueFunction}
-                                getOptionLabel={sameValueFunction}
-                                getOptionValue={sameValueFunction}
-                                getLabel={sameValueFunction}
                                 isMulti
                                 menuIsOpen
+                                getValue={sameValueFunction}
+                                getLabel={sameValueFunction}
+                                getOptionValue={(a) => a.label}
+
                                 noOptionsMessage={returnFunctionEmptyString}
                                 controlShouldRenderValue={false}
                                 hideSelectedOptions={false}
@@ -165,9 +184,11 @@ FiltersWidget.propTypes = {
     selectedFields: PropTypes.array,
 
     switchWidgetExpanded: PropTypes.func,
-    onSelectContext: PropTypes.func,
+    onContextSelect: PropTypes.func,
+    onContextChange: PropTypes.func,
     onDimensionsSelect: PropTypes.func,
-    onFieldChange: PropTypes.func,
+    onDimensionsChange: PropTypes.func,
+    onFieldsChange: PropTypes.func,
     
     isWidgetExpanded: PropTypes.bool,
     isWidgetExpandedInitialState: PropTypes.bool,

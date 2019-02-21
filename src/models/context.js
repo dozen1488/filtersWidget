@@ -29,11 +29,19 @@ class Context {
 
     // TODO: Add automapper
     static fromImmutable(contextImmutable) {
-        return new Context(
-            contextImmutable.get('id'),
-            contextImmutable.get('dimensions').toArray().map(Dimension.fromImmutable),
-            contextImmutable.get('name'),
-        );
+        const context = new Context();
+        context.id = contextImmutable.get('id');
+        context.name = contextImmutable.get('name');
+        context.dimensions = contextImmutable.get('dimensions').toArray().map(dim => Dimension.fromImmutable(dim, context));
+
+        return context;
+    }
+
+    serialize() {
+        return {
+            id: this.id,
+            name: this.name
+        };
     }
 }
 

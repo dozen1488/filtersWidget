@@ -29,7 +29,7 @@ export function checkConsistency (immutableState, actionValue) {
     const jsState = immutableState.toJS();
 
     const hasDeletedContext = isDifferentContexts(
-        (actionValue && actionValue.workPanels.map(panel => panel.selectedContextIndex)) || [],
+        (actionValue && actionValue.workPanels.map(panel => panel.selectedContexts)) || [],
         (actionValue && actionValue.contexts) || [],
         jsState.contexts,
     );

@@ -16,13 +16,13 @@ export default handleActions({
         },
         [SET_SELECTED_CONTEXT]: (state, { payload: {data} }) => {
             return state
-                .set('selectedContextIndex', data)
-                .set('selectedDimensionIndex', null)
+                .set('selectedContexts', data)
+                .set('selectedDimensions', List())
                 .set('selectedFields', List());
         },
         [SET_SELECTED_DIMENSION]: (state, { payload: {data} }) => {
             return state
-                .set('selectedDimensionIndex', data)
+                .set('selectedDimensions', data)
                 .set('selectedFields', List());
         },
         [SET_SELECTED_FIELDS]: (state, { payload: {data} }) => {
@@ -32,8 +32,8 @@ export default handleActions({
             return new Array(START_PAGE_PANELS_IN_BAR_NUMBER * START_PAGE_BARS_NUMBER)
                 .fill(0)
                 .map(() => ({
-                    selectedContextIndex: null,
-                    selectedDimensionIndex: null,
+                    selectedContexts: null,
+                    selectedDimensions: null,
                     selectedFields: null
                 }));
         }

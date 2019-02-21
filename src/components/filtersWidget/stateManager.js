@@ -13,23 +13,23 @@ export default (FiltersWidgetComponent) => {
     
             this.state = {
                 contexts: props.contexts,
-                selectedContextIndex: null,
-                selectedDimensionIndex: null,
+                selectedContexts: null,
+                selectedDimensions: null,
                 selectedFields: []
             };
         }
     
         saveState() {
-            const selectedContextIndex = this.state.contexts.indexOf(this.state.selectedContext);
-            const selectedDimensionIndex = this.state.selectedContext && this.state.selectedContext.dimensions.indexOf(this.state.selectedDimension);
+            const selectedContexts = this.state.contexts.indexOf(this.state.selectedContext);
+            const selectedDimensions = this.state.selectedContext && this.state.selectedContext.dimensions.indexOf(this.state.selectedDimension);
     
             return {
                 hash: this.state.contexts.map(c => c.id).toString(),
-                selectedContextIndex: ~(selectedContextIndex)
-                    ? selectedContextIndex
+                selectedContexts: ~(selectedContexts)
+                    ? selectedContexts
                     : null,
-                selectedDimensionIndex: ~(selectedDimensionIndex)
-                    ? selectedDimensionIndex
+                selectedDimensions: ~(selectedDimensions)
+                    ? selectedDimensions
                     : null,
                 selectedFields: this.state.selectedFields
             }
@@ -39,8 +39,8 @@ export default (FiltersWidgetComponent) => {
             if (this.props.onSelectContext) this.props.onSelectContext(data.value);
     
             this.setState({
-                selectedContextIndex: data.value,
-                selectedDimensionIndex: null
+                selectedContexts: data.value,
+                selectedDimensions: null
             });
         }
     
@@ -48,12 +48,12 @@ export default (FiltersWidgetComponent) => {
             if (this.props.onDimensionsSelect) this.props.onDimensionsSelect(data.value);
     
             this.setState({
-                selectedDimensionIndex: data.value
+                selectedDimensions: data.value
             });
         }
     
-        onFieldChange(pickedOptions) {
-            if (this.props.onFieldChange) this.props.onFieldChange(pickedOptions);
+        onFieldsChange(pickedOptions) {
+            if (this.props.onFieldsChange) this.props.onFieldsChange(pickedOptions);
     
             this.setState({
                 selectedFields: pickedOptions
@@ -76,7 +76,7 @@ export default (FiltersWidgetComponent) => {
     
                     onSelectContext={this.onContextChange.bind(this)}
                     onDimensionsSelect={this.onDimensionChange.bind(this)}
-                    onFieldChange={this.onFieldChange.bind(this)}
+                    onFieldsChange={this.onFieldsChange.bind(this)}
                 />
             );
         }
@@ -87,7 +87,7 @@ export default (FiltersWidgetComponent) => {
 
         onSelectContext: PropTypes.func,
         onDimensionsSelect: PropTypes.func,
-        onFieldChange: PropTypes.func
+        onFieldsChange: PropTypes.func
     };
     
     return FiltersWidget;

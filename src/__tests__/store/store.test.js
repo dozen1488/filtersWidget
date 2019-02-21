@@ -51,12 +51,12 @@ describe('reducers', () => {
         };
         const state = [{
             selectedContextIndex: 1,
-            selectedDimensionIndex: 1,
+            selectedDimensions: 1,
             selectedFields: ['a']
         }];
         const expectedState = [{
             selectedContextIndex: 2,
-            selectedDimensionIndex: null,
+            selectedDimensions: null,
             selectedFields: []
         }]
 
@@ -73,12 +73,12 @@ describe('reducers', () => {
         };
         const state = [{
             selectedContextIndex: 1,
-            selectedDimensionIndex: 1,
+            selectedDimensions: 1,
             selectedFields: ['a']
         }];
         const expectedState = [{
             selectedContextIndex: 1,
-            selectedDimensionIndex: 2,
+            selectedDimensions: 2,
             selectedFields: []
         }]
 
@@ -95,12 +95,12 @@ describe('reducers', () => {
         };
         const state = [{
             selectedContextIndex: 1,
-            selectedDimensionIndex: 1,
+            selectedDimensions: 1,
             selectedFields: ['a']
         }];
         const expectedState = [{
             selectedContextIndex: 1,
-            selectedDimensionIndex: 1,
+            selectedDimensions: 1,
             selectedFields: ['a', 'b']
         }]
 
@@ -112,7 +112,7 @@ describe('reducers', () => {
             value: {
                 workPanels: [{
                     selectedContextIndex: 1,
-                    selectedDimensionIndex: 1,
+                    selectedDimensions: 1,
                     selectedFields: ['a', 'b']
                 }]
             }

@@ -25,7 +25,7 @@ exports[`WorkPanel should render correctly with correct props and must match sna
   onFieldChange={[Function]}
   onSelectContext={[Function]}
   selectedContextIndex={0}
-  selectedDimensionIndex={0}
+  selectedDimensions={0}
   selectedFields={
     Immutable.List [
       "a",

@@ -21,7 +21,7 @@ describe('FiltersWidget', () => {
 
             onSelectContext={() => {}}
             onDimensionsSelect={() => {}}
-            onFieldChange={() => {}}
+            onFieldsChange={() => {}}
         />
     );
     
@@ -50,7 +50,7 @@ describe('FiltersWidget', () => {
         component.setProps({
             onSelectContext: mockSelectContext,
             onDimensionsSelect: mockDimensionsSelect,
-            onFieldChange: mockFieldChange
+            onFieldsChange: mockFieldChange
         });
         // Open menu
         component.find(FilterComponent)

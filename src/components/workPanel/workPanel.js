@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 import PropTypes  from 'prop-types';
 import { List } from 'immutable';
 import first from 'lodash/first';
+import flatten from 'lodash/flatten';
 
 import userMessages from '../../constants/userMessages';
 import { SelectOption } from '../optionComponent';
@@ -17,9 +18,11 @@ export default class WorkPanel extends PureComponent {
 
         const props = first(args);
 
-        this.onSelectContext = this.props.onSelectContext.bind(this, props.panelIndex);
-        this.onDimensionsSelect = this.props.onDimensionsSelect.bind(this, props.panelIndex);
-        this.onFieldChange = this.props.onFieldChange.bind(this, props.panelIndex);
+        this.onContextSelect = this.props.onContextSelect.bind(this, props.panelIndex);
+        this.onContextsChange = this.props.onContextsChange.bind(this, props.panelIndex);
+        this.onDimensionSelect = this.props.onDimensionSelect.bind(this, props.panelIndex);
+        this.onDimensionsChange = this.props.onDimensionsChange.bind(this, props.panelIndex);
+        this.onFieldsChange = this.props.onFieldsChange.bind(this, props.panelIndex);
 
         this.switchWidgetExpanded = this.switchWidgetExpanded.bind(this);
 
@@ -36,16 +39,17 @@ export default class WorkPanel extends PureComponent {
         const contexts = this.props.contextsOptions
             ? this.props.contextsOptions.toArray().map(Context.fromImmutable)
             : [];
-        const dimensions = (contexts[this.props.selectedContextIndex] && contexts[this.props.selectedContextIndex].dimensions) || [];
-        const fieldsOptions = ((dimensions[this.props.selectedDimensionIndex] && dimensions[this.props.selectedDimensionIndex].fields) || [])
+        const selectedContexts = contexts.filter(context => this.props.selectedContexts.find(sel => sel.id === context.id));
+        
+        const dimensions = flatten(selectedContexts.map(context => context.dimensions));
+        const selectedDimensions = dimensions.filter(dimension => this.props.selectedDimensions.find(sel => sel.dimensionName === dimension.dimensionName));
+        const fieldsOptions = flatten(selectedDimensions.map(dim => dim.fields))
             .sort((a, b) => {
                 if(a < b) { return -1; }
                 if(a > b) { return 1; }
                 return 0;
             });
-        const selectedContext =contexts[this.props.selectedContextIndex];
-        const selectedDimension = dimensions[this.props.selectedDimensionIndex];
-        const selectedFields = (this.props.selectedFields && this.props.selectedFields.toJS()) || [];
+        const selectedFields = fieldsOptions.filter(field => this.props.selectedFields.find(sel => sel.field === field.field));
         
         return (
             <div className="work-panel">
@@ -59,14 +63,15 @@ export default class WorkPanel extends PureComponent {
                             dimensionsOptions={dimensions}
                             fieldsOptions={fieldsOptions}
                         
-                            selectedContext={selectedContext}
-                            selectedDimension={selectedDimension}
+                            selectedContext={selectedContexts}
+                            selectedDimension={selectedDimensions}
                             selectedFields={selectedFields}
             
-                            onSelectContext={this.onSelectContext}
-                            onDimensionsSelect={this.onDimensionsSelect}
-                            onFieldChange={this.onFieldChange}
-
+                            onContextSelect={this.onContextSelect}
+                            onContextsChange={this.onContextsChange}
+                            onDimensionSelect={this.onDimensionSelect} 
+                            onDimensionsChange={this.onDimensionsChange}
+                            onFieldsChange={this.onFieldsChange}
                             isWidgetExpanded={this.state.isWidgetExpanded}
                         />
                     </ Draggable>
@@ -75,8 +80,8 @@ export default class WorkPanel extends PureComponent {
                     {selectedFields.map(
                         field => <SelectOption
                             isSelected
-                            label={field}
-                            key={field}
+                            label={field.label}
+                            key={field.label}
                         />
                     )}
                 </div>
@@ -88,13 +93,15 @@ export default class WorkPanel extends PureComponent {
 WorkPanel.propTypes = {
     contextsOptions: PropTypes.instanceOf(List),
 
-    selectedContextIndex: PropTypes.number,
-    selectedDimensionIndex: PropTypes.number,
+    selectedContexts: PropTypes.number,
+    selectedDimensions: PropTypes.number,
     selectedFields: PropTypes.instanceOf(List),
     
-    onSelectContext: PropTypes.func.isRequired,
+    onContextSelect: PropTypes.func.isRequired,
+    onContextsChange: PropTypes.func.isRequired,
     onDimensionsSelect: PropTypes.func.isRequired,
-    onFieldChange: PropTypes.func.isRequired,
+    onDimensionsChange: PropTypes.func.isRequired,
+    onFieldsChange: PropTypes.func.isRequired,
 
     isWidgetExpanded: PropTypes.bool
 };

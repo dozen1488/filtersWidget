@@ -3,8 +3,8 @@ import {
     getFields
 } from './tablesActions';
 import {
-    setSelectedContext,
-    setDimensionsContext
+    setSelectedContexts,
+    setSelectedDimensions
 } from './workPanelActions';
 
 export {
@@ -12,9 +12,9 @@ export {
     getDimensions
 } from './tablesActions';
 export {
-    setSelectedContext,
-    setDimensionsContext,
-    setFieldsContext
+    setSelectedContexts,
+    setSelectedDimensions,
+    setSelectedFields
 } from './workPanelActions';
 export {
     getSession,
@@ -22,37 +22,14 @@ export {
     removeSession
 } from './storageActions';
 
-export function selectContext(panelIndex, contextIndex) {
-    return (dispatchEvent, getState) => {
-        dispatchEvent(setSelectedContext(panelIndex, contextIndex));
-
-        const contextId = getState()
-            .get('workPanels')
-            .get(panelIndex)
-            .get('contexts')
-            .get(contextIndex)
-            .get('id');
-
-        return dispatchEvent(getDimensions(panelIndex, contextId));
+export function selectContext(panelIndex, context) {
+    return (dispatchEvent) => {
+        return dispatchEvent(getDimensions(panelIndex, context.id));
     }
 }
 
-export function selectDimension(panelIndex, dimensionIndex) {
-    return (dispatchEvent, getState) => {
-        dispatchEvent(setDimensionsContext(panelIndex, dimensionIndex));
-        const panel = getState()
-            .get('workPanels')
-            .get(panelIndex);
-
-        const selectedContextIndex = panel
-            .get('workPanel')
-            .get('selectedContextIndex');
-        const context = panel
-            .get('contexts')
-            .get(selectedContextIndex);
-
-        const dimensionName = context.getIn(['dimensions', dimensionIndex, 'dimensionName']);
-
-        return dispatchEvent(getFields(panelIndex, context.get('id'), dimensionName));
+export function selectDimension(panelIndex, dimension) {
+    return (dispatchEvent) => {
+        return dispatchEvent(getFields(panelIndex, dimension.parentContext.id, dimension.dimensionName));
     }
 }

@@ -7,8 +7,8 @@ export default fromJS({
         .map(() => ({
             contexts: null,
             workPanel: {
-                selectedContextIndex: null,
-                selectedDimensionIndex: null,
+                selectedContexts: [],
+                selectedDimensions: [],
                 selectedFields: null
             }
         }))
