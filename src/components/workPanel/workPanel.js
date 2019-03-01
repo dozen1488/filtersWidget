@@ -7,7 +7,7 @@ import flatten from 'lodash/flatten';
 
 import userMessages from '../../constants/userMessages';
 import { SelectOption } from '../optionComponent';
-import Context from '../../models/context';
+import Context from '../../domain/models/context';
 import { FiltersWidget } from '../filtersWidget';
 
 import './workPanel.less';

@@ -9,8 +9,8 @@ import { FieldsFilter } from '../fieldsFilter';
 import { FilterComponent } from '../filterComponent';
 import userMessages from '../../constants/userMessages';
 
-import Context from '../../models/context';
-import Dimension from '../../models/dimension';
+import Context from '../../domain/models/context';
+import Dimension from '../../domain/models/dimension';
 
 import './filtersWidget.less';
 

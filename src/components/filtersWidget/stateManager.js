@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
 
-import Context from '../../models/context';
+import Context from '../../domain/models/context';
 import './filtersWidget.less';
 
 export default (FiltersWidgetComponent) => {

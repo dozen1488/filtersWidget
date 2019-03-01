@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import Context from '../../models/context';
-import Dimension from '../../models/dimension';
+import Context from '../../domain/models/context';
+import Dimension from '../../domain/models/dimension';
 
 import { FiltersWidget } from '../../components/filtersWidget';
 import { SelectOption } from '../../components/optionComponent';

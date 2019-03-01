@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 
-import { START_PAGE_PANELS_IN_BAR_NUMBER } from './constants/config';
+import BaseConnector from './baseConnector';
 
-import { BaseConnector } from './store/connectors';
-import { WorkPanel } from './components';
+import { START_PAGE_PANELS_IN_BAR_NUMBER } from '../constants/config';
+import { WorkPanel } from '../components';
 
-import './commonStyles/scrollbars.less';
-import './App.less';
+import './rootContainer.less';
 
-class App extends Component {
+class RootContainer extends Component {
     componentDidMount() {
         this.props.getTables()
             .then(() => {
@@ -34,7 +33,7 @@ class App extends Component {
             panelsArray.slice(0, START_PAGE_PANELS_IN_BAR_NUMBER),
             panelsArray.slice(START_PAGE_PANELS_IN_BAR_NUMBER, panelsArray.length)
         ].map((barArray, barIndex) => 
-            <div className="App-container" key={barIndex}>{
+            <div className="root-container__container" key={barIndex}>{
                 barArray.map((none, index) => {
                     const arrayIndex = START_PAGE_PANELS_IN_BAR_NUMBER * barIndex + index;
                     return (<WorkPanel
@@ -59,8 +58,8 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">
+            <div className="root-container">
+                <header className="root-container__header">
                     {this.renderPanels()}
                 </header>
             </div>
@@ -68,4 +67,4 @@ class App extends Component {
     }
 }
 
-export default new BaseConnector().connect(App);
+export default new BaseConnector().connect(RootContainer);

@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 
 import './index.less';
 import store from './store';
-import App from './App';
+import RootContainer from './containers/rootContainer';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <Provider store={store}>
-       <App /> 
+       <RootContainer /> 
     </Provider>, 
     document.getElementById('root')
 );
