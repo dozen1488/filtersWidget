@@ -2,10 +2,6 @@ import {
     getDimensions,
     getFields
 } from './tablesActions';
-import {
-    setSelectedContexts,
-    setSelectedDimensions
-} from './workPanelActions';
 
 export {
     getTables,

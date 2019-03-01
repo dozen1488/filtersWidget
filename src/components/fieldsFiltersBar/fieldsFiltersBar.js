@@ -1,10 +1,11 @@
 import React from 'react';
 import { css as emotionCSS } from 'emotion';
 import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import filterStateEnum from './filterStateEnum';
 
-export default memo((props) => {
+const fieldsFiltersBar = memo((props) => {
     const {
         cx, getStyles, className, selectProps
     } = props;
@@ -38,3 +39,23 @@ export default memo((props) => {
         </div>
     )
 });
+
+fieldsFiltersBar.propTypes = {
+    className: PropTypes.string,
+    cx: PropTypes.func.isRequired,
+    getStyles: PropTypes.func,
+    selectProps: PropTypes.shape({
+        onFilterCheckboxSelect: PropTypes.func.isRequired,
+        fieldsFilterName: PropTypes.string
+    })
+};
+
+fieldsFiltersBar.defaultProps = {
+    children: null,
+    getStyles: () => {},
+    selectProps: {
+        onFilterCheckboxSelect: () => {}
+    }
+};
+
+export default fieldsFiltersBar;

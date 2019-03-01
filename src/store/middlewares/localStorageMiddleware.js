@@ -33,110 +33,117 @@ export default (
     actions = defaultActions
 ) => {
     return store => next => action => {
-        const [, namespace, type] = action.type.match(/([\a-z0-9_\.]*)?\/?([A-Z0-9_]*)/);
+        const [, namespace, type] = action.type.match(/([-z0-9_]*)?\/?([A-Z0-9_]*)/);
 
         switch (type) {
             case actionTypes.LOCAL_SET:
-                coerceArray(action.request).map(requestAction => {
-                    actions[actionTypes.LOCAL_SET].request({
-                        type: withNamespace(namespace, requestAction),
-                        key: action.key,
-                        value: action.value
-                    },
-                    store.getState,
-                    store.dispatch)
-                });
-
-                return client.setItem(action.key, action.value, (err, value) => {
-
-                    if (err) {
-                        coerceArray(action.failure).map(failureAction => {
-                            actions[actionTypes.LOCAL_SET].failure({
-                                type: withNamespace(namespace, failureAction),
-                                err
-                            },
-                            store.getState,
-                            store.dispatch)
-                        })
-                    }
-
-                    coerceArray(action.success).map(successAction => {
-                        actions[actionTypes.LOCAL_SET].success({
-                            type: withNamespace(namespace, successAction),
-                            value
+                coerceArray(action.request).map(requestAction =>
+                    actions[actionTypes.LOCAL_SET].request(
+                        {
+                            type: withNamespace(namespace, requestAction),
+                            key: action.key,
+                            value: action.value
                         },
                         store.getState,
-                        store.dispatch)
-                    })
+                        store.dispatch
+                    ));
 
+                return client.setItem(action.key, action.value, (err, value) => {
+                    if (err) {
+                        coerceArray(action.failure).map(failureAction =>
+                            actions[actionTypes.LOCAL_SET].failure(
+                                {
+                                    type: withNamespace(namespace, failureAction),
+                                    err
+                                },
+                                store.getState,
+                                store.dispatch
+                            ))
+                    }
+
+                    coerceArray(action.success).map(successAction =>
+                        actions[actionTypes.LOCAL_SET].success(
+                            {
+                                type: withNamespace(namespace, successAction),
+                                value
+                            },
+                            store.getState,
+                            store.dispatch
+                        ))
                 });
 
             case actionTypes.LOCAL_GET:
 
-                coerceArray(action.request).map(requestAction => {
-                    actions[actionTypes.LOCAL_GET].request({
-                        type: withNamespace(namespace, requestAction),
-                        key: action.key
-                    },
-                    store.getState,
-                    store.dispatch)
-                });
+                coerceArray(action.request).map(requestAction =>
+                    actions[actionTypes.LOCAL_GET].request(
+                        {
+                            type: withNamespace(namespace, requestAction),
+                            key: action.key
+                        },
+                        store.getState,
+                        store.dispatch
+                    ));
 
                 return client.getItem(action.key, (err, value) => {
 
                     if (err) {
-                        coerceArray(action.failure).map(failureAction => {
-                            actions[actionTypes.LOCAL_GET].failure({
-                                type: withNamespace(namespace, failureAction),
-                                err
-                            },
-                            store.getState,
-                            store.dispatch)
-                        })
+                        coerceArray(action.failure).map(failureAction =>
+                            actions[actionTypes.LOCAL_GET].failure(
+                                {
+                                    type: withNamespace(namespace, failureAction),
+                                    err
+                                },
+                                store.getState,
+                                store.dispatch
+                            ))
                     }
 
-                    coerceArray(action.success).map(successAction => {
-                        actions[actionTypes.LOCAL_GET].success({
-                            type: withNamespace(namespace, successAction),
-                            value
-                        },
-                        store.getState,
-                        store.dispatch)
-                    })
+                    coerceArray(action.success).map(successAction =>
+                        actions[actionTypes.LOCAL_GET].success(
+                            {
+                                type: withNamespace(namespace, successAction),
+                                value
+                            },
+                            store.getState,
+                            store.dispatch
+                        ))
 
                 });
 
             case actionTypes.LOCAL_REMOVE:
 
-                coerceArray(action.request).map(requestAction => {
-                    actions[actionTypes.LOCAL_REMOVE].request({
-                        type: withNamespace(namespace, requestAction),
-                        key: action.key
-                    },
-                    store.getState,
-                    store.dispatch)
-                });
+                coerceArray(action.request).map(requestAction =>
+                    actions[actionTypes.LOCAL_REMOVE].request(
+                        {
+                            type: withNamespace(namespace, requestAction),
+                            key: action.key
+                        },
+                        store.getState,
+                        store.dispatch
+                    ));
 
                 return client.removeItem(action.key, (err, value) => {
 
                     if (err) {
-                        coerceArray(action.failure).map(failureAction => {
-                            actions[actionTypes.LOCAL_REMOVE].failure({
-                                type: withNamespace(namespace, failureAction),
-                                err
-                            },
-                            store.getState,
-                            store.dispatch)
-                        })
+                        coerceArray(action.failure).map(failureAction =>
+                            actions[actionTypes.LOCAL_REMOVE].failure(
+                                {
+                                    type: withNamespace(namespace, failureAction),
+                                    err
+                                },
+                                store.getState,
+                                store.dispatch
+                            ))
                     }
 
-                    coerceArray(action.success).map(successAction => {
-                        actions[actionTypes.LOCAL_REMOVE].success({
-                            type: withNamespace(namespace, successAction)
-                        },
-                        store.getState,
-                        store.dispatch)
-                    })
+                    coerceArray(action.success).map(successAction =>
+                        actions[actionTypes.LOCAL_REMOVE].success(
+                            {
+                                type: withNamespace(namespace, successAction)
+                            },
+                            store.getState,
+                            store.dispatch
+                        ))
 
                 });
 

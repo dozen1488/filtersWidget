@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 
 import './optionComponent.less';
 
-export default class SelectOption extends PureComponent {
+class SelectOption extends PureComponent {
 
     onPick() {
         if (this.props.selectOption) this.props.selectOption(this.props.data);
@@ -24,3 +25,16 @@ export default class SelectOption extends PureComponent {
         )
     }
 }
+
+SelectOption.propTypes = {
+    selectOption: PropTypes.func,
+    isSelected: PropTypes.bool,
+    label: PropTypes.string,
+    data: PropTypes.object.isRequired
+};
+
+SelectOption.defaultProps = {
+    label: ''
+};
+
+export default SelectOption;

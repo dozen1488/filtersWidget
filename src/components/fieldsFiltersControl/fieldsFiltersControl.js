@@ -1,10 +1,11 @@
 import React from 'react';
 import { css as emotionCSS } from 'emotion';
 import { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import { FieldsFiltersBar } from '../fieldsFiltersBar';
 
-export default memo((props) => {
+const FieldsFiltersControl = memo((props) => {
     const {
         children, cx, getStyles, className, isDisabled, isFocused, innerRef, innerProps, menuIsOpen
     } = props;
@@ -32,3 +33,36 @@ export default memo((props) => {
         </div>
     );
 });
+
+FieldsFiltersControl.propTypes = {
+    children: PropTypes.oneOf([
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
+    ]),
+    cx: PropTypes.func.isRequired,
+    className: PropTypes.string,
+    getStyles: PropTypes.func,
+    selectProps: PropTypes.shape({
+        onFilterCheckboxSelect: PropTypes.func.isRequired,
+        fieldsFilterName: PropTypes.string
+    }),
+
+    isDisabled: PropTypes.bool,
+    isFocused: PropTypes.bool,
+    menuIsOpen: PropTypes.bool,
+
+    innerRef: PropTypes.func,
+    innerProps: PropTypes.object
+};
+
+FieldsFiltersControl.defaultProps = {
+    children: null,
+    getStyles: () => {},
+    selectProps: {
+        onFilterCheckboxSelect: () => {}
+    },
+    innerRef: () => {},
+    innerProps: {}
+}
+
+export default FieldsFiltersControl;

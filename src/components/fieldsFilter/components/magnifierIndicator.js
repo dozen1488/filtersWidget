@@ -2,7 +2,9 @@ import React from 'react';
 import { css } from 'emotion';
 import { memo } from 'react';
 
-export default memo((props) => {
+import PropTypes from 'prop-types';
+
+const MagnifierIndicator = memo((props) => {
     const { children, className, cx, getStyles, innerProps } = props;
     return (
         <div
@@ -20,3 +22,22 @@ export default memo((props) => {
         </div>
     );
 });
+
+MagnifierIndicator.PropTypes = {
+    children: PropTypes.oneOf([
+        PropTypes.node,
+        PropTypes.arrayOf(PropTypes.node)
+    ]),
+    className: PropTypes.string,
+    cx: PropTypes.func.isRequired,
+    getStyles: PropTypes.func,
+    innerProps: PropTypes.object
+};
+
+MagnifierIndicator.defaultPropos = {
+    children: null,
+    getStyles: () => {},
+    innerProps: {}
+};
+
+export default MagnifierIndicator;

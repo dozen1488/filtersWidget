@@ -18,6 +18,7 @@ export function returnFunctionEmptyString () {
 
 function isDifferentContexts(selectedIndexes, previousContexts, newContexts) {
     const selectedContextsIds = previousContexts
+        // eslint-disable-next-line eqeqeq
         .filter((context, index) => selectedIndexes.find((selectedIndex) => selectedIndex == index))
         .map(context => context.id);
     const newContextsIds = newContexts.map(context => context.id);

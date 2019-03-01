@@ -12,15 +12,18 @@ export default handleActions({
         },
         [GET_DIMENSIONS_SUCCESS]: (state, { payload: { dimensions, contextId } }) => {
             return state.map(context => {
+                // eslint-disable-next-line eqeqeq
                 if (context.get('id') != contextId) return context;
                 return context.set('dimensions', fromJS(dimensions));
             });
         },
         [GET_FIELDS_SUCCESS]: (state, { payload: { contextId, dimensionName, fields } }) => {
             return state.map(context => {
+                // eslint-disable-next-line eqeqeq
                 if (context.get('id') != contextId) return context;
                 const dimensions = context.get('dimensions').map(
                     dimension => {
+                        // eslint-disable-next-line eqeqeq
                         if (dimension.get('dimensionName') != dimensionName) return dimension;
                         return dimension.set('fields', fromJS(fields));
                     }

@@ -64,4 +64,8 @@ class FieldsFilter extends React.PureComponent {
     }
 }
 
+FieldsFilter.propTypes = Select.propTypes;
+
+FieldsFilter.defaultProps = Select.defaultProps;
+
 export default FieldsFilter;
