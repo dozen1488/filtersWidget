@@ -8,7 +8,7 @@ import {
     REMOVE_SESSION_REQUEST,
     REMOVE_SESSION_SUCCESS,
     REMOVE_SESSION_FAILURE
-} from '../actionTypes';
+} from './actionTypes';
 
 export const getSession = () => ({
     type: 'LOCAL_GET',

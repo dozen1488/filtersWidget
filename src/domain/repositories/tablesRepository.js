@@ -1,11 +1,11 @@
 import * as queryString from 'query-string';
 import Joi from 'joi';
 
-import { SERVER_PATH, routes } from '../constants/config.json';
+import { SERVER_PATH, routes } from '../../constants/config.json';
+import errorCodes from '../../constants/errorCodes';
 
 import contextValidationScheme from '../validationSchemes/contextValidationScheme';
 import dimensionValidationScheme from '../validationSchemes/dimensionValidationScheme';
-import errorCodes from '../constants/errorCodes';
 
 const { TABLES_ROUTE, DIMENSIONS_ROUTE, CONTEXT_ROUTE, FIELDS_ROUTE } = routes;
 

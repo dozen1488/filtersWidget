@@ -1,7 +1,7 @@
 import jest from 'jest-mock';
 
-import * as actions from '../../store/actions';
-import * as actionTypes from '../../store/actionTypes';  
+import * as actions from '../../actions';
+import * as actionTypes from '../../actionTypes';  
 import tablesRepository from '../../repositories/tablesRepository';
 
 describe('actions', () => {

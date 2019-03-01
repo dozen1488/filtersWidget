@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 import { fromJS } from 'immutable';
 
-import { GET_TABLES_SUCCESS, GET_SESSION_SUCCESS, GET_DIMENSIONS_SUCCESS, GET_FIELDS_SUCCESS } from '../actionTypes.json';
+import { GET_TABLES_SUCCESS, GET_SESSION_SUCCESS, GET_DIMENSIONS_SUCCESS, GET_FIELDS_SUCCESS } from '../actions/actionTypes';
 
 export default handleActions({
         [GET_TABLES_SUCCESS]: (state, action) => {

@@ -1,5 +1,5 @@
-import { GET_TABLES, GET_DIMENSIONS, GET_FIELDS } from '../actionTypes.json';
-import TablesRepository from '../../repositories/tablesRepository';
+import { GET_TABLES, GET_DIMENSIONS, GET_FIELDS } from './actionTypes.json';
+import TablesRepository from '../domain/repositories/tablesRepository';
 
 export function getTables () {
     return (dispatch) => {

@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
-import contextsReducer from '../../store/reducers/contextsReducer';
-import workPanelsReducer from '../../store/reducers/workPanelsReducer';
+import contextsReducer from '../../reducers/contextsReducer';
+import workPanelsReducer from '../../reducers/workPanelsReducer';
 
 import {
     GET_TABLES_SUCCESS,
@@ -9,7 +9,7 @@ import {
     SET_SELECTED_CONTEXT,
     SET_SELECTED_DIMENSION,
     SET_SELECTED_FIELDS
-} from '../../store/actionTypes';
+} from '../../actions/actionTypes';
 
 describe('reducers', () => {
     it('contextsReducer should return proper state on GET_TABLES_SUCCESS and GET_SESSION_SUCCESS', () => {

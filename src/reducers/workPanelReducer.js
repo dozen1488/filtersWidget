@@ -1,14 +1,14 @@
 import { handleActions } from 'redux-actions';
 import { fromJS, List } from 'immutable';
 
-import { START_PAGE_BARS_NUMBER, START_PAGE_PANELS_IN_BAR_NUMBER } from '../../constants/config';
+import { START_PAGE_BARS_NUMBER, START_PAGE_PANELS_IN_BAR_NUMBER } from '../constants/config';
 import {
     SET_SELECTED_CONTEXT,
     SET_SELECTED_DIMENSION,
     SET_SELECTED_FIELDS,
     GET_SESSION_SUCCESS,
     RESET_WORKPANELS
-} from '../actionTypes.json';
+} from '../actions/actionTypes.json';
 
 export default handleActions({
         [GET_SESSION_SUCCESS]: (state, { value }) => {
