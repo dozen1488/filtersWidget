@@ -9,7 +9,7 @@ export default fromJS({
             workPanel: {
                 selectedContexts: [],
                 selectedDimensions: [],
-                selectedFields: null
+                selectedFields: []
             }
         }))
 });

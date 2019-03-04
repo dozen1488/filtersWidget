@@ -39,17 +39,17 @@ export default class WorkPanel extends PureComponent {
         const contexts = this.props.contextsOptions
             ? this.props.contextsOptions.toArray().map(Context.fromImmutable)
             : [];
-        const selectedContexts = contexts.filter(context => this.props.selectedContexts.find(sel => sel.id === context.id));
+        const selectedContexts = contexts.filter(context => this.props.selectedContexts.find(sel => sel.get('id') === context.id));
         
         const dimensions = flatten(selectedContexts.map(context => context.dimensions));
-        const selectedDimensions = dimensions.filter(dimension => this.props.selectedDimensions.find(sel => sel.dimensionName === dimension.dimensionName));
+        const selectedDimensions = dimensions.filter(dimension => this.props.selectedDimensions.find(sel => sel.get('dimensionName') === dimension.dimensionName));
         const fieldsOptions = flatten(selectedDimensions.map(dim => dim.fields))
             .sort((a, b) => {
                 if(a < b) { return -1; }
                 if(a > b) { return 1; }
                 return 0;
             });
-        const selectedFields = fieldsOptions.filter(field => this.props.selectedFields.find(sel => sel.field === field.field));
+        const selectedFields = fieldsOptions.filter(field => this.props.selectedFields.find(sel => sel.get('field') === field.field));
         
         return (
             <div className="work-panel">

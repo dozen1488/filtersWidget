@@ -1,13 +1,15 @@
 import _ from 'lodash'
 import localforage from 'localforage'
 
+import initialStateValidationScheme from '../domain/validationSchemes/initialStateValidationScheme';
+
 import * as actionTypes from './action_types'
 
-function defaultFunction (data, dispatch, getState) {
+function defaultFunction (data, getState, dispatch) {
     return dispatch(data);
 } 
 
-const defaultActions = {
+export const defaultActions = {
     [actionTypes.LOCAL_SET]: {
         request: defaultFunction,
         error: defaultFunction,
@@ -16,7 +18,9 @@ const defaultActions = {
     [actionTypes.LOCAL_GET]: {
         request: defaultFunction,
         error: defaultFunction,
-        success: defaultFunction
+        success: (data, getState, dispatch) => {
+            if (!initialStateValidationScheme.validate(data.value).error) return dispatch(data);
+        }
     },
     [actionTypes.LOCAL_REMOVE]: {
         request: defaultFunction,
