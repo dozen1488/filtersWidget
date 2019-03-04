@@ -43,13 +43,14 @@ export default class WorkPanel extends PureComponent {
         
         const dimensions = flatten(selectedContexts.map(context => context.dimensions));
         const selectedDimensions = dimensions.filter(dimension => this.props.selectedDimensions.find(sel => sel.get('dimensionName') === dimension.dimensionName));
-        const fieldsOptions = flatten(selectedDimensions.map(dim => dim.fields))
-            .sort((a, b) => {
-                if(a < b) { return -1; }
-                if(a > b) { return 1; }
+        const fieldsOptions = flatten(selectedDimensions.map(dim => dim.fields));
+        const selectedFields = fieldsOptions
+            .filter(field => this.props.selectedFields.find(sel => sel.get('field') === field.field))
+            .sort((fieldA, fieldB) => {
+                if(fieldA.label < fieldB.label) { return -1; }
+                if(fieldA.label > fieldB.label) { return 1; }
                 return 0;
             });
-        const selectedFields = fieldsOptions.filter(field => this.props.selectedFields.find(sel => sel.get('field') === field.field));
         
         return (
             <div className="work-panel">
