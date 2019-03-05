@@ -23,7 +23,7 @@ const MagnifierIndicator = memo((props) => {
     );
 });
 
-MagnifierIndicator.PropTypes = {
+MagnifierIndicator.propTypes = {
     children: PropTypes.oneOf([
         PropTypes.node,
         PropTypes.arrayOf(PropTypes.node)

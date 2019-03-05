@@ -64,8 +64,8 @@ export default class WorkPanel extends PureComponent {
                             dimensionsOptions={dimensions}
                             fieldsOptions={fieldsOptions}
                         
-                            selectedContext={selectedContexts}
-                            selectedDimension={selectedDimensions}
+                            selectedContexts={selectedContexts}
+                            selectedDimensions={selectedDimensions}
                             selectedFields={selectedFields}
             
                             onContextSelect={this.onContextSelect}
@@ -83,6 +83,7 @@ export default class WorkPanel extends PureComponent {
                             isSelected
                             label={field.label}
                             key={field.label}
+                            data={field}
                         />
                     )}
                 </div>
@@ -94,13 +95,13 @@ export default class WorkPanel extends PureComponent {
 WorkPanel.propTypes = {
     contextsOptions: PropTypes.instanceOf(List),
 
-    selectedContexts: PropTypes.number,
-    selectedDimensions: PropTypes.number,
+    selectedContexts: PropTypes.instanceOf(List),
+    selectedDimensions: PropTypes.instanceOf(List),
     selectedFields: PropTypes.instanceOf(List),
     
     onContextSelect: PropTypes.func.isRequired,
     onContextsChange: PropTypes.func.isRequired,
-    onDimensionsSelect: PropTypes.func.isRequired,
+    onDimensionSelect: PropTypes.func.isRequired,
     onDimensionsChange: PropTypes.func.isRequired,
     onFieldsChange: PropTypes.func.isRequired,
 

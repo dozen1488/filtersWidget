@@ -11,6 +11,7 @@ import userMessages from '../../constants/userMessages';
 
 import Context from '../../domain/models/context';
 import Dimension from '../../domain/models/dimension';
+import Field from '../../domain/models/field';
 
 import './filtersWidget.less';
 
@@ -106,7 +107,7 @@ export default class FiltersWidget extends PureComponent {
                             <FilterComponent
                                 options={this.props.contextsOptions}
                                 onChange={this.onContextChange}
-                                value={this.props.selectedContext}
+                                value={this.props.selectedContexts}
                                 
                                 isMulti
                                 hideSelectedOptions={false}
@@ -127,7 +128,7 @@ export default class FiltersWidget extends PureComponent {
                             <FilterComponent
                                 options={this.props.dimensionsOptions}
                                 onChange={this.onDimensionChange}
-                                value={this.props.selectedDimension}
+                                value={this.props.selectedDimensions}
 
                                 isMulti
                                 hideSelectedOptions={false}
@@ -177,11 +178,11 @@ export default class FiltersWidget extends PureComponent {
 FiltersWidget.propTypes = {
     contextsOptions: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
     dimensionsOptions: PropTypes.arrayOf(PropTypes.instanceOf(Dimension)),
-    fieldsOptions: PropTypes.arrayOf(PropTypes.string),
+    fieldsOptions: PropTypes.arrayOf(PropTypes.instanceOf(Field)),
 
-    selectedContext: PropTypes.object,
-    selectedDimension: PropTypes.object,
-    selectedFields: PropTypes.array,
+    selectedContexts: PropTypes.arrayOf(PropTypes.instanceOf(Context)),
+    selectedDimensions: PropTypes.arrayOf(PropTypes.instanceOf(Dimension)),
+    selectedFields: PropTypes.arrayOf(PropTypes.instanceOf(Field)),
 
     switchWidgetExpanded: PropTypes.func,
     onContextSelect: PropTypes.func,
@@ -208,8 +209,8 @@ FiltersWidget.defaultProps = {
     dimensionsOptions: [],
     fieldsOptions: [],
     
-    selectedContext: null,
-    selectedDimension: null,
+    selectedContexts: [],
+    selectedDimensions: [],
     selectedFields: [],
     isWidgetExpandedInitialState: false
 };
