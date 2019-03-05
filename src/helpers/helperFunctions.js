@@ -37,3 +37,7 @@ export function checkConsistency (immutableState, actionValue) {
     
     return hasDeletedContext;
 }
+
+export function validateBeforeDispatch(scheme, data, getState, dispatch) {
+    if (!scheme.validate(data.value).error) return dispatch(data);
+}

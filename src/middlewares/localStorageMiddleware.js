@@ -9,6 +9,8 @@ function defaultFunction (data, getState, dispatch) {
     return dispatch(data);
 } 
 
+export { actionTypes };
+
 export const defaultActions = {
     [actionTypes.LOCAL_SET]: {
         request: defaultFunction,
