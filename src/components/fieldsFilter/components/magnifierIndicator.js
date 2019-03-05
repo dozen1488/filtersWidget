@@ -34,7 +34,7 @@ MagnifierIndicator.propTypes = {
     innerProps: PropTypes.object
 };
 
-MagnifierIndicator.defaultPropos = {
+MagnifierIndicator.defaultProps = {
     children: null,
     getStyles: () => {},
     innerProps: {}

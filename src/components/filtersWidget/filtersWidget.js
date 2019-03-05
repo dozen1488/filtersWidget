@@ -26,6 +26,7 @@ export default class FiltersWidget extends PureComponent {
         this.onDimensionChange = this.onDimensionChange.bind(this);
         this.onFieldsChange = this.onFieldsChange.bind(this);
         this.switchWidgetExpanded = this.switchWidgetExpanded.bind(this);
+        this.getOptionValue = (a) => a.label;
 
         this.componentsObjects = {
             filterComponent: {
@@ -114,7 +115,7 @@ export default class FiltersWidget extends PureComponent {
                                 controlShouldRenderValue={false}
                                 getValue={sameValueFunction}
                                 getLabel={sameValueFunction}
-                                getOptionValue={(a) => a.label}
+                                getOptionValue={this.getOptionValue}
 
                                 components={this.componentsObjects.filterComponent}
                                 className={'filtersWidget__container'}
@@ -135,7 +136,7 @@ export default class FiltersWidget extends PureComponent {
                                 controlShouldRenderValue={false}
                                 getValue={sameValueFunction}
                                 getLabel={sameValueFunction}
-                                getOptionValue={(a) => a.label}
+                                getOptionValue={this.getOptionValue}
 
                                 className={'filtersWidget__container'}
                                 classNamePrefix={'filtersWidget'}
@@ -155,7 +156,7 @@ export default class FiltersWidget extends PureComponent {
                                 menuIsOpen
                                 getValue={sameValueFunction}
                                 getLabel={sameValueFunction}
-                                getOptionValue={(a) => a.label}
+                                getOptionValue={this.getOptionValue}
 
                                 noOptionsMessage={returnFunctionEmptyString}
                                 controlShouldRenderValue={false}
